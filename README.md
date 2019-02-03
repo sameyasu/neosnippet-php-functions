@@ -1,6 +1,8 @@
 # neosnippet-php-functions
 
-neosnippetでphpの標準関数のスニペットを表示したいので作りました。
+neosnippetでphpの標準関数のスニペットを表示したいので突貫で作った。
+
+vimが重くなるので、拡張機能の関数のほとんどは削っている。
 
 ## 使い方
 
@@ -18,6 +20,12 @@ let g:neosnippet#snippets_directory='~/.cache/dein/repos/github.com/Shougo/neosn
 
 末尾に`,`をつけてこのリポジトリのsnippetファイルのディレクトリを追加する。
 deinだとデフォルトで上記になると思う。
+
+## カスタマイズ
+
+`exclude_prefixes.txt`に除外する関数名(前方一致)を定義しているので、それを追加したり削除したりすればカスタマイズできる。
+
+snipファイルを再生成するには、`php -f mksnippet.php > ./neosnippets/php.snip`を実行する。
 
 ## 参照元
 
