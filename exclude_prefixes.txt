@@ -1,11 +1,17 @@
+image
 ncurses_
 fann_
+stats_
 newt_
 trader_
 maxdb_
 mysqli_
+mysqlnd_
+mysql_
 cubrid_
 sodium_
+openssl_
+runkit_
 ps_
 pg_
 imap_
@@ -21,6 +27,9 @@ m_
 gupnp_
 uopz_
 xmlwriter_
+xml_
+libxml_
+ssh2_
 posix_
 ingres_
 fdf_
@@ -66,6 +75,7 @@ dbase_
 yp_
 kadm5_
 fam_
+apc_
 apcu_
 bcompiler_
 spl_
@@ -130,6 +140,7 @@ expect_
 embedded_
 disk_
 data_
+readline_
 connection_
 cli_
 bson_
