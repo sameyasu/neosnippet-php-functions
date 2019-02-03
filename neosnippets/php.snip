@@ -1,0 +1,5994 @@
+snippet apc_add
+options head
+abbr Cache a new variable in the data store
+    apc_add(${1:#:string $key}, ${2:#:mixed $var}, ${3:#:int $ttl = 0})
+
+snippet apc_bin_load
+options head
+abbr Load a binary dump into the APC file/user cache
+    apc_bin_load(${1:#:string $data}, ${2:#:int $flags = 0})
+
+snippet apc_cas
+options head
+abbr Updates an old value with a new value
+    apc_cas(${1:#:string $key}, ${2:#:int $old}, ${3:#:int $new})
+
+snippet apc_clear_cache
+options head
+abbr Clears the APC cache
+    apc_clear_cache(${1:#:string $cache_type = ""})
+
+snippet apc_dec
+options head
+abbr Decrease a stored number
+    apc_dec(${1:#:string $key}, ${2:#:int $step = 1}, ${3:#:bool &$success})
+
+snippet apc_delete_file
+options head
+abbr Deletes files from the opcode cache
+    apc_delete_file(${1:#:mixed $keys})
+
+snippet apc_delete
+options head
+abbr Removes a stored variable from the cache
+    apc_delete(${1:#:string $key})
+
+snippet apc_exists
+options head
+abbr Checks if APC key exists
+    apc_exists(${1:#:mixed $keys})
+
+snippet apc_fetch
+options head
+abbr Fetch a stored variable from the cache
+    apc_fetch(${1:#:mixed $key}, ${2:#:bool &$success})
+
+snippet apc_inc
+options head
+abbr Increase a stored number
+    apc_inc(${1:#:string $key}, ${2:#:int $step = 1}, ${3:#:bool &$success})
+
+snippet apc_store
+options head
+abbr Cache a variable in the data store
+    apc_store(${1:#:string $key}, ${2:#:mixed $var}, ${3:#:int $ttl = 0})
+
+snippet rename_function
+options head
+abbr Renames orig_name to new_name in the global function table
+    rename_function(${1:#:string $original_name}, ${2:#:string $new_name})
+
+snippet debug_print_backtrace
+options head
+abbr Prints a backtrace
+    debug_print_backtrace(${1:#:int $options = 0}, ${2:#:int $limit = 0})
+
+snippet error_clear_last
+options head
+abbr Clear the most recent error
+    error_clear_last()
+
+snippet error_get_last
+options head
+abbr Get the last occurred error
+    error_get_last()
+
+snippet error_log
+options head
+abbr Send an error message to the defined error handling routines
+    error_log(${1:#:string $message}, ${2:#:int $message_type = 0}, ${3:#:string $destination}, ${4:#:string $extra_headers})
+
+snippet error_reporting
+options head
+abbr Sets which PHP errors are reported
+    error_reporting(${1:#:int $level})
+
+snippet handler
+options head
+    handler(${1:#:resource $parser}, ${2:#:string $entity_name}, ${3:#:string $base}, ${4:#:string $system_id}, ${5:#:string $public_id}, ${6:#:string $notation_name})
+
+snippet set_exception_handler
+options head
+abbr Sets a user-defined exception handler function
+    set_exception_handler(${1:#:callable $exception_handler})
+
+snippet inclued_get_data
+options head
+abbr Get the inclued data
+    inclued_get_data()
+
+snippet opcache_compile_file
+options head
+abbr Compiles and caches a PHP script without executing it
+    opcache_compile_file(${1:#:string $file})
+
+snippet opcache_get_configuration
+options head
+abbr Get configuration information about the cache
+    opcache_get_configuration()
+
+snippet opcache_is_script_cached
+options head
+abbr Tells whether a script is cached in OPCache
+    opcache_is_script_cached(${1:#:string $file})
+
+snippet opcache_reset
+options head
+abbr Resets the contents of the opcode cache
+    opcache_reset()
+
+snippet flush
+options head
+abbr Flush system output buffer
+    flush()
+
+snippet ob_clean
+options head
+abbr Clean (erase) the output buffer
+    ob_clean()
+
+snippet ob_end_clean
+options head
+abbr Clean (erase) the output buffer and turn off output buffering
+    ob_end_clean()
+
+snippet ob_end_flush
+options head
+abbr Flush (send) the output buffer and turn off output buffering
+    ob_end_flush()
+
+snippet ob_flush
+options head
+abbr Flush (send) the output buffer
+    ob_flush()
+
+snippet ob_get_clean
+options head
+abbr Get current buffer contents and delete current output buffer
+    ob_get_clean()
+
+snippet ob_get_contents
+options head
+abbr Return the contents of the output buffer
+    ob_get_contents()
+
+snippet ob_get_flush
+options head
+abbr Flush the output buffer, return it as a string and turn off output buffering
+    ob_get_flush()
+
+snippet ob_get_length
+options head
+abbr Return the length of the output buffer
+    ob_get_length()
+
+snippet ob_get_level
+options head
+abbr Return the nesting level of the output buffering mechanism
+    ob_get_level()
+
+snippet ob_gzhandler
+options head
+abbr ob_start callback function to gzip output buffer
+    ob_gzhandler(${1:#:string $buffer}, ${2:#:int $mode})
+
+snippet ob_implicit_flush
+options head
+abbr Turn implicit flush on/off
+    ob_implicit_flush(${1:#:int $flag = 1})
+
+snippet ob_list_handlers
+options head
+abbr List all output handlers in use
+    ob_list_handlers()
+
+snippet assert_options
+options head
+abbr Set/get the various assert flags
+    assert_options(${1:#:int $what}, ${2:#:mixed $value})
+
+snippet assert
+options head
+abbr Checks if assertion is FALSE
+    assert(${1:#:mixed $assertion}, ${2:#:string $description})
+
+snippet dl
+options head
+abbr Loads a PHP extension at runtime
+    dl(${1:#:string $library})
+
+snippet get_cfg_var
+options head
+abbr Gets the value of a PHP configuration option
+    get_cfg_var(${1:#:string $option})
+
+snippet get_current_user
+options head
+abbr Gets the name of the owner of the current PHP script
+    get_current_user()
+
+snippet get_extension_funcs
+options head
+abbr Returns an array with the names of the functions of a module
+    get_extension_funcs(${1:#:string $module_name})
+
+snippet get_include_path
+options head
+abbr Gets the current include_path configuration option
+    get_include_path()
+
+snippet get_included_files
+options head
+abbr Returns an array with the names of included or required files
+    get_included_files()
+
+snippet get_magic_quotes_gpc
+options head
+abbr Gets the current configuration setting of magic_quotes_gpc
+    get_magic_quotes_gpc()
+
+snippet get_magic_quotes_runtime
+options head
+abbr Gets the current active configuration setting of magic_quotes_runtime
+    get_magic_quotes_runtime()
+
+snippet get_resources
+options head
+abbr Returns active resources
+    get_resources(${1:#:string $type})
+
+snippet getenv
+options head
+abbr Gets the value of an environment variable
+    getenv()
+
+snippet getlastmod
+options head
+abbr Gets time of last page modification
+    getlastmod()
+
+snippet getmygid
+options head
+abbr Get PHP script owner's GID
+    getmygid()
+
+snippet getmyinode
+options head
+abbr Gets the inode of the current script
+    getmyinode()
+
+snippet getmypid
+options head
+abbr Gets PHP's process ID
+    getmypid()
+
+snippet getmyuid
+options head
+abbr Gets PHP script owner's UID
+    getmyuid()
+
+snippet getopt
+options head
+abbr Gets options from the command line argument list
+    getopt(${1:#:string $options}, ${2:#:array $longopts}, ${3:#:int &$optind})
+
+snippet getrusage
+options head
+abbr Gets the current resource usages
+    getrusage(${1:#:int $who = 0})
+
+snippet ini_get
+options head
+abbr Gets the value of a configuration option
+    ini_get(${1:#:string $varname})
+
+snippet ini_restore
+options head
+abbr Restores the value of a configuration option
+    ini_restore(${1:#:string $varname})
+
+snippet ini_set
+options head
+abbr Sets the value of a configuration option
+    ini_set(${1:#:string $varname}, ${2:#:string $newvalue})
+
+snippet php_ini_loaded_file
+options head
+abbr Retrieve a path to the loaded php.ini file
+    php_ini_loaded_file()
+
+snippet php_ini_scanned_files
+options head
+abbr Return a list of .ini files parsed from the additional ini dir
+    php_ini_scanned_files()
+
+snippet php_logo_guid
+options head
+abbr Gets the logo guid
+    php_logo_guid()
+
+snippet php_sapi_name
+options head
+abbr Returns the type of interface between web server and PHP
+    php_sapi_name()
+
+snippet php_uname
+options head
+abbr Returns information about the operating system PHP is running on
+    php_uname(${1:#:string $mode = "a"})
+
+snippet phpversion
+options head
+abbr Gets the current PHP version
+    phpversion(${1:#:string $extension})
+
+snippet putenv
+options head
+abbr Sets the value of an environment variable
+    putenv(${1:#:string $setting})
+
+snippet set_include_path
+options head
+abbr Sets the include_path configuration option
+    set_include_path(${1:#:string $new_include_path})
+
+snippet set_magic_quotes_runtime
+options head
+abbr Sets the current active configuration setting of magic_quotes_runtime
+    set_magic_quotes_runtime(${1:#:bool $new_setting})
+
+snippet set_time_limit
+options head
+abbr Limits the maximum execution time
+    set_time_limit(${1:#:int $seconds})
+
+snippet version_compare
+options head
+abbr Compares two "PHP-standardized" version number strings
+    version_compare(${1:#:string $version1}, ${2:#:string $version2}, ${3:#:string $operator})
+
+snippet runkit_class_adopt
+options head
+abbr Convert a base class to an inherited class, add ancestral methods when appropriate
+    runkit_class_adopt(${1:#:string $classname}, ${2:#:string $parentname})
+
+snippet runkit_class_emancipate
+options head
+abbr Convert an inherited class to a base class, removes any method whose scope is ancestral
+    runkit_class_emancipate(${1:#:string $classname})
+
+snippet runkit_constant_add
+options head
+abbr Similar to define(), but allows defining in class definitions as well
+    runkit_constant_add(${1:#:string $constname}, ${2:#:mixed $value})
+
+snippet runkit_constant_redefine
+options head
+abbr Redefine an already defined constant
+    runkit_constant_redefine(${1:#:string $constname}, ${2:#:mixed $newvalue})
+
+snippet runkit_constant_remove
+options head
+abbr Remove/Delete an already defined constant
+    runkit_constant_remove(${1:#:string $constname})
+
+snippet runkit_function_copy
+options head
+abbr Copy a function to a new function name
+    runkit_function_copy(${1:#:string $funcname}, ${2:#:string $targetname})
+
+snippet runkit_function_remove
+options head
+abbr Remove a function definition
+    runkit_function_remove(${1:#:string $funcname})
+
+snippet runkit_function_rename
+options head
+abbr Change a function's name
+    runkit_function_rename(${1:#:string $funcname}, ${2:#:string $newname})
+
+snippet runkit_lint_file
+options head
+abbr Check the PHP syntax of the specified file
+    runkit_lint_file(${1:#:string $filename})
+
+snippet runkit_lint
+options head
+abbr Check the PHP syntax of the specified php code
+    runkit_lint(${1:#:string $code})
+
+snippet runkit_method_remove
+options head
+abbr Dynamically removes the given method
+    runkit_method_remove(${1:#:string $classname}, ${2:#:string $methodname})
+
+snippet runkit_method_rename
+options head
+abbr Dynamically changes the name of the given method
+    runkit_method_rename(${1:#:string $classname}, ${2:#:string $methodname}, ${3:#:string $newname})
+
+snippet runkit_return_value_used
+options head
+abbr Determines if the current functions return value will be used
+    runkit_return_value_used()
+
+snippet runkit_sandbox_output_handler
+options head
+abbr Specify a function to capture and/or process output from a runkit sandbox
+    runkit_sandbox_output_handler(${1:#:object $sandbox}, ${2:#:mixed $callback})
+
+snippet runkit_superglobals
+options head
+abbr Return numerically indexed array of registered superglobals
+    runkit_superglobals()
+
+snippet readline_add_history
+options head
+abbr Adds a line to the history
+    readline_add_history(${1:#:string $line})
+
+snippet readline_callback_handler_install
+options head
+abbr Initializes the readline callback interface and terminal, prints the prompt and returns immediately
+    readline_callback_handler_install(${1:#:string $prompt}, ${2:#:callable $callback})
+
+snippet readline_callback_handler_remove
+options head
+abbr Removes a previously installed callback handler and restores terminal settings
+    readline_callback_handler_remove()
+
+snippet readline_callback_read_char
+options head
+abbr Reads a character and informs the readline callback interface when a line is received
+    readline_callback_read_char()
+
+snippet readline_clear_history
+options head
+abbr Clears the history
+    readline_clear_history()
+
+snippet readline_completion_function
+options head
+abbr Registers a completion function
+    readline_completion_function(${1:#:callable $function})
+
+snippet readline_info
+options head
+abbr Gets/sets various internal readline variables
+    readline_info(${1:#:string $varname}, ${2:#:string $newvalue})
+
+snippet readline_list_history
+options head
+abbr Lists the history
+    readline_list_history()
+
+snippet readline_on_new_line
+options head
+abbr Inform readline that the cursor has moved to a new line
+    readline_on_new_line()
+
+snippet readline_read_history
+options head
+abbr Reads the history
+    readline_read_history(${1:#:string $filename})
+
+snippet readline_redisplay
+options head
+abbr Redraws the display
+    readline_redisplay()
+
+snippet readline_write_history
+options head
+abbr Writes the history
+    readline_write_history(${1:#:string $filename})
+
+snippet readline
+options head
+abbr Reads a line
+    readline(${1:#:string $prompt})
+
+snippet bzclose
+options head
+abbr Close a bzip2 file
+    bzclose(${1:#:resource $bz})
+
+snippet bzcompress
+options head
+abbr Compress a string into bzip2 encoded data
+    bzcompress(${1:#:string $source}, ${2:#:int $blocksize = 4}, ${3:#:int $workfactor = 0})
+
+snippet bzdecompress
+options head
+abbr Decompresses bzip2 encoded data
+    bzdecompress(${1:#:string $source}, ${2:#:int $small = 0})
+
+snippet bzerrno
+options head
+abbr Returns a bzip2 error number
+    bzerrno(${1:#:resource $bz})
+
+snippet bzerror
+options head
+abbr Returns the bzip2 error number and error string in an array
+    bzerror(${1:#:resource $bz})
+
+snippet bzerrstr
+options head
+abbr Returns a bzip2 error string
+    bzerrstr(${1:#:resource $bz})
+
+snippet bzflush
+options head
+abbr Force a write of all buffered data
+    bzflush(${1:#:resource $bz})
+
+snippet bzopen
+options head
+abbr Opens a bzip2 compressed file
+    bzopen(${1:#:mixed $file}, ${2:#:string $mode})
+
+snippet bzread
+options head
+abbr Binary safe bzip2 file read
+    bzread(${1:#:resource $bz}, ${2:#:int $length = 1024})
+
+snippet bzwrite
+options head
+abbr Binary safe bzip2 file write
+    bzwrite(${1:#:resource $bz}, ${2:#:string $data}, ${3:#:int $length})
+
+snippet compress
+options head
+    compress(${1:#:int $compression}, ${2:#:string $extension})
+
+snippet copy
+options head
+abbr Copies file
+    copy(${1:#:string $source}, ${2:#:string $dest}, ${3:#:resource $context})
+
+snippet decompress
+options head
+    decompress(${1:#:string $extension})
+
+snippet delete
+options head
+abbr See unlink() or unset()
+    delete(${1:#:string $key}, ${2:#:int $timeout = 0})
+
+snippet close
+options head
+    close()
+
+snippet open
+options head
+    open(${1:#:string $filename}, ${2:#:int $flags})
+
+snippet zip_close
+options head
+abbr Close a ZIP file archive
+    zip_close(${1:#:resource $zip})
+
+snippet zip_entry_close
+options head
+abbr Close a directory entry
+    zip_entry_close(${1:#:resource $zip_entry})
+
+snippet zip_entry_compressedsize
+options head
+abbr Retrieve the compressed size of a directory entry
+    zip_entry_compressedsize(${1:#:resource $zip_entry})
+
+snippet zip_entry_compressionmethod
+options head
+abbr Retrieve the compression method of a directory entry
+    zip_entry_compressionmethod(${1:#:resource $zip_entry})
+
+snippet zip_entry_filesize
+options head
+abbr Retrieve the actual file size of a directory entry
+    zip_entry_filesize(${1:#:resource $zip_entry})
+
+snippet zip_entry_name
+options head
+abbr Retrieve the name of a directory entry
+    zip_entry_name(${1:#:resource $zip_entry})
+
+snippet zip_entry_open
+options head
+abbr Open a directory entry for reading
+    zip_entry_open(${1:#:resource $zip}, ${2:#:resource $zip_entry}, ${3:#:string $mode})
+
+snippet zip_entry_read
+options head
+abbr Read from an open directory entry
+    zip_entry_read(${1:#:resource $zip_entry}, ${2:#:int $length = 1024})
+
+snippet zip_open
+options head
+abbr Open a ZIP file archive
+    zip_open(${1:#:string $filename})
+
+snippet zip_read
+options head
+abbr Read next entry in a ZIP file archive
+    zip_read(${1:#:resource $zip})
+
+snippet deflate_init
+options head
+abbr Initialize an incremental deflate context
+    deflate_init(${1:#:int $encoding}, ${2:#:array $options = array()})
+
+snippet gzclose
+options head
+abbr Close an open gz-file pointer
+    gzclose(${1:#:resource $zp})
+
+snippet gzdecode
+options head
+abbr Decodes a gzip compressed string
+    gzdecode(${1:#:string $data}, ${2:#:int $length})
+
+snippet gzeof
+options head
+abbr Test for EOF on a gz-file pointer
+    gzeof(${1:#:resource $zp})
+
+snippet gzfile
+options head
+abbr Read entire gz-file into an array
+    gzfile(${1:#:string $filename}, ${2:#:int $use_include_path = 0})
+
+snippet gzgetc
+options head
+abbr Get character from gz-file pointer
+    gzgetc(${1:#:resource $zp})
+
+snippet gzgets
+options head
+abbr Get line from file pointer
+    gzgets(${1:#:resource $zp}, ${2:#:int $length})
+
+snippet gzgetss
+options head
+abbr Get line from gz-file pointer and strip HTML tags
+    gzgetss(${1:#:resource $zp}, ${2:#:int $length}, ${3:#:string $allowable_tags})
+
+snippet gzinflate
+options head
+abbr Inflate a deflated string
+    gzinflate(${1:#:string $data}, ${2:#:int $length = 0})
+
+snippet gzopen
+options head
+abbr Open gz-file
+    gzopen(${1:#:string $filename}, ${2:#:string $mode}, ${3:#:int $use_include_path = 0})
+
+snippet gzpassthru
+options head
+abbr Output all remaining data on a gz-file pointer
+    gzpassthru(${1:#:resource $zp})
+
+snippet gzread
+options head
+abbr Binary-safe gz-file read
+    gzread(${1:#:resource $zp}, ${2:#:int $length})
+
+snippet gzrewind
+options head
+abbr Rewind the position of a gz-file pointer
+    gzrewind(${1:#:resource $zp})
+
+snippet gztell
+options head
+abbr Tell gz-file pointer read/write position
+    gztell(${1:#:resource $zp})
+
+snippet gzuncompress
+options head
+abbr Uncompress a compressed string
+    gzuncompress(${1:#:string $data}, ${2:#:int $length = 0})
+
+snippet gzwrite
+options head
+abbr Binary-safe gz-file write
+    gzwrite(${1:#:resource $zp}, ${2:#:string $string}, ${3:#:int $length})
+
+snippet readgzfile
+options head
+abbr Output a gz-file
+    readgzfile(${1:#:string $filename}, ${2:#:int $use_include_path = 0})
+
+snippet hash_algos
+options head
+abbr Return a list of registered hashing algorithms
+    hash_algos()
+
+snippet hash_equals
+options head
+abbr Timing attack safe string comparison
+    hash_equals(${1:#:string $known_string}, ${2:#:string $user_string})
+
+snippet hash_hkdf
+options head
+abbr Generate a HKDF key derivation of a supplied key input
+    hash_hkdf(${1:#:string $algo}, ${2:#:string $ikm}, ${3:#:int $length = 0}, ${4:#:string $info = ''}, ${5:#:string $salt = ''})
+
+snippet hash_hmac_algos
+options head
+abbr Return a list of registered hashing algorithms suitable for hash_hmac
+    hash_hmac_algos()
+
+snippet mcrypt_cbc
+options head
+abbr Encrypts/decrypts data in CBC mode
+    mcrypt_cbc(${1:#:string $cipher}, ${2:#:string $key}, ${3:#:string $data}, ${4:#:int $mode}, ${5:#:string $iv})
+
+snippet mcrypt_cfb
+options head
+abbr Encrypts/decrypts data in CFB mode
+    mcrypt_cfb(${1:#:string $cipher}, ${2:#:string $key}, ${3:#:string $data}, ${4:#:int $mode}, ${5:#:string $iv})
+
+snippet mcrypt_decrypt
+options head
+abbr Decrypts crypttext with given parameters
+    mcrypt_decrypt(${1:#:string $cipher}, ${2:#:string $key}, ${3:#:string $data}, ${4:#:string $mode}, ${5:#:string $iv})
+
+snippet mcrypt_ecb
+options head
+abbr Deprecated: Encrypts/decrypts data in ECB mode
+    mcrypt_ecb(${1:#:string $cipher}, ${2:#:string $key}, ${3:#:string $data}, ${4:#:int $mode}, ${5:#:string $iv})
+
+snippet mcrypt_enc_get_algorithms_name
+options head
+abbr Returns the name of the opened algorithm
+    mcrypt_enc_get_algorithms_name(${1:#:resource $td})
+
+snippet mcrypt_enc_get_block_size
+options head
+abbr Returns the blocksize of the opened algorithm
+    mcrypt_enc_get_block_size(${1:#:resource $td})
+
+snippet mcrypt_enc_get_iv_size
+options head
+abbr Returns the size of the IV of the opened algorithm
+    mcrypt_enc_get_iv_size(${1:#:resource $td})
+
+snippet mcrypt_enc_get_key_size
+options head
+abbr Returns the maximum supported keysize of the opened mode
+    mcrypt_enc_get_key_size(${1:#:resource $td})
+
+snippet mcrypt_enc_get_modes_name
+options head
+abbr Returns the name of the opened mode
+    mcrypt_enc_get_modes_name(${1:#:resource $td})
+
+snippet mcrypt_enc_get_supported_key_sizes
+options head
+abbr Returns an array with the supported keysizes of the opened algorithm
+    mcrypt_enc_get_supported_key_sizes(${1:#:resource $td})
+
+snippet mcrypt_enc_is_block_algorithm_mode
+options head
+abbr Checks whether the encryption of the opened mode works on blocks
+    mcrypt_enc_is_block_algorithm_mode(${1:#:resource $td})
+
+snippet mcrypt_enc_is_block_algorithm
+options head
+abbr Checks whether the algorithm of the opened mode is a block algorithm
+    mcrypt_enc_is_block_algorithm(${1:#:resource $td})
+
+snippet mcrypt_enc_is_block_mode
+options head
+abbr Checks whether the opened mode outputs blocks
+    mcrypt_enc_is_block_mode(${1:#:resource $td})
+
+snippet mcrypt_enc_self_test
+options head
+abbr Runs a self test on the opened module
+    mcrypt_enc_self_test(${1:#:resource $td})
+
+snippet mcrypt_encrypt
+options head
+abbr Encrypts plaintext with given parameters
+    mcrypt_encrypt(${1:#:string $cipher}, ${2:#:string $key}, ${3:#:string $data}, ${4:#:string $mode}, ${5:#:string $iv})
+
+snippet mcrypt_generic_deinit
+options head
+abbr This function deinitializes an encryption module
+    mcrypt_generic_deinit(${1:#:resource $td})
+
+snippet mcrypt_generic_end
+options head
+abbr This function terminates encryption
+    mcrypt_generic_end(${1:#:resource $td})
+
+snippet mcrypt_generic_init
+options head
+abbr This function initializes all buffers needed for encryption
+    mcrypt_generic_init(${1:#:resource $td}, ${2:#:string $key}, ${3:#:string $iv})
+
+snippet mcrypt_generic
+options head
+abbr This function encrypts data
+    mcrypt_generic(${1:#:resource $td}, ${2:#:string $data})
+
+snippet mcrypt_get_block_size
+options head
+abbr Gets the block size of the specified cipher
+    mcrypt_get_block_size(${1:#:string $cipher}, ${2:#:string $mode})
+
+snippet mcrypt_get_cipher_name
+options head
+abbr Gets the name of the specified cipher
+    mcrypt_get_cipher_name(${1:#:string $cipher})
+
+snippet mcrypt_get_iv_size
+options head
+abbr Returns the size of the IV belonging to a specific cipher/mode combination
+    mcrypt_get_iv_size(${1:#:string $cipher}, ${2:#:string $mode})
+
+snippet mcrypt_get_key_size
+options head
+abbr Gets the key size of the specified cipher
+    mcrypt_get_key_size(${1:#:string $cipher}, ${2:#:string $mode})
+
+snippet mcrypt_list_algorithms
+options head
+abbr Gets an array of all supported ciphers
+    mcrypt_list_algorithms(${1:#:string $lib_dir = ini_get("mcrypt.algorithms_dir")})
+
+snippet mcrypt_list_modes
+options head
+abbr Gets an array of all supported modes
+    mcrypt_list_modes(${1:#:string $lib_dir = ini_get("mcrypt.modes_dir")})
+
+snippet mcrypt_module_close
+options head
+abbr Closes the mcrypt module
+    mcrypt_module_close(${1:#:resource $td})
+
+snippet mcrypt_module_get_algo_block_size
+options head
+abbr Returns the blocksize of the specified algorithm
+    mcrypt_module_get_algo_block_size(${1:#:string $algorithm}, ${2:#:string $lib_dir})
+
+snippet mcrypt_module_get_algo_key_size
+options head
+abbr Returns the maximum supported keysize of the opened mode
+    mcrypt_module_get_algo_key_size(${1:#:string $algorithm}, ${2:#:string $lib_dir})
+
+snippet mcrypt_module_get_supported_key_sizes
+options head
+abbr Returns an array with the supported keysizes of the opened algorithm
+    mcrypt_module_get_supported_key_sizes(${1:#:string $algorithm}, ${2:#:string $lib_dir})
+
+snippet mcrypt_module_is_block_algorithm_mode
+options head
+abbr Returns if the specified module is a block algorithm or not
+    mcrypt_module_is_block_algorithm_mode(${1:#:string $mode}, ${2:#:string $lib_dir})
+
+snippet mcrypt_module_is_block_algorithm
+options head
+abbr This function checks whether the specified algorithm is a block algorithm
+    mcrypt_module_is_block_algorithm(${1:#:string $algorithm}, ${2:#:string $lib_dir})
+
+snippet mcrypt_module_is_block_mode
+options head
+abbr Returns if the specified mode outputs blocks or not
+    mcrypt_module_is_block_mode(${1:#:string $mode}, ${2:#:string $lib_dir})
+
+snippet mcrypt_module_open
+options head
+abbr Opens the module of the algorithm and the mode to be used
+    mcrypt_module_open(${1:#:string $algorithm}, ${2:#:string $algorithm_directory}, ${3:#:string $mode}, ${4:#:string $mode_directory})
+
+snippet mcrypt_module_self_test
+options head
+abbr This function runs a self test on the specified module
+    mcrypt_module_self_test(${1:#:string $algorithm}, ${2:#:string $lib_dir})
+
+snippet mcrypt_ofb
+options head
+abbr Encrypts/decrypts data in OFB mode
+    mcrypt_ofb(${1:#:string $cipher}, ${2:#:string $key}, ${3:#:string $data}, ${4:#:int $mode}, ${5:#:string $iv})
+
+snippet mdecrypt_generic
+options head
+abbr Decrypts data
+    mdecrypt_generic(${1:#:resource $td}, ${2:#:string $data})
+
+snippet mhash
+options head
+abbr Computes hash
+    mhash(${1:#:int $hash}, ${2:#:string $data}, ${3:#:string $key})
+
+snippet openssl_cipher_iv_length
+options head
+abbr Gets the cipher iv length
+    openssl_cipher_iv_length(${1:#:string $method})
+
+snippet openssl_csr_new
+options head
+abbr Generates a CSR
+    openssl_csr_new(${1:#:array $dn}, ${2:#:resource &$privkey}, ${3:#:array $configargs}, ${4:#:array $extraattribs})
+
+snippet openssl_csr_sign
+options head
+abbr Sign a CSR with another certificate (or itself) and generate a certificate
+    openssl_csr_sign(${1:#:mixed $csr}, ${2:#:mixed $cacert}, ${3:#:mixed $priv_key}, ${4:#:int $days}, ${5:#:array $configargs}, ${6:#:int $serial = 0})
+
+snippet openssl_decrypt
+options head
+abbr Decrypts data
+    openssl_decrypt(${1:#:string $data}, ${2:#:string $method}, ${3:#:string $key}, ${4:#:int $options = 0}, ${5:#:string $iv = ""}, ${6:#:string $tag = ""}, ${7:#:string $aad = ""})
+
+snippet openssl_dh_compute_key
+options head
+abbr Computes shared secret for public value of remote DH public key and local DH key
+    openssl_dh_compute_key(${1:#:string $pub_key}, ${2:#:resource $dh_key})
+
+snippet openssl_error_string
+options head
+abbr Return openSSL error message
+    openssl_error_string()
+
+snippet openssl_free_key
+options head
+abbr Free key resource
+    openssl_free_key(${1:#:resource $key_identifier})
+
+snippet openssl_get_cert_locations
+options head
+abbr Retrieve the available certificate locations
+    openssl_get_cert_locations()
+
+snippet openssl_get_curve_names
+options head
+abbr Gets list of available curve names for ECC
+    openssl_get_curve_names()
+
+snippet openssl_pbkdf2
+options head
+abbr Generates a PKCS5 v2 PBKDF2 string
+    openssl_pbkdf2(${1:#:string $password}, ${2:#:string $salt}, ${3:#:int $key_length}, ${4:#:int $iterations}, ${5:#:string $digest_algorithm = "sha1"})
+
+snippet openssl_pkcs12_export_to_file
+options head
+abbr Exports a PKCS#12 Compatible Certificate Store File
+    openssl_pkcs12_export_to_file(${1:#:mixed $x509}, ${2:#:string $filename}, ${3:#:mixed $priv_key}, ${4:#:string $pass}, ${5:#:array $args})
+
+snippet openssl_pkcs12_export
+options head
+abbr Exports a PKCS#12 Compatible Certificate Store File to variable
+    openssl_pkcs12_export(${1:#:mixed $x509}, ${2:#:string &$out}, ${3:#:mixed $priv_key}, ${4:#:string $pass}, ${5:#:array $args})
+
+snippet openssl_pkcs12_read
+options head
+abbr Parse a PKCS#12 Certificate Store into an array
+    openssl_pkcs12_read(${1:#:string $pkcs12}, ${2:#:array &$certs}, ${3:#:string $pass})
+
+snippet openssl_pkcs7_decrypt
+options head
+abbr Decrypts an S/MIME encrypted message
+    openssl_pkcs7_decrypt(${1:#:string $infilename}, ${2:#:string $outfilename}, ${3:#:mixed $recipcert}, ${4:#:mixed $recipkey})
+
+snippet openssl_pkcs7_read
+options head
+abbr Export the PKCS7 file to an array of PEM certificates
+    openssl_pkcs7_read(${1:#:string $infilename}, ${2:#:array &$certs})
+
+snippet openssl_pkcs7_verify
+options head
+abbr Verifies the signature of an S/MIME signed message
+    openssl_pkcs7_verify(${1:#:string $filename}, ${2:#:int $flags}, ${3:#:string $outfilename}, ${4:#:array $cainfo}, ${5:#:string $extracerts}, ${6:#:string $content}, ${7:#:string $p7bfilename})
+
+snippet openssl_pkey_export_to_file
+options head
+abbr Gets an exportable representation of a key into a file
+    openssl_pkey_export_to_file(${1:#:mixed $key}, ${2:#:string $outfilename}, ${3:#:string $passphrase}, ${4:#:array $configargs})
+
+snippet openssl_pkey_export
+options head
+abbr Gets an exportable representation of a key into a string
+    openssl_pkey_export(${1:#:mixed $key}, ${2:#:string &$out}, ${3:#:string $passphrase}, ${4:#:array $configargs})
+
+snippet openssl_pkey_free
+options head
+abbr Frees a private key
+    openssl_pkey_free(${1:#:resource $key})
+
+snippet openssl_pkey_get_details
+options head
+abbr Returns an array with the key details
+    openssl_pkey_get_details(${1:#:resource $key})
+
+snippet openssl_pkey_get_private
+options head
+abbr Get a private key
+    openssl_pkey_get_private(${1:#:mixed $key}, ${2:#:string $passphrase = ""})
+
+snippet openssl_pkey_get_public
+options head
+abbr Extract public key from certificate and prepare it for use
+    openssl_pkey_get_public(${1:#:mixed $certificate})
+
+snippet openssl_pkey_new
+options head
+abbr Generates a new private key
+    openssl_pkey_new(${1:#:array $configargs})
+
+snippet openssl_random_pseudo_bytes
+options head
+abbr Generate a pseudo-random string of bytes
+    openssl_random_pseudo_bytes(${1:#:int $length}, ${2:#:bool &$crypto_strong})
+
+snippet openssl_spki_export_challenge
+options head
+abbr Exports the challenge assoicated with a signed public key and challenge
+    openssl_spki_export_challenge(${1:#:string &$spkac})
+
+snippet openssl_spki_export
+options head
+abbr Exports a valid PEM formatted public key signed public key and challenge
+    openssl_spki_export(${1:#:string &$spkac})
+
+snippet openssl_spki_new
+options head
+abbr Generate a new signed public key and challenge
+    openssl_spki_new(${1:#:resource &$privkey}, ${2:#:string &$challenge}, ${3:#:int $algorithm = 0})
+
+snippet openssl_spki_verify
+options head
+abbr Verifies a signed public key and challenge
+    openssl_spki_verify(${1:#:string &$spkac})
+
+snippet openssl_x509_check_private_key
+options head
+abbr Checks if a private key corresponds to a certificate
+    openssl_x509_check_private_key(${1:#:mixed $cert}, ${2:#:mixed $key})
+
+snippet openssl_x509_checkpurpose
+options head
+abbr Verifies if a certificate can be used for a particular purpose
+    openssl_x509_checkpurpose(${1:#:mixed $x509cert}, ${2:#:int $purpose}, ${3:#:array $cainfo = array()}, ${4:#:string $untrustedfile})
+
+snippet openssl_x509_free
+options head
+abbr Free certificate resource
+    openssl_x509_free(${1:#:resource $x509cert})
+
+snippet openssl_x509_read
+options head
+abbr Parse an X.509 certificate and return a resource identifier for it
+    openssl_x509_read(${1:#:mixed $x509certdata})
+
+snippet password_get_info
+options head
+abbr Returns information about the given hash
+    password_get_info(${1:#:string $hash})
+
+snippet password_hash
+options head
+abbr Creates a password hash
+    password_hash(${1:#:string $password}, ${2:#:int $algo}, ${3:#:array $options})
+
+snippet password_needs_rehash
+options head
+abbr Checks if the given hash matches the given options
+    password_needs_rehash(${1:#:string $hash}, ${2:#:int $algo}, ${3:#:array $options})
+
+snippet password_verify
+options head
+abbr Verifies that a password matches a hash
+    password_verify(${1:#:string $password}, ${2:#:string $hash})
+
+snippet pdo_drivers
+options head
+    pdo_drivers()
+
+snippet step
+options head
+    step(${1:#:mixed $context}, ${2:#:int $rownumber}, ${3:#:mixed $value1}, ${4:#:mixed $...})
+
+snippet fini
+options head
+    fini(${1:#:mixed $context}, ${2:#:int $rownumber})
+
+snippet collation
+options head
+    collation(${1:#:mixed $value1}, ${2:#:mixed $value2})
+
+snippet callback
+options head
+    callback(${1:#:mixed $a}, ${2:#:mixed $b})
+
+snippet filepro
+options head
+abbr Read and verify the map file
+    filepro(${1:#:string $directory})
+
+snippet autocommit
+options head
+    autocommit(${1:#:bool $mode})
+
+snippet change_user
+options head
+    change_user(${1:#:string $user}, ${2:#:string $password}, ${3:#:string $database})
+
+snippet character_set_name
+options head
+    character_set_name()
+
+snippet commit
+options head
+    commit(${1:#:int $flags = 0}, ${2:#:string $name})
+
+snippet connect
+options head
+    connect(${1:#:string $host}, ${2:#:int $port}, ${3:#:int $timeout})
+
+snippet debug
+options head
+    debug(${1:#:string $message})
+
+snippet dump_debug_info
+options head
+    dump_debug_info()
+
+snippet get_charset
+options head
+    get_charset()
+
+snippet get_client_info
+options head
+    get_client_info()
+
+snippet get_connection_stats
+options head
+    get_connection_stats()
+
+snippet get_warnings
+options head
+    get_warnings(${1:#:mysqli_stmt $stmt})
+
+snippet init
+options head
+    init()
+
+snippet kill
+options head
+    kill(${1:#:int $processid})
+
+snippet more_results
+options head
+    more_results()
+
+snippet options
+options head
+    options(${1:#:int $option}, ${2:#:mixed $value})
+
+snippet ping
+options head
+    ping()
+
+snippet prepare
+options head
+    prepare(${1:#:string $query})
+
+snippet escape_string
+options head
+    escape_string(${1:#:string $escapestr})
+
+snippet rollback
+options head
+    rollback(${1:#:int $flags = 0}, ${2:#:string $name})
+
+snippet select_db
+options head
+    select_db(${1:#:string $dbname})
+
+snippet send_query
+options head
+    send_query(${1:#:string $query})
+
+snippet set_charset
+options head
+    set_charset(${1:#:string $charset})
+
+snippet set_local_infile_handler
+options head
+    set_local_infile_handler(${1:#:mysqli $link}, ${2:#:callable $read_func})
+
+snippet ssl_set
+options head
+    ssl_set(${1:#:string $key}, ${2:#:string $cert}, ${3:#:string $ca}, ${4:#:string $capath}, ${5:#:string $cipher})
+
+snippet stat
+options head
+abbr Gives information about a file
+    stat(${1:#:string $filename})
+
+snippet stmt_init
+options head
+    stmt_init()
+
+snippet store_result
+options head
+    store_result()
+
+snippet execute
+options head
+    execute()
+
+snippet fetch
+options head
+    fetch()
+
+snippet free_result
+options head
+    free_result()
+
+snippet get_result
+options head
+    get_result()
+
+snippet reset
+options head
+abbr Set the internal pointer of an array to its first element
+    reset(${1:#:array &$array})
+
+snippet send_long_data
+options head
+    send_long_data(${1:#:int $param_nr}, ${2:#:string $data})
+
+snippet field_seek
+options head
+    field_seek(${1:#:int $fieldnr})
+
+snippet free
+options head
+    free()
+
+snippet mysql_xdevapi
+options head
+    mysql_xdevapi(${1:#:string $expression})
+
+snippet mysql_data_seek
+options head
+abbr Move internal result pointer
+    mysql_data_seek(${1:#:resource $result}, ${2:#:int $row_number})
+
+snippet mysql_escape_string
+options head
+abbr Escapes a string for use in a mysql_query
+    mysql_escape_string(${1:#:string $unescaped_string})
+
+snippet mysql_fetch_assoc
+options head
+abbr Fetch a result row as an associative array
+    mysql_fetch_assoc(${1:#:resource $result})
+
+snippet mysql_fetch_field
+options head
+abbr Get column information from a result and return as an object
+    mysql_fetch_field(${1:#:resource $result}, ${2:#:int $field_offset = 0})
+
+snippet mysql_fetch_lengths
+options head
+abbr Get the length of each output in a result
+    mysql_fetch_lengths(${1:#:resource $result})
+
+snippet mysql_fetch_object
+options head
+abbr Fetch a result row as an object
+    mysql_fetch_object(${1:#:resource $result}, ${2:#:string $class_name}, ${3:#:array $params})
+
+snippet mysql_fetch_row
+options head
+abbr Get a result row as an enumerated array
+    mysql_fetch_row(${1:#:resource $result})
+
+snippet mysql_field_flags
+options head
+abbr Get the flags associated with the specified field in a result
+    mysql_field_flags(${1:#:resource $result}, ${2:#:int $field_offset})
+
+snippet mysql_field_len
+options head
+abbr Returns the length of the specified field
+    mysql_field_len(${1:#:resource $result}, ${2:#:int $field_offset})
+
+snippet mysql_field_name
+options head
+abbr Get the name of the specified field in a result
+    mysql_field_name(${1:#:resource $result}, ${2:#:int $field_offset})
+
+snippet mysql_field_seek
+options head
+abbr Set result pointer to a specified field offset
+    mysql_field_seek(${1:#:resource $result}, ${2:#:int $field_offset})
+
+snippet mysql_field_table
+options head
+abbr Get name of the table the specified field is in
+    mysql_field_table(${1:#:resource $result}, ${2:#:int $field_offset})
+
+snippet mysql_field_type
+options head
+abbr Get the type of the specified field in a result
+    mysql_field_type(${1:#:resource $result}, ${2:#:int $field_offset})
+
+snippet mysql_free_result
+options head
+abbr Free result memory
+    mysql_free_result(${1:#:resource $result})
+
+snippet mysql_get_client_info
+options head
+abbr Get MySQL client info
+    mysql_get_client_info()
+
+snippet mysql_num_fields
+options head
+abbr Get number of fields in result
+    mysql_num_fields(${1:#:resource $result})
+
+snippet mysql_num_rows
+options head
+abbr Get number of rows in result
+    mysql_num_rows(${1:#:resource $result})
+
+snippet mysql_pconnect
+options head
+abbr Open a persistent connection to a MySQL server
+    mysql_pconnect(${1:#:string $server = ini_get("mysql.default_host")}, ${2:#:string $username = ini_get("mysql.default_user")}, ${3:#:string $password = ini_get("mysql.default_password")}, ${4:#:int $client_flags = 0})
+
+snippet mysql_result
+options head
+abbr Get result data
+    mysql_result(${1:#:resource $result}, ${2:#:int $row}, ${3:#:mixed $field = 0})
+
+snippet mysql_tablename
+options head
+abbr Get table name of field
+    mysql_tablename(${1:#:resource $result}, ${2:#:int $i})
+
+snippet mysqlnd_ms_dump_servers
+options head
+abbr Returns a list of currently configured servers
+    mysqlnd_ms_dump_servers(${1:#:mixed $connection})
+
+snippet mysqlnd_ms_fabric_select_global
+options head
+abbr Switch to global sharding server for a given table
+    mysqlnd_ms_fabric_select_global(${1:#:mixed $connection}, ${2:#:mixed $table_name})
+
+snippet mysqlnd_ms_fabric_select_shard
+options head
+abbr Switch to shard
+    mysqlnd_ms_fabric_select_shard(${1:#:mixed $connection}, ${2:#:mixed $table_name}, ${3:#:mixed $shard_key})
+
+snippet mysqlnd_ms_get_last_gtid
+options head
+abbr Returns the latest global transaction ID
+    mysqlnd_ms_get_last_gtid(${1:#:mixed $connection})
+
+snippet mysqlnd_ms_get_last_used_connection
+options head
+abbr Returns an array which describes the last used connection
+    mysqlnd_ms_get_last_used_connection(${1:#:mixed $connection})
+
+snippet mysqlnd_ms_get_stats
+options head
+abbr Returns query distribution and connection statistics
+    mysqlnd_ms_get_stats()
+
+snippet mysqlnd_ms_match_wild
+options head
+abbr Finds whether a table name matches a wildcard pattern or not
+    mysqlnd_ms_match_wild(${1:#:string $table_name}, ${2:#:string $wildcard})
+
+snippet mysqlnd_ms_query_is_select
+options head
+abbr Find whether to send the query to the master, the slave or the last used MySQL server
+    mysqlnd_ms_query_is_select(${1:#:string $query})
+
+snippet mysqlnd_ms_set_qos
+options head
+abbr Sets the quality of service needed from the cluster
+    mysqlnd_ms_set_qos(${1:#:mixed $connection}, ${2:#:int $service_level}, ${3:#:int $service_level_option}, ${4:#:mixed $option_value})
+
+snippet mysqlnd_ms_set_user_pick_server
+options head
+abbr Sets a callback for user-defined read/write splitting
+    mysqlnd_ms_set_user_pick_server(${1:#:string $function})
+
+snippet mysqlnd_ms_xa_begin
+options head
+abbr Starts a distributed/XA transaction among MySQL servers
+    mysqlnd_ms_xa_begin(${1:#:mixed $connection}, ${2:#:string $gtrid}, ${3:#:int $timeout})
+
+snippet mysqlnd_ms_xa_commit
+options head
+abbr Commits a distributed/XA transaction among MySQL servers
+    mysqlnd_ms_xa_commit(${1:#:mixed $connection}, ${2:#:string $gtrid})
+
+snippet mysqlnd_ms_xa_gc
+options head
+abbr Garbage collects unfinished XA transactions after severe errors
+    mysqlnd_ms_xa_gc(${1:#:mixed $connection}, ${2:#:string $gtrid}, ${3:#:bool $ignore_max_retries})
+
+snippet mysqlnd_ms_xa_rollback
+options head
+abbr Rolls back a distributed/XA transaction among MySQL servers
+    mysqlnd_ms_xa_rollback(${1:#:mixed $connection}, ${2:#:string $gtrid})
+
+snippet mysqlnd_qc_clear_cache
+options head
+abbr Flush all cache contents
+    mysqlnd_qc_clear_cache()
+
+snippet mysqlnd_qc_get_available_handlers
+options head
+abbr Returns a list of available storage handler
+    mysqlnd_qc_get_available_handlers()
+
+snippet mysqlnd_qc_get_cache_info
+options head
+abbr Returns information on the current handler, the number of cache entries and cache entries, if available
+    mysqlnd_qc_get_cache_info()
+
+snippet mysqlnd_qc_get_core_stats
+options head
+abbr Statistics collected by the core of the query cache
+    mysqlnd_qc_get_core_stats()
+
+snippet mysqlnd_qc_get_normalized_query_trace_log
+options head
+abbr Returns a normalized query trace log for each query inspected by the query cache
+    mysqlnd_qc_get_normalized_query_trace_log()
+
+snippet mysqlnd_qc_get_query_trace_log
+options head
+abbr Returns a backtrace for each query inspected by the query cache
+    mysqlnd_qc_get_query_trace_log()
+
+snippet mysqlnd_qc_set_cache_condition
+options head
+abbr Set conditions for automatic caching
+    mysqlnd_qc_set_cache_condition(${1:#:int $condition_type}, ${2:#:mixed $condition}, ${3:#:mixed $condition_option})
+
+snippet mysqlnd_qc_set_is_select
+options head
+abbr Installs a callback which decides whether a statement is cached
+    mysqlnd_qc_set_is_select(${1:#:string $callback})
+
+snippet mysqlnd_qc_set_storage_handler
+options head
+abbr Change current storage handler
+    mysqlnd_qc_set_storage_handler(${1:#:string $handler})
+
+snippet mysqlnd_qc_set_user_handlers
+options head
+abbr Sets the callback functions for a user-defined procedural storage handler
+    mysqlnd_qc_set_user_handlers(${1:#:string $get_hash}, ${2:#:string $find_query_in_cache}, ${3:#:string $return_to_cache}, ${4:#:string $add_query_to_cache_if_not_exists}, ${5:#:string $query_is_select}, ${6:#:string $update_query_run_time_stats}, ${7:#:string $get_stats}, ${8:#:string $clear_cache})
+
+snippet mysqlnd_uh_convert_to_mysqlnd
+options head
+abbr Converts a MySQL connection handle into a mysqlnd connection handle
+    mysqlnd_uh_convert_to_mysqlnd(${1:#:mysqli &$mysql_connection})
+
+snippet mysqlnd_memcache_get_config
+options head
+abbr Returns information about the plugin configuration
+    mysqlnd_memcache_get_config(${1:#:mixed $connection})
+
+snippet append
+options head
+    append(${1:#:mixed $value})
+
+snippet max
+options head
+abbr Find highest value
+    max(${1:#:mixed $value1}, ${2:#:mixed $...})
+
+snippet size
+options head
+    size()
+
+snippet trim
+options head
+abbr Strip whitespace (or other characters) from the beginning and end of a string
+    trim(${1:#:int $num})
+
+snippet eof
+options head
+    eof()
+
+snippet erase
+options head
+    erase(${1:#:int $offset}, ${2:#:int $length})
+
+snippet export
+options head
+    export(${1:#:string $filename}, ${2:#:int $start}, ${3:#:int $length})
+
+snippet import
+options head
+    import(${1:#:string $filename})
+
+snippet load
+options head
+    load()
+
+snippet read
+options head
+    read(${1:#:int $length})
+
+snippet rewind
+options head
+abbr Rewind the position of a file pointer
+    rewind(${1:#:resource $handle})
+
+snippet save
+options head
+    save(${1:#:string $filename}, ${2:#:int $compression = -1})
+
+snippet tell
+options head
+    tell()
+
+snippet truncate
+options head
+    truncate(${1:#:int $length = 0})
+
+snippet write
+options head
+    write(${1:#:string $data}, ${2:#:int $length})
+
+snippet cal_days_in_month
+options head
+abbr Return the number of days in a month for a given year and calendar
+    cal_days_in_month(${1:#:int $calendar}, ${2:#:int $month}, ${3:#:int $year})
+
+snippet cal_from_jd
+options head
+abbr Converts from Julian Day Count to a supported calendar
+    cal_from_jd(${1:#:int $jd}, ${2:#:int $calendar})
+
+snippet cal_info
+options head
+abbr Returns information about a particular calendar
+    cal_info(${1:#:int $calendar = -1})
+
+snippet cal_to_jd
+options head
+abbr Converts from a supported calendar to Julian Day Count
+    cal_to_jd(${1:#:int $calendar}, ${2:#:int $month}, ${3:#:int $day}, ${4:#:int $year})
+
+snippet frenchtojd
+options head
+abbr Converts a date from the French Republican Calendar to a Julian Day Count
+    frenchtojd(${1:#:int $month}, ${2:#:int $day}, ${3:#:int $year})
+
+snippet gregoriantojd
+options head
+abbr Converts a Gregorian date to Julian Day Count
+    gregoriantojd(${1:#:int $month}, ${2:#:int $day}, ${3:#:int $year})
+
+snippet jdmonthname
+options head
+abbr Returns a month name
+    jdmonthname(${1:#:int $julianday}, ${2:#:int $mode})
+
+snippet jdtofrench
+options head
+abbr Converts a Julian Day Count to the French Republican Calendar
+    jdtofrench(${1:#:int $juliandaycount})
+
+snippet jdtogregorian
+options head
+abbr Converts Julian Day Count to Gregorian date
+    jdtogregorian(${1:#:int $julianday})
+
+snippet jdtojulian
+options head
+abbr Converts a Julian Day Count to a Julian Calendar Date
+    jdtojulian(${1:#:int $julianday})
+
+snippet jdtounix
+options head
+abbr Convert Julian Day to Unix timestamp
+    jdtounix(${1:#:int $jday})
+
+snippet jewishtojd
+options head
+abbr Converts a date in the Jewish Calendar to Julian Day Count
+    jewishtojd(${1:#:int $month}, ${2:#:int $day}, ${3:#:int $year})
+
+snippet juliantojd
+options head
+abbr Converts a Julian Calendar date to Julian Day Count
+    juliantojd(${1:#:int $month}, ${2:#:int $day}, ${3:#:int $year})
+
+snippet unixtojd
+options head
+abbr Convert Unix timestamp to Julian Day
+    unixtojd(${1:#:int $timestamp = time()})
+
+snippet date_get_last_errors
+options head
+abbr Alias of DateTime::getLastErrors()
+    date_get_last_errors()
+
+snippet timezone_abbreviations_list
+options head
+abbr Alias of DateTimeZone::listAbbreviations()
+    timezone_abbreviations_list()
+
+snippet checkdate
+options head
+abbr Validate a Gregorian date
+    checkdate(${1:#:int $month}, ${2:#:int $day}, ${3:#:int $year})
+
+snippet date_default_timezone_get
+options head
+abbr Gets the default timezone used by all date/time functions in a script
+    date_default_timezone_get()
+
+snippet date_default_timezone_set
+options head
+abbr Sets the default timezone used by all date/time functions in a script
+    date_default_timezone_set(${1:#:string $timezone_identifier})
+
+snippet date_parse_from_format
+options head
+abbr Get info about given date formatted according to the specified format
+    date_parse_from_format(${1:#:string $format}, ${2:#:string $date})
+
+snippet date_parse
+options head
+abbr Returns associative array with detailed info about given date
+    date_parse(${1:#:string $date})
+
+snippet date_sun_info
+options head
+abbr Returns an array with information about sunset/sunrise and twilight begin/end
+    date_sun_info(${1:#:int $time}, ${2:#:float $latitude}, ${3:#:float $longitude})
+
+snippet date
+options head
+abbr Format a local time/date
+    date(${1:#:string $format}, ${2:#:int $timestamp = time()})
+
+snippet getdate
+options head
+abbr Get date/time information
+    getdate(${1:#:int $timestamp = time()})
+
+snippet gmdate
+options head
+abbr Format a GMT/UTC date/time
+    gmdate(${1:#:string $format}, ${2:#:int $timestamp = time()})
+
+snippet gmstrftime
+options head
+abbr Format a GMT/UTC time/date according to locale settings
+    gmstrftime(${1:#:string $format}, ${2:#:int $timestamp = time()})
+
+snippet idate
+options head
+abbr Format a local time/date as integer
+    idate(${1:#:string $format}, ${2:#:int $timestamp = time()})
+
+snippet strftime
+options head
+abbr Format a local time/date according to locale settings
+    strftime(${1:#:string $format}, ${2:#:int $timestamp = time()})
+
+snippet strptime
+options head
+abbr Parse a time/date generated with strftime()
+    strptime(${1:#:string $date}, ${2:#:string $format})
+
+snippet strtotime
+options head
+abbr Parse about any English textual datetime description into a Unix timestamp
+    strtotime(${1:#:string $time}, ${2:#:int $now = time()})
+
+snippet time
+options head
+abbr Return current Unix timestamp
+    time()
+
+snippet timezone_version_get
+options head
+abbr Gets the version of the timezonedb
+    timezone_version_get()
+
+snippet chdir
+options head
+abbr Change directory
+    chdir(${1:#:string $directory})
+
+snippet chroot
+options head
+abbr Change the root directory
+    chroot(${1:#:string $directory})
+
+snippet closedir
+options head
+abbr Close directory handle
+    closedir(${1:#:resource $dir_handle})
+
+snippet getcwd
+options head
+abbr Gets the current working directory
+    getcwd()
+
+snippet opendir
+options head
+abbr Open directory handle
+    opendir(${1:#:string $path}, ${2:#:resource $context})
+
+snippet readdir
+options head
+abbr Read entry from directory handle
+    readdir(${1:#:resource $dir_handle})
+
+snippet rewinddir
+options head
+abbr Rewind directory handle
+    rewinddir(${1:#:resource $dir_handle})
+
+snippet mime_content_type
+options head
+abbr Detect MIME Content-type for a file
+    mime_content_type(${1:#:string $filename})
+
+snippet basename
+options head
+abbr Returns trailing name component of path
+    basename(${1:#:string $path}, ${2:#:string $suffix})
+
+snippet chgrp
+options head
+abbr Changes file group
+    chgrp(${1:#:string $filename}, ${2:#:mixed $group})
+
+snippet chmod
+options head
+abbr Changes file mode
+    chmod(${1:#:string $filename}, ${2:#:int $mode})
+
+snippet chown
+options head
+abbr Changes file owner
+    chown(${1:#:string $filename}, ${2:#:mixed $user})
+
+snippet dirname
+options head
+abbr Returns a parent directory's path
+    dirname(${1:#:string $path}, ${2:#:int $levels = 1})
+
+snippet fclose
+options head
+abbr Closes an open file pointer
+    fclose(${1:#:resource $handle})
+
+snippet feof
+options head
+abbr Tests for end-of-file on a file pointer
+    feof(${1:#:resource $handle})
+
+snippet fflush
+options head
+abbr Flushes the output to a file
+    fflush(${1:#:resource $handle})
+
+snippet fgetc
+options head
+abbr Gets character from file pointer
+    fgetc(${1:#:resource $handle})
+
+snippet fgetcsv
+options head
+abbr Gets line from file pointer and parse for CSV fields
+    fgetcsv(${1:#:resource $handle}, ${2:#:int $length = 0}, ${3:#:string $delimiter = "}, ${4:#:"}, ${5:#:string $enclosure = '"'}, ${6:#:string $escape = "\\"})
+
+snippet fgets
+options head
+abbr Gets line from file pointer
+    fgets(${1:#:resource $handle}, ${2:#:int $length})
+
+snippet fgetss
+options head
+abbr Gets line from file pointer and strip HTML tags
+    fgetss(${1:#:resource $handle}, ${2:#:int $length}, ${3:#:string $allowable_tags})
+
+snippet file_exists
+options head
+abbr Checks whether a file or directory exists
+    file_exists(${1:#:string $filename})
+
+snippet file_put_contents
+options head
+abbr Write data to a file
+    file_put_contents(${1:#:string $filename}, ${2:#:mixed $data}, ${3:#:int $flags = 0}, ${4:#:resource $context})
+
+snippet file
+options head
+abbr Reads entire file into an array
+    file(${1:#:string $filename}, ${2:#:int $flags = 0}, ${3:#:resource $context})
+
+snippet fileatime
+options head
+abbr Gets last access time of file
+    fileatime(${1:#:string $filename})
+
+snippet filectime
+options head
+abbr Gets inode change time of file
+    filectime(${1:#:string $filename})
+
+snippet filegroup
+options head
+abbr Gets file group
+    filegroup(${1:#:string $filename})
+
+snippet fileinode
+options head
+abbr Gets file inode
+    fileinode(${1:#:string $filename})
+
+snippet filemtime
+options head
+abbr Gets file modification time
+    filemtime(${1:#:string $filename})
+
+snippet fileowner
+options head
+abbr Gets file owner
+    fileowner(${1:#:string $filename})
+
+snippet fileperms
+options head
+abbr Gets file permissions
+    fileperms(${1:#:string $filename})
+
+snippet filesize
+options head
+abbr Gets file size
+    filesize(${1:#:string $filename})
+
+snippet filetype
+options head
+abbr Gets file type
+    filetype(${1:#:string $filename})
+
+snippet flock
+options head
+abbr Portable advisory file locking
+    flock(${1:#:resource $handle}, ${2:#:int $operation}, ${3:#:int &$wouldblock})
+
+snippet fnmatch
+options head
+abbr Match filename against a pattern
+    fnmatch(${1:#:string $pattern}, ${2:#:string $string}, ${3:#:int $flags = 0})
+
+snippet fpassthru
+options head
+abbr Output all remaining data on a file pointer
+    fpassthru(${1:#:resource $handle})
+
+snippet fputcsv
+options head
+abbr Format line as CSV and write to file pointer
+    fputcsv(${1:#:resource $handle}, ${2:#:array $fields}, ${3:#:string $delimiter = "}, ${4:#:"}, ${5:#:string $enclosure = '"'}, ${6:#:string $escape_char = "\\"})
+
+snippet fread
+options head
+abbr Binary-safe file read
+    fread(${1:#:resource $handle}, ${2:#:int $length})
+
+snippet fscanf
+options head
+abbr Parses input from a file according to a format
+    fscanf(${1:#:resource $handle}, ${2:#:string $format}, ${3:#:mixed &$...})
+
+snippet fstat
+options head
+abbr Gets information about a file using an open file pointer
+    fstat(${1:#:resource $handle})
+
+snippet ftell
+options head
+abbr Returns the current position of the file read/write pointer
+    ftell(${1:#:resource $handle})
+
+snippet ftruncate
+options head
+abbr Truncates a file to a given length
+    ftruncate(${1:#:resource $handle}, ${2:#:int $size})
+
+snippet fwrite
+options head
+abbr Binary-safe file write
+    fwrite(${1:#:resource $handle}, ${2:#:string $string}, ${3:#:int $length})
+
+snippet glob
+options head
+abbr Find pathnames matching a pattern
+    glob(${1:#:string $pattern}, ${2:#:int $flags = 0})
+
+snippet is_dir
+options head
+abbr Tells whether the filename is a directory
+    is_dir(${1:#:string $filename})
+
+snippet is_executable
+options head
+abbr Tells whether the filename is executable
+    is_executable(${1:#:string $filename})
+
+snippet is_file
+options head
+abbr Tells whether the filename is a regular file
+    is_file(${1:#:string $filename})
+
+snippet is_link
+options head
+abbr Tells whether the filename is a symbolic link
+    is_link(${1:#:string $filename})
+
+snippet is_readable
+options head
+abbr Tells whether a file exists and is readable
+    is_readable(${1:#:string $filename})
+
+snippet is_uploaded_file
+options head
+abbr Tells whether the file was uploaded via HTTP POST
+    is_uploaded_file(${1:#:string $filename})
+
+snippet is_writable
+options head
+abbr Tells whether the filename is writable
+    is_writable(${1:#:string $filename})
+
+snippet lchgrp
+options head
+abbr Changes group ownership of symlink
+    lchgrp(${1:#:string $filename}, ${2:#:mixed $group})
+
+snippet lchown
+options head
+abbr Changes user ownership of symlink
+    lchown(${1:#:string $filename}, ${2:#:mixed $user})
+
+snippet link
+options head
+abbr Create a hard link
+    link(${1:#:string $target}, ${2:#:string $link})
+
+snippet linkinfo
+options head
+abbr Gets information about a link
+    linkinfo(${1:#:string $path})
+
+snippet lstat
+options head
+abbr Gives information about a file or symbolic link
+    lstat(${1:#:string $filename})
+
+snippet move_uploaded_file
+options head
+abbr Moves an uploaded file to a new location
+    move_uploaded_file(${1:#:string $filename}, ${2:#:string $destination})
+
+snippet pclose
+options head
+abbr Closes process file pointer
+    pclose(${1:#:resource $handle})
+
+snippet popen
+options head
+abbr Opens process file pointer
+    popen(${1:#:string $command}, ${2:#:string $mode})
+
+snippet readlink
+options head
+abbr Returns the target of a symbolic link
+    readlink(${1:#:string $path})
+
+snippet realpath
+options head
+abbr Returns canonicalized absolute pathname
+    realpath(${1:#:string $path})
+
+snippet rename
+options head
+abbr Renames a file or directory
+    rename(${1:#:string $oldname}, ${2:#:string $newname}, ${3:#:resource $context})
+
+snippet rmdir
+options head
+abbr Removes directory
+    rmdir(${1:#:string $dirname}, ${2:#:resource $context})
+
+snippet symlink
+options head
+abbr Creates a symbolic link
+    symlink(${1:#:string $target}, ${2:#:string $link})
+
+snippet tempnam
+options head
+abbr Create file with unique file name
+    tempnam(${1:#:string $dir}, ${2:#:string $prefix})
+
+snippet tmpfile
+options head
+abbr Creates a temporary file
+    tmpfile()
+
+snippet touch
+options head
+abbr Sets access and modification time of file
+    touch(${1:#:string $filename}, ${2:#:int $time = time()}, ${3:#:int $atime})
+
+snippet umask
+options head
+abbr Changes the current umask
+    umask(${1:#:int $mask})
+
+snippet unlink
+options head
+abbr Deletes a file
+    unlink(${1:#:string $filename}, ${2:#:resource $context})
+
+snippet setproctitle
+options head
+abbr Set the process title
+    setproctitle(${1:#:string $title})
+
+snippet setthreadtitle
+options head
+abbr Set the thread title
+    setthreadtitle(${1:#:string $title})
+
+snippet bindtextdomain
+options head
+abbr Sets the path for a domain
+    bindtextdomain(${1:#:string $domain}, ${2:#:string $directory})
+
+snippet dcgettext
+options head
+abbr Overrides the domain for a single lookup
+    dcgettext(${1:#:string $domain}, ${2:#:string $message}, ${3:#:int $category})
+
+snippet dcngettext
+options head
+abbr Plural version of dcgettext
+    dcngettext(${1:#:string $domain}, ${2:#:string $msgid1}, ${3:#:string $msgid2}, ${4:#:int $n}, ${5:#:int $category})
+
+snippet dgettext
+options head
+abbr Override the current domain
+    dgettext(${1:#:string $domain}, ${2:#:string $message})
+
+snippet dngettext
+options head
+abbr Plural version of dgettext
+    dngettext(${1:#:string $domain}, ${2:#:string $msgid1}, ${3:#:string $msgid2}, ${4:#:int $n})
+
+snippet gettext
+options head
+abbr Lookup a message in the current domain
+    gettext(${1:#:string $message})
+
+snippet ngettext
+options head
+abbr Plural version of gettext
+    ngettext(${1:#:string $msgid1}, ${2:#:string $msgid2}, ${3:#:int $n})
+
+snippet iconv
+options head
+abbr Convert string to requested character encoding
+    iconv(${1:#:string $in_charset}, ${2:#:string $out_charset}, ${3:#:string $str})
+
+snippet ob_iconv_handler
+options head
+abbr Convert character encoding as output buffer handler
+    ob_iconv_handler(${1:#:string $contents}, ${2:#:int $status})
+
+snippet mb_chr
+options head
+abbr Get a specific character
+    mb_chr(${1:#:int $cp}, ${2:#:string $encoding})
+
+snippet mb_convert_case
+options head
+abbr Perform case folding on a string
+    mb_convert_case(${1:#:string $str}, ${2:#:int $mode}, ${3:#:string $encoding = mb_internal_encoding()})
+
+snippet mb_convert_encoding
+options head
+abbr Convert character encoding
+    mb_convert_encoding(${1:#:string $str}, ${2:#:string $to_encoding}, ${3:#:mixed $from_encoding = mb_internal_encoding()})
+
+snippet mb_convert_variables
+options head
+abbr Convert character code in variable(s)
+    mb_convert_variables(${1:#:string $to_encoding}, ${2:#:mixed $from_encoding}, ${3:#:mixed &$vars}, ${4:#:mixed &$...})
+
+snippet mb_decode_mimeheader
+options head
+abbr Decode string in MIME header field
+    mb_decode_mimeheader(${1:#:string $str})
+
+snippet mb_detect_order
+options head
+abbr Set/Get character encoding detection order
+    mb_detect_order(${1:#:mixed $encoding_list = mb_detect_order()})
+
+snippet mb_encoding_aliases
+options head
+abbr Get aliases of a known encoding type
+    mb_encoding_aliases(${1:#:string $encoding})
+
+snippet mb_ereg_match
+options head
+abbr Regular expression match for multibyte string
+    mb_ereg_match(${1:#:string $pattern}, ${2:#:string $string}, ${3:#:string $option = "msr"})
+
+snippet mb_ereg_replace_callback
+options head
+abbr Perform a regular expresssion seach and replace with multibyte support using a callback
+    mb_ereg_replace_callback(${1:#:string $pattern}, ${2:#:callable $callback}, ${3:#:string $string}, ${4:#:string $option = "msr"})
+
+snippet mb_ereg_replace
+options head
+abbr Replace regular expression with multibyte support
+    mb_ereg_replace(${1:#:string $pattern}, ${2:#:string $replacement}, ${3:#:string $string}, ${4:#:string $option = "msr"})
+
+snippet mb_ereg_search_getpos
+options head
+abbr Returns start point for next regular expression match
+    mb_ereg_search_getpos()
+
+snippet mb_ereg_search_getregs
+options head
+abbr Retrieve the result from the last multibyte regular expression match
+    mb_ereg_search_getregs()
+
+snippet mb_ereg_search_init
+options head
+abbr Setup string and regular expression for a multibyte regular expression match
+    mb_ereg_search_init(${1:#:string $string}, ${2:#:string $pattern}, ${3:#:string $option = "msr"})
+
+snippet mb_ereg_search_pos
+options head
+abbr Returns position and length of a matched part of the multibyte regular expression for a predefined multibyte string
+    mb_ereg_search_pos(${1:#:string $pattern}, ${2:#:string $option = "ms"})
+
+snippet mb_ereg_search_regs
+options head
+abbr Returns the matched part of a multibyte regular expression
+    mb_ereg_search_regs(${1:#:string $pattern}, ${2:#:string $option = "ms"})
+
+snippet mb_ereg_search_setpos
+options head
+abbr Set start point of next regular expression match
+    mb_ereg_search_setpos(${1:#:int $position})
+
+snippet mb_ereg_search
+options head
+abbr Multibyte regular expression match for predefined multibyte string
+    mb_ereg_search(${1:#:string $pattern}, ${2:#:string $option = "ms"})
+
+snippet mb_ereg
+options head
+abbr Regular expression match with multibyte support
+    mb_ereg(${1:#:string $pattern}, ${2:#:string $string}, ${3:#:array &$regs})
+
+snippet mb_eregi_replace
+options head
+abbr Replace regular expression with multibyte support ignoring case
+    mb_eregi_replace(${1:#:string $pattern}, ${2:#:string $replace}, ${3:#:string $string}, ${4:#:string $option = "msri"})
+
+snippet mb_eregi
+options head
+abbr Regular expression match ignoring case with multibyte support
+    mb_eregi(${1:#:string $pattern}, ${2:#:string $string}, ${3:#:array &$regs})
+
+snippet mb_get_info
+options head
+abbr Get internal settings of mbstring
+    mb_get_info(${1:#:string $type = "all"})
+
+snippet mb_http_input
+options head
+abbr Detect HTTP input character encoding
+    mb_http_input(${1:#:string $type = ""})
+
+snippet mb_http_output
+options head
+abbr Set/Get HTTP output character encoding
+    mb_http_output(${1:#:string $encoding = mb_http_output()})
+
+snippet mb_internal_encoding
+options head
+abbr Set/Get internal character encoding
+    mb_internal_encoding(${1:#:string $encoding = mb_internal_encoding()})
+
+snippet mb_language
+options head
+abbr Set/Get current language
+    mb_language(${1:#:string $language = mb_language()})
+
+snippet mb_list_encodings
+options head
+abbr Returns an array of all supported encodings
+    mb_list_encodings()
+
+snippet mb_ord
+options head
+abbr Get code point of character
+    mb_ord(${1:#:string $str}, ${2:#:string $encoding})
+
+snippet mb_output_handler
+options head
+abbr Callback function converts character encoding in output buffer
+    mb_output_handler(${1:#:string $contents}, ${2:#:int $status})
+
+snippet mb_parse_str
+options head
+abbr Parse GET/POST/COOKIE data and set global variable
+    mb_parse_str(${1:#:string $encoded_string}, ${2:#:array &$result})
+
+snippet mb_preferred_mime_name
+options head
+abbr Get MIME charset string
+    mb_preferred_mime_name(${1:#:string $encoding})
+
+snippet mb_regex_encoding
+options head
+abbr Set/Get character encoding for multibyte regex
+    mb_regex_encoding(${1:#:string $encoding = mb_regex_encoding()})
+
+snippet mb_regex_set_options
+options head
+abbr Set/Get the default options for mbregex functions
+    mb_regex_set_options(${1:#:string $options = mb_regex_set_options()})
+
+snippet mb_scrub
+options head
+abbr Description
+    mb_scrub(${1:#:string $str}, ${2:#:string $encoding})
+
+snippet mb_split
+options head
+abbr Split multibyte string using regular expression
+    mb_split(${1:#:string $pattern}, ${2:#:string $string}, ${3:#:int $limit = -1})
+
+snippet mb_strimwidth
+options head
+abbr Get truncated string with specified width
+    mb_strimwidth(${1:#:string $str}, ${2:#:int $start}, ${3:#:int $width}, ${4:#:string $trimmarker = ""}, ${5:#:string $encoding = mb_internal_encoding()})
+
+snippet mb_stripos
+options head
+abbr Finds position of first occurrence of a string within another, case insensitive
+    mb_stripos(${1:#:string $haystack}, ${2:#:string $needle}, ${3:#:int $offset = 0}, ${4:#:string $encoding = mb_internal_encoding()})
+
+snippet mb_strlen
+options head
+abbr Get string length
+    mb_strlen(${1:#:string $str}, ${2:#:string $encoding = mb_internal_encoding()})
+
+snippet mb_strpos
+options head
+abbr Find position of first occurrence of string in a string
+    mb_strpos(${1:#:string $haystack}, ${2:#:string $needle}, ${3:#:int $offset = 0}, ${4:#:string $encoding = mb_internal_encoding()})
+
+snippet mb_strripos
+options head
+abbr Finds position of last occurrence of a string within another, case insensitive
+    mb_strripos(${1:#:string $haystack}, ${2:#:string $needle}, ${3:#:int $offset = 0}, ${4:#:string $encoding = mb_internal_encoding()})
+
+snippet mb_strrpos
+options head
+abbr Find position of last occurrence of a string in a string
+    mb_strrpos(${1:#:string $haystack}, ${2:#:string $needle}, ${3:#:int $offset = 0}, ${4:#:string $encoding = mb_internal_encoding()})
+
+snippet mb_strtolower
+options head
+abbr Make a string lowercase
+    mb_strtolower(${1:#:string $str}, ${2:#:string $encoding = mb_internal_encoding()})
+
+snippet mb_strtoupper
+options head
+abbr Make a string uppercase
+    mb_strtoupper(${1:#:string $str}, ${2:#:string $encoding = mb_internal_encoding()})
+
+snippet mb_strwidth
+options head
+abbr Return width of string
+    mb_strwidth(${1:#:string $str}, ${2:#:string $encoding = mb_internal_encoding()})
+
+snippet mb_substitute_character
+options head
+abbr Set/Get substitution character
+    mb_substitute_character(${1:#:mixed $substchar = mb_substitute_character()})
+
+snippet mb_substr_count
+options head
+abbr Count the number of substring occurrences
+    mb_substr_count(${1:#:string $haystack}, ${2:#:string $needle}, ${3:#:string $encoding = mb_internal_encoding()})
+
+snippet getimagesize
+options head
+abbr Get the size of an image
+    getimagesize(${1:#:string $filename}, ${2:#:array &$imageinfo})
+
+snippet getimagesizefromstring
+options head
+abbr Get the size of an image from a string
+    getimagesizefromstring(${1:#:string $imagedata}, ${2:#:array &$imageinfo})
+
+snippet image_type_to_mime_type
+options head
+abbr Get Mime-Type for image-type returned by getimagesize, exif_read_data, exif_thumbnail, exif_imagetype
+    image_type_to_mime_type(${1:#:int $imagetype})
+
+snippet image2wbmp
+options head
+abbr Output image to browser or file
+    image2wbmp(${1:#:resource $image}, ${2:#:string $filename}, ${3:#:int $foreground})
+
+snippet imageaffine
+options head
+abbr Return an image containing the affine transformed src image, using an optional clipping area
+    imageaffine(${1:#:resource $image}, ${2:#:array $affine}, ${3:#:array $clip})
+
+snippet imageaffinematrixconcat
+options head
+abbr Concatenate two affine transformation matrices
+    imageaffinematrixconcat(${1:#:array $m1}, ${2:#:array $m2})
+
+snippet imageaffinematrixget
+options head
+abbr Get an affine transformation matrix
+    imageaffinematrixget(${1:#:int $type}, ${2:#:mixed $options})
+
+snippet imagealphablending
+options head
+abbr Set the blending mode for an image
+    imagealphablending(${1:#:resource $image}, ${2:#:bool $blendmode})
+
+snippet imageantialias
+options head
+abbr Should antialias functions be used or not
+    imageantialias(${1:#:resource $image}, ${2:#:bool $enabled})
+
+snippet imagearc
+options head
+abbr Draws an arc
+    imagearc(${1:#:resource $image}, ${2:#:int $cx}, ${3:#:int $cy}, ${4:#:int $width}, ${5:#:int $height}, ${6:#:int $start}, ${7:#:int $end}, ${8:#:int $color})
+
+snippet imagechar
+options head
+abbr Draw a character horizontally
+    imagechar(${1:#:resource $image}, ${2:#:int $font}, ${3:#:int $x}, ${4:#:int $y}, ${5:#:string $c}, ${6:#:int $color})
+
+snippet imagecharup
+options head
+abbr Draw a character vertically
+    imagecharup(${1:#:resource $image}, ${2:#:int $font}, ${3:#:int $x}, ${4:#:int $y}, ${5:#:string $c}, ${6:#:int $color})
+
+snippet imagecolorallocate
+options head
+abbr Allocate a color for an image
+    imagecolorallocate(${1:#:resource $image}, ${2:#:int $red}, ${3:#:int $green}, ${4:#:int $blue})
+
+snippet imagecolorallocatealpha
+options head
+abbr Allocate a color for an image
+    imagecolorallocatealpha(${1:#:resource $image}, ${2:#:int $red}, ${3:#:int $green}, ${4:#:int $blue}, ${5:#:int $alpha})
+
+snippet imagecolorat
+options head
+abbr Get the index of the color of a pixel
+    imagecolorat(${1:#:resource $image}, ${2:#:int $x}, ${3:#:int $y})
+
+snippet imagecolorclosest
+options head
+abbr Get the index of the closest color to the specified color
+    imagecolorclosest(${1:#:resource $image}, ${2:#:int $red}, ${3:#:int $green}, ${4:#:int $blue})
+
+snippet imagecolorclosestalpha
+options head
+abbr Get the index of the closest color to the specified color + alpha
+    imagecolorclosestalpha(${1:#:resource $image}, ${2:#:int $red}, ${3:#:int $green}, ${4:#:int $blue}, ${5:#:int $alpha})
+
+snippet imagecolorclosesthwb
+options head
+abbr Get the index of the color which has the hue, white and blackness
+    imagecolorclosesthwb(${1:#:resource $image}, ${2:#:int $red}, ${3:#:int $green}, ${4:#:int $blue})
+
+snippet imagecolordeallocate
+options head
+abbr De-allocate a color for an image
+    imagecolordeallocate(${1:#:resource $image}, ${2:#:int $color})
+
+snippet imagecolorexact
+options head
+abbr Get the index of the specified color
+    imagecolorexact(${1:#:resource $image}, ${2:#:int $red}, ${3:#:int $green}, ${4:#:int $blue})
+
+snippet imagecolorexactalpha
+options head
+abbr Get the index of the specified color + alpha
+    imagecolorexactalpha(${1:#:resource $image}, ${2:#:int $red}, ${3:#:int $green}, ${4:#:int $blue}, ${5:#:int $alpha})
+
+snippet imagecolormatch
+options head
+abbr Makes the colors of the palette version of an image more closely match the true color version
+    imagecolormatch(${1:#:resource $image1}, ${2:#:resource $image2})
+
+snippet imagecolorresolve
+options head
+abbr Get the index of the specified color or its closest possible alternative
+    imagecolorresolve(${1:#:resource $image}, ${2:#:int $red}, ${3:#:int $green}, ${4:#:int $blue})
+
+snippet imagecolorresolvealpha
+options head
+abbr Get the index of the specified color + alpha or its closest possible alternative
+    imagecolorresolvealpha(${1:#:resource $image}, ${2:#:int $red}, ${3:#:int $green}, ${4:#:int $blue}, ${5:#:int $alpha})
+
+snippet imagecolorset
+options head
+abbr Set the color for the specified palette index
+    imagecolorset(${1:#:resource $image}, ${2:#:int $index}, ${3:#:int $red}, ${4:#:int $green}, ${5:#:int $blue}, ${6:#:int $alpha = 0})
+
+snippet imagecolorsforindex
+options head
+abbr Get the colors for an index
+    imagecolorsforindex(${1:#:resource $image}, ${2:#:int $index})
+
+snippet imagecolorstotal
+options head
+abbr Find out the number of colors in an image's palette
+    imagecolorstotal(${1:#:resource $image})
+
+snippet imagecolortransparent
+options head
+abbr Define a color as transparent
+    imagecolortransparent(${1:#:resource $image}, ${2:#:int $color})
+
+snippet imageconvolution
+options head
+abbr Apply a 3x3 convolution matrix, using coefficient and offset
+    imageconvolution(${1:#:resource $image}, ${2:#:array $matrix}, ${3:#:float $div}, ${4:#:float $offset})
+
+snippet imagecopy
+options head
+abbr Copy part of an image
+    imagecopy(${1:#:resource $dst_im}, ${2:#:resource $src_im}, ${3:#:int $dst_x}, ${4:#:int $dst_y}, ${5:#:int $src_x}, ${6:#:int $src_y}, ${7:#:int $src_w}, ${8:#:int $src_h})
+
+snippet imagecopymerge
+options head
+abbr Copy and merge part of an image
+    imagecopymerge(${1:#:resource $dst_im}, ${2:#:resource $src_im}, ${3:#:int $dst_x}, ${4:#:int $dst_y}, ${5:#:int $src_x}, ${6:#:int $src_y}, ${7:#:int $src_w}, ${8:#:int $src_h}, ${9:#:int $pct})
+
+snippet imagecopymergegray
+options head
+abbr Copy and merge part of an image with gray scale
+    imagecopymergegray(${1:#:resource $dst_im}, ${2:#:resource $src_im}, ${3:#:int $dst_x}, ${4:#:int $dst_y}, ${5:#:int $src_x}, ${6:#:int $src_y}, ${7:#:int $src_w}, ${8:#:int $src_h}, ${9:#:int $pct})
+
+snippet imagecopyresampled
+options head
+abbr Copy and resize part of an image with resampling
+    imagecopyresampled(${1:#:resource $dst_image}, ${2:#:resource $src_image}, ${3:#:int $dst_x}, ${4:#:int $dst_y}, ${5:#:int $src_x}, ${6:#:int $src_y}, ${7:#:int $dst_w}, ${8:#:int $dst_h}, ${9:#:int $src_w}, ${10:#:int $src_h})
+
+snippet imagecopyresized
+options head
+abbr Copy and resize part of an image
+    imagecopyresized(${1:#:resource $dst_image}, ${2:#:resource $src_image}, ${3:#:int $dst_x}, ${4:#:int $dst_y}, ${5:#:int $src_x}, ${6:#:int $src_y}, ${7:#:int $dst_w}, ${8:#:int $dst_h}, ${9:#:int $src_w}, ${10:#:int $src_h})
+
+snippet imagecreate
+options head
+abbr Create a new palette based image
+    imagecreate(${1:#:int $width}, ${2:#:int $height})
+
+snippet imagecreatefrombmp
+options head
+abbr Create a new image from file or URL
+    imagecreatefrombmp(${1:#:string $filename})
+
+snippet imagecreatefromgd2
+options head
+abbr Create a new image from GD2 file or URL
+    imagecreatefromgd2(${1:#:string $filename})
+
+snippet imagecreatefromgd
+options head
+abbr Create a new image from GD file or URL
+    imagecreatefromgd(${1:#:string $filename})
+
+snippet imagecreatefromgif
+options head
+abbr Create a new image from file or URL
+    imagecreatefromgif(${1:#:string $filename})
+
+snippet imagecreatefromjpeg
+options head
+abbr Create a new image from file or URL
+    imagecreatefromjpeg(${1:#:string $filename})
+
+snippet imagecreatefrompng
+options head
+abbr Create a new image from file or URL
+    imagecreatefrompng(${1:#:string $filename})
+
+snippet imagecreatefromstring
+options head
+abbr Create a new image from the image stream in the string
+    imagecreatefromstring(${1:#:string $image})
+
+snippet imagecreatefromwbmp
+options head
+abbr Create a new image from file or URL
+    imagecreatefromwbmp(${1:#:string $filename})
+
+snippet imagecreatefromwebp
+options head
+abbr Create a new image from file or URL
+    imagecreatefromwebp(${1:#:string $filename})
+
+snippet imagecreatefromxbm
+options head
+abbr Create a new image from file or URL
+    imagecreatefromxbm(${1:#:string $filename})
+
+snippet imagecreatefromxpm
+options head
+abbr Create a new image from file or URL
+    imagecreatefromxpm(${1:#:string $filename})
+
+snippet imagecreatetruecolor
+options head
+abbr Create a new true color image
+    imagecreatetruecolor(${1:#:int $width}, ${2:#:int $height})
+
+snippet imagecrop
+options head
+abbr Crop an image to the given rectangle
+    imagecrop(${1:#:resource $image}, ${2:#:array $rect})
+
+snippet imagedashedline
+options head
+abbr Draw a dashed line
+    imagedashedline(${1:#:resource $image}, ${2:#:int $x1}, ${3:#:int $y1}, ${4:#:int $x2}, ${5:#:int $y2}, ${6:#:int $color})
+
+snippet imagedestroy
+options head
+abbr Destroy an image
+    imagedestroy(${1:#:resource $image})
+
+snippet imageellipse
+options head
+abbr Draw an ellipse
+    imageellipse(${1:#:resource $image}, ${2:#:int $cx}, ${3:#:int $cy}, ${4:#:int $width}, ${5:#:int $height}, ${6:#:int $color})
+
+snippet imagefill
+options head
+abbr Flood fill
+    imagefill(${1:#:resource $image}, ${2:#:int $x}, ${3:#:int $y}, ${4:#:int $color})
+
+snippet imagefilledarc
+options head
+abbr Draw a partial arc and fill it
+    imagefilledarc(${1:#:resource $image}, ${2:#:int $cx}, ${3:#:int $cy}, ${4:#:int $width}, ${5:#:int $height}, ${6:#:int $start}, ${7:#:int $end}, ${8:#:int $color}, ${9:#:int $style})
+
+snippet imagefilledellipse
+options head
+abbr Draw a filled ellipse
+    imagefilledellipse(${1:#:resource $image}, ${2:#:int $cx}, ${3:#:int $cy}, ${4:#:int $width}, ${5:#:int $height}, ${6:#:int $color})
+
+snippet imagefilledpolygon
+options head
+abbr Draw a filled polygon
+    imagefilledpolygon(${1:#:resource $image}, ${2:#:array $points}, ${3:#:int $num_points}, ${4:#:int $color})
+
+snippet imagefilledrectangle
+options head
+abbr Draw a filled rectangle
+    imagefilledrectangle(${1:#:resource $image}, ${2:#:int $x1}, ${3:#:int $y1}, ${4:#:int $x2}, ${5:#:int $y2}, ${6:#:int $color})
+
+snippet imagefilltoborder
+options head
+abbr Flood fill to specific color
+    imagefilltoborder(${1:#:resource $image}, ${2:#:int $x}, ${3:#:int $y}, ${4:#:int $border}, ${5:#:int $color})
+
+snippet imagefilter
+options head
+abbr Applies a filter to an image
+    imagefilter(${1:#:resource $image}, ${2:#:int $filtertype}, ${3:#:int $arg1}, ${4:#:int $arg2}, ${5:#:int $arg3}, ${6:#:int $arg4})
+
+snippet imageflip
+options head
+abbr Flips an image using a given mode
+    imageflip(${1:#:resource $image}, ${2:#:int $mode})
+
+snippet imagefontheight
+options head
+abbr Get font height
+    imagefontheight(${1:#:int $font})
+
+snippet imagefontwidth
+options head
+abbr Get font width
+    imagefontwidth(${1:#:int $font})
+
+snippet imageftbbox
+options head
+abbr Give the bounding box of a text using fonts via freetype2
+    imageftbbox(${1:#:float $size}, ${2:#:float $angle}, ${3:#:string $fontfile}, ${4:#:string $text}, ${5:#:array $extrainfo})
+
+snippet imagefttext
+options head
+abbr Write text to the image using fonts using FreeType 2
+    imagefttext(${1:#:resource $image}, ${2:#:float $size}, ${3:#:float $angle}, ${4:#:int $x}, ${5:#:int $y}, ${6:#:int $color}, ${7:#:string $fontfile}, ${8:#:string $text}, ${9:#:array $extrainfo})
+
+snippet imagegammacorrect
+options head
+abbr Apply a gamma correction to a GD image
+    imagegammacorrect(${1:#:resource $image}, ${2:#:float $inputgamma}, ${3:#:float $outputgamma})
+
+snippet imagegetclip
+options head
+abbr Get the clipping rectangle
+    imagegetclip(${1:#:resource $im})
+
+snippet imagegrabscreen
+options head
+abbr Captures the whole screen
+    imagegrabscreen()
+
+snippet imagegrabwindow
+options head
+abbr Captures a window
+    imagegrabwindow(${1:#:int $window_handle}, ${2:#:int $client_area = 0})
+
+snippet imageinterlace
+options head
+abbr Enable or disable interlace
+    imageinterlace(${1:#:resource $image}, ${2:#:int $interlace = 0})
+
+snippet imageistruecolor
+options head
+abbr Finds whether an image is a truecolor image
+    imageistruecolor(${1:#:resource $image})
+
+snippet imagelayereffect
+options head
+abbr Set the alpha blending flag to use layering effects
+    imagelayereffect(${1:#:resource $image}, ${2:#:int $effect})
+
+snippet imageline
+options head
+abbr Draw a line
+    imageline(${1:#:resource $image}, ${2:#:int $x1}, ${3:#:int $y1}, ${4:#:int $x2}, ${5:#:int $y2}, ${6:#:int $color})
+
+snippet imageloadfont
+options head
+abbr Load a new font
+    imageloadfont(${1:#:string $file})
+
+snippet imageopenpolygon
+options head
+abbr Draws an open polygon
+    imageopenpolygon(${1:#:resource $image}, ${2:#:array $points}, ${3:#:int $num_points}, ${4:#:int $color})
+
+snippet imagepalettecopy
+options head
+abbr Copy the palette from one image to another
+    imagepalettecopy(${1:#:resource $destination}, ${2:#:resource $source})
+
+snippet imagepalettetotruecolor
+options head
+abbr Converts a palette based image to true color
+    imagepalettetotruecolor(${1:#:resource $src})
+
+snippet imagepolygon
+options head
+abbr Draws a polygon
+    imagepolygon(${1:#:resource $image}, ${2:#:array $points}, ${3:#:int $num_points}, ${4:#:int $color})
+
+snippet imagepsbbox
+options head
+abbr Give the bounding box of a text rectangle using PostScript Type1 fonts
+    imagepsbbox(${1:#:string $text}, ${2:#:resource $font}, ${3:#:int $size}, ${4:#:int $space}, ${5:#:int $tightness}, ${6:#:float $angle})
+
+snippet imagepsencodefont
+options head
+abbr Change the character encoding vector of a font
+    imagepsencodefont(${1:#:resource $font_index}, ${2:#:string $encodingfile})
+
+snippet imagepsextendfont
+options head
+abbr Extend or condense a font
+    imagepsextendfont(${1:#:resource $font_index}, ${2:#:float $extend})
+
+snippet imagepsfreefont
+options head
+abbr Free memory used by a PostScript Type 1 font
+    imagepsfreefont(${1:#:resource $font_index})
+
+snippet imagepsloadfont
+options head
+abbr Load a PostScript Type 1 font from file
+    imagepsloadfont(${1:#:string $filename})
+
+snippet imagepsslantfont
+options head
+abbr Slant a font
+    imagepsslantfont(${1:#:resource $font_index}, ${2:#:float $slant})
+
+snippet imagepstext
+options head
+abbr Draws a text over an image using PostScript Type1 fonts
+    imagepstext(${1:#:resource $image}, ${2:#:string $text}, ${3:#:resource $font_index}, ${4:#:int $size}, ${5:#:int $foreground}, ${6:#:int $background}, ${7:#:int $x}, ${8:#:int $y}, ${9:#:int $space = 0}, ${10:#:int $tightness = 0}, ${11:#:float $angle = 0.0}, ${12:#:int $antialias_steps = 4})
+
+snippet imagerectangle
+options head
+abbr Draw a rectangle
+    imagerectangle(${1:#:resource $image}, ${2:#:int $x1}, ${3:#:int $y1}, ${4:#:int $x2}, ${5:#:int $y2}, ${6:#:int $color})
+
+snippet imageresolution
+options head
+abbr Get or set the resolution of the image
+    imageresolution(${1:#:resource $image}, ${2:#:int $res_x}, ${3:#:int $res_y = $res_x})
+
+snippet imagerotate
+options head
+abbr Rotate an image with a given angle
+    imagerotate(${1:#:resource $image}, ${2:#:float $angle}, ${3:#:int $bgd_color}, ${4:#:int $ignore_transparent = 0})
+
+snippet imagesavealpha
+options head
+abbr Set the flag to save full alpha channel information (as opposed to single-color transparency) when saving PNG images
+    imagesavealpha(${1:#:resource $image}, ${2:#:bool $saveflag})
+
+snippet imagesetbrush
+options head
+abbr Set the brush image for line drawing
+    imagesetbrush(${1:#:resource $image}, ${2:#:resource $brush})
+
+snippet imagesetclip
+options head
+abbr Set the clipping rectangle
+    imagesetclip(${1:#:resource $im}, ${2:#:int $x1}, ${3:#:int $y1}, ${4:#:int $x2}, ${5:#:int $y2})
+
+snippet imagesetpixel
+options head
+abbr Set a single pixel
+    imagesetpixel(${1:#:resource $image}, ${2:#:int $x}, ${3:#:int $y}, ${4:#:int $color})
+
+snippet imagesetstyle
+options head
+abbr Set the style for line drawing
+    imagesetstyle(${1:#:resource $image}, ${2:#:array $style})
+
+snippet imagesetthickness
+options head
+abbr Set the thickness for line drawing
+    imagesetthickness(${1:#:resource $image}, ${2:#:int $thickness})
+
+snippet imagesettile
+options head
+abbr Set the tile image for filling
+    imagesettile(${1:#:resource $image}, ${2:#:resource $tile})
+
+snippet imagestring
+options head
+abbr Draw a string horizontally
+    imagestring(${1:#:resource $image}, ${2:#:int $font}, ${3:#:int $x}, ${4:#:int $y}, ${5:#:string $string}, ${6:#:int $color})
+
+snippet imagestringup
+options head
+abbr Draw a string vertically
+    imagestringup(${1:#:resource $image}, ${2:#:int $font}, ${3:#:int $x}, ${4:#:int $y}, ${5:#:string $string}, ${6:#:int $color})
+
+snippet imagesx
+options head
+abbr Get image width
+    imagesx(${1:#:resource $image})
+
+snippet imagesy
+options head
+abbr Get image height
+    imagesy(${1:#:resource $image})
+
+snippet imagetruecolortopalette
+options head
+abbr Convert a true color image to a palette image
+    imagetruecolortopalette(${1:#:resource $image}, ${2:#:bool $dither}, ${3:#:int $ncolors})
+
+snippet imagettfbbox
+options head
+abbr Give the bounding box of a text using TrueType fonts
+    imagettfbbox(${1:#:float $size}, ${2:#:float $angle}, ${3:#:string $fontfile}, ${4:#:string $text})
+
+snippet imagettftext
+options head
+abbr Write text to the image using TrueType fonts
+    imagettftext(${1:#:resource $image}, ${2:#:float $size}, ${3:#:float $angle}, ${4:#:int $x}, ${5:#:int $y}, ${6:#:int $color}, ${7:#:string $fontfile}, ${8:#:string $text})
+
+snippet imagetypes
+options head
+abbr Return the image types supported by this PHP build
+    imagetypes()
+
+snippet iptcembed
+options head
+abbr Embeds binary IPTC data into a JPEG image
+    iptcembed(${1:#:string $iptcdata}, ${2:#:string $jpeg_file_name}, ${3:#:int $spool = 0})
+
+snippet iptcparse
+options head
+abbr Parse a binary IPTC block into single tags
+    iptcparse(${1:#:string $iptcblock})
+
+snippet jpeg2wbmp
+options head
+abbr Convert JPEG image file to WBMP image file
+    jpeg2wbmp(${1:#:string $jpegname}, ${2:#:string $wbmpname}, ${3:#:int $dest_height}, ${4:#:int $dest_width}, ${5:#:int $threshold})
+
+snippet png2wbmp
+options head
+abbr Convert PNG image file to WBMP image file
+    png2wbmp(${1:#:string $pngname}, ${2:#:string $wbmpname}, ${3:#:int $dest_height}, ${4:#:int $dest_width}, ${5:#:int $threshold})
+
+snippet clear
+options head
+    clear()
+
+snippet destroy
+options head
+    destroy()
+
+snippet render
+options head
+    render()
+
+snippet valid
+options head
+    valid()
+
+snippet affine
+options head
+    affine(${1:#:array $affine})
+
+snippet annotation
+options head
+    annotation(${1:#:float $x}, ${2:#:float $y}, ${3:#:string $text})
+
+snippet arc
+options head
+    arc(${1:#:float $x}, ${2:#:float $y}, ${3:#:float $ray}, ${4:#:float $ang1}, ${5:#:float $ang2})
+
+snippet bezier
+options head
+    bezier(${1:#:array $coordinates})
+
+snippet circle
+options head
+    circle(${1:#:float $x}, ${2:#:float $y}, ${3:#:float $ray})
+
+snippet comment
+options head
+    comment(${1:#:string $comment})
+
+snippet ellipse
+options head
+    ellipse(${1:#:float $x}, ${2:#:float $y}, ${3:#:float $xray}, ${4:#:float $yray})
+
+snippet line
+options head
+    line(${1:#:float $sx}, ${2:#:float $sy}, ${3:#:float $ex}, ${4:#:float $ey})
+
+snippet point
+options head
+    point(${1:#:float $x}, ${2:#:float $y})
+
+snippet polygon
+options head
+    polygon(${1:#:array $coordinates})
+
+snippet polyline
+options head
+    polyline(${1:#:array $coordinates})
+
+snippet pop
+options head
+    pop()
+
+snippet push
+options head
+    push()
+
+snippet rectangle
+options head
+    rectangle(${1:#:float $x}, ${2:#:float $y}, ${3:#:float $width}, ${4:#:float $height})
+
+snippet rotate
+options head
+    rotate(${1:#:float $angle})
+
+snippet scale
+options head
+    scale(${1:#:float $dx}, ${2:#:float $dy})
+
+snippet translate
+options head
+    translate(${1:#:float $x}, ${2:#:float $y})
+
+snippet mail
+options head
+abbr Send mail
+    mail(${1:#:string $to}, ${2:#:string $subject}, ${3:#:string $message}, ${4:#:mixed $additional_headers}, ${5:#:string $additional_parameters})
+
+snippet bcadd
+options head
+abbr Add two arbitrary precision numbers
+    bcadd(${1:#:string $left_operand}, ${2:#:string $right_operand}, ${3:#:int $scale = 0})
+
+snippet bccomp
+options head
+abbr Compare two arbitrary precision numbers
+    bccomp(${1:#:string $left_operand}, ${2:#:string $right_operand}, ${3:#:int $scale = 0})
+
+snippet bcdiv
+options head
+abbr Divide two arbitrary precision numbers
+    bcdiv(${1:#:string $dividend}, ${2:#:string $divisor}, ${3:#:int $scale = 0})
+
+snippet bcmod
+options head
+abbr Get modulus of an arbitrary precision number
+    bcmod(${1:#:string $dividend}, ${2:#:string $divisor}, ${3:#:int $scale = 0})
+
+snippet bcmul
+options head
+abbr Multiply two arbitrary precision numbers
+    bcmul(${1:#:string $left_operand}, ${2:#:string $right_operand}, ${3:#:int $scale = 0})
+
+snippet bcpow
+options head
+abbr Raise an arbitrary precision number to another
+    bcpow(${1:#:string $base}, ${2:#:string $exponent}, ${3:#:int $scale = 0})
+
+snippet bcpowmod
+options head
+abbr Raise an arbitrary precision number to another, reduced by a specified modulus
+    bcpowmod(${1:#:string $base}, ${2:#:string $exponent}, ${3:#:string $modulus}, ${4:#:int $scale = 0})
+
+snippet bcscale
+options head
+abbr Set default scale parameter for all bc math functions
+    bcscale(${1:#:int $scale})
+
+snippet bcsqrt
+options head
+abbr Get the square root of an arbitrary precision number
+    bcsqrt(${1:#:string $operand}, ${2:#:int $scale = 0})
+
+snippet bcsub
+options head
+abbr Subtract one arbitrary precision number from another
+    bcsub(${1:#:string $left_operand}, ${2:#:string $right_operand}, ${3:#:int $scale = 0})
+
+snippet abs
+options head
+abbr Absolute value
+    abs(${1:#:mixed $number})
+
+snippet acos
+options head
+abbr Arc cosine
+    acos(${1:#:float $arg})
+
+snippet acosh
+options head
+abbr Inverse hyperbolic cosine
+    acosh(${1:#:float $arg})
+
+snippet asin
+options head
+abbr Arc sine
+    asin(${1:#:float $arg})
+
+snippet asinh
+options head
+abbr Inverse hyperbolic sine
+    asinh(${1:#:float $arg})
+
+snippet atan2
+options head
+abbr Arc tangent of two variables
+    atan2(${1:#:float $y}, ${2:#:float $x})
+
+snippet atan
+options head
+abbr Arc tangent
+    atan(${1:#:float $arg})
+
+snippet atanh
+options head
+abbr Inverse hyperbolic tangent
+    atanh(${1:#:float $arg})
+
+snippet base_convert
+options head
+abbr Convert a number between arbitrary bases
+    base_convert(${1:#:string $number}, ${2:#:int $frombase}, ${3:#:int $tobase})
+
+snippet bindec
+options head
+abbr Binary to decimal
+    bindec(${1:#:string $binary_string})
+
+snippet ceil
+options head
+abbr Round fractions up
+    ceil(${1:#:float $value})
+
+snippet cos
+options head
+abbr Cosine
+    cos(${1:#:float $arg})
+
+snippet cosh
+options head
+abbr Hyperbolic cosine
+    cosh(${1:#:float $arg})
+
+snippet decbin
+options head
+abbr Decimal to binary
+    decbin(${1:#:int $number})
+
+snippet dechex
+options head
+abbr Decimal to hexadecimal
+    dechex(${1:#:int $number})
+
+snippet decoct
+options head
+abbr Decimal to octal
+    decoct(${1:#:int $number})
+
+snippet deg2rad
+options head
+abbr Converts the number in degrees to the radian equivalent
+    deg2rad(${1:#:float $number})
+
+snippet exp
+options head
+abbr Calculates the exponent of e
+    exp(${1:#:float $arg})
+
+snippet expm1
+options head
+abbr Returns exp(number) - 1, computed in a way that is accurate even when the value of number is close to zero
+    expm1(${1:#:float $arg})
+
+snippet floor
+options head
+abbr Round fractions down
+    floor(${1:#:float $value})
+
+snippet fmod
+options head
+abbr Returns the floating point remainder (modulo) of the division of the arguments
+    fmod(${1:#:float $x}, ${2:#:float $y})
+
+snippet getrandmax
+options head
+abbr Show largest possible random value
+    getrandmax()
+
+snippet hexdec
+options head
+abbr Hexadecimal to decimal
+    hexdec(${1:#:string $hex_string})
+
+snippet hypot
+options head
+abbr Calculate the length of the hypotenuse of a right-angle triangle
+    hypot(${1:#:float $x}, ${2:#:float $y})
+
+snippet intdiv
+options head
+abbr Integer division
+    intdiv(${1:#:int $dividend}, ${2:#:int $divisor})
+
+snippet is_finite
+options head
+abbr Finds whether a value is a legal finite number
+    is_finite(${1:#:float $val})
+
+snippet is_infinite
+options head
+abbr Finds whether a value is infinite
+    is_infinite(${1:#:float $val})
+
+snippet is_nan
+options head
+abbr Finds whether a value is not a number
+    is_nan(${1:#:float $val})
+
+snippet log10
+options head
+abbr Base-10 logarithm
+    log10(${1:#:float $arg})
+
+snippet log1p
+options head
+abbr Returns log(1 + number), computed in a way that is accurate even when the value of number is close to zero
+    log1p(${1:#:float $number})
+
+snippet min
+options head
+abbr Find lowest value
+    min(${1:#:mixed $value1}, ${2:#:mixed $...})
+
+snippet octdec
+options head
+abbr Octal to decimal
+    octdec(${1:#:string $octal_string})
+
+snippet pi
+options head
+abbr Get value of pi
+    pi()
+
+snippet pow
+options head
+abbr Exponential expression
+    pow(${1:#:number $base}, ${2:#:number $exp})
+
+snippet rad2deg
+options head
+abbr Converts the radian number to the equivalent number in degrees
+    rad2deg(${1:#:float $number})
+
+snippet rand
+options head
+abbr Generate a random integer
+    rand(${1:#:int $min}, ${2:#:int $max})
+
+snippet sin
+options head
+abbr Sine
+    sin(${1:#:float $arg})
+
+snippet sinh
+options head
+abbr Hyperbolic sine
+    sinh(${1:#:float $arg})
+
+snippet sqrt
+options head
+abbr Square root
+    sqrt(${1:#:float $arg})
+
+snippet srand
+options head
+abbr Seed the random number generator
+    srand(${1:#:int $seed})
+
+snippet tan
+options head
+abbr Tangent
+    tan(${1:#:float $arg})
+
+snippet tanh
+options head
+abbr Hyperbolic tangent
+    tanh(${1:#:float $arg})
+
+snippet stats_absolute_deviation
+options head
+abbr Returns the absolute deviation of an array of values
+    stats_absolute_deviation(${1:#:array $a})
+
+snippet stats_cdf_beta
+options head
+abbr Calculates any one parameter of the beta distribution given values for the others
+    stats_cdf_beta(${1:#:float $par1}, ${2:#:float $par2}, ${3:#:float $par3}, ${4:#:int $which})
+
+snippet stats_cdf_binomial
+options head
+abbr Calculates any one parameter of the binomial distribution given values for the others
+    stats_cdf_binomial(${1:#:float $par1}, ${2:#:float $par2}, ${3:#:float $par3}, ${4:#:int $which})
+
+snippet stats_cdf_cauchy
+options head
+abbr Calculates any one parameter of the Cauchy distribution given values for the others
+    stats_cdf_cauchy(${1:#:float $par1}, ${2:#:float $par2}, ${3:#:float $par3}, ${4:#:int $which})
+
+snippet stats_cdf_chisquare
+options head
+abbr Calculates any one parameter of the chi-square distribution given values for the others
+    stats_cdf_chisquare(${1:#:float $par1}, ${2:#:float $par2}, ${3:#:int $which})
+
+snippet stats_cdf_exponential
+options head
+abbr Calculates any one parameter of the exponential distribution given values for the others
+    stats_cdf_exponential(${1:#:float $par1}, ${2:#:float $par2}, ${3:#:int $which})
+
+snippet stats_cdf_f
+options head
+abbr Calculates any one parameter of the F distribution given values for the others
+    stats_cdf_f(${1:#:float $par1}, ${2:#:float $par2}, ${3:#:float $par3}, ${4:#:int $which})
+
+snippet stats_cdf_gamma
+options head
+abbr Calculates any one parameter of the gamma distribution given values for the others
+    stats_cdf_gamma(${1:#:float $par1}, ${2:#:float $par2}, ${3:#:float $par3}, ${4:#:int $which})
+
+snippet stats_cdf_laplace
+options head
+abbr Calculates any one parameter of the Laplace distribution given values for the others
+    stats_cdf_laplace(${1:#:float $par1}, ${2:#:float $par2}, ${3:#:float $par3}, ${4:#:int $which})
+
+snippet stats_cdf_logistic
+options head
+abbr Calculates any one parameter of the logistic distribution given values for the others
+    stats_cdf_logistic(${1:#:float $par1}, ${2:#:float $par2}, ${3:#:float $par3}, ${4:#:int $which})
+
+snippet stats_cdf_negative_binomial
+options head
+abbr Calculates any one parameter of the negative binomial distribution given values for the others
+    stats_cdf_negative_binomial(${1:#:float $par1}, ${2:#:float $par2}, ${3:#:float $par3}, ${4:#:int $which})
+
+snippet stats_cdf_noncentral_chisquare
+options head
+abbr Calculates any one parameter of the non-central chi-square distribution given values for the others
+    stats_cdf_noncentral_chisquare(${1:#:float $par1}, ${2:#:float $par2}, ${3:#:float $par3}, ${4:#:int $which})
+
+snippet stats_cdf_noncentral_f
+options head
+abbr Calculates any one parameter of the non-central F distribution given values for the others
+    stats_cdf_noncentral_f(${1:#:float $par1}, ${2:#:float $par2}, ${3:#:float $par3}, ${4:#:float $par4}, ${5:#:int $which})
+
+snippet stats_cdf_noncentral_t
+options head
+abbr Calculates any one parameter of the non-central t-distribution give values for the others
+    stats_cdf_noncentral_t(${1:#:float $par1}, ${2:#:float $par2}, ${3:#:float $par3}, ${4:#:int $which})
+
+snippet stats_cdf_normal
+options head
+abbr Calculates any one parameter of the normal distribution given values for the others
+    stats_cdf_normal(${1:#:float $par1}, ${2:#:float $par2}, ${3:#:float $par3}, ${4:#:int $which})
+
+snippet stats_cdf_poisson
+options head
+abbr Calculates any one parameter of the Poisson distribution given values for the others
+    stats_cdf_poisson(${1:#:float $par1}, ${2:#:float $par2}, ${3:#:int $which})
+
+snippet stats_cdf_t
+options head
+abbr Calculates any one parameter of the t-distribution given values for the others
+    stats_cdf_t(${1:#:float $par1}, ${2:#:float $par2}, ${3:#:int $which})
+
+snippet stats_cdf_uniform
+options head
+abbr Calculates any one parameter of the uniform distribution given values for the others
+    stats_cdf_uniform(${1:#:float $par1}, ${2:#:float $par2}, ${3:#:float $par3}, ${4:#:int $which})
+
+snippet stats_cdf_weibull
+options head
+abbr Calculates any one parameter of the Weibull distribution given values for the others
+    stats_cdf_weibull(${1:#:float $par1}, ${2:#:float $par2}, ${3:#:float $par3}, ${4:#:int $which})
+
+snippet stats_covariance
+options head
+abbr Computes the covariance of two data sets
+    stats_covariance(${1:#:array $a}, ${2:#:array $b})
+
+snippet stats_dens_beta
+options head
+abbr Probability density function of the beta distribution
+    stats_dens_beta(${1:#:float $x}, ${2:#:float $a}, ${3:#:float $b})
+
+snippet stats_dens_cauchy
+options head
+abbr Probability density function of the Cauchy distribution
+    stats_dens_cauchy(${1:#:float $x}, ${2:#:float $ave}, ${3:#:float $stdev})
+
+snippet stats_dens_chisquare
+options head
+abbr Probability density function of the chi-square distribution
+    stats_dens_chisquare(${1:#:float $x}, ${2:#:float $dfr})
+
+snippet stats_dens_exponential
+options head
+abbr Probability density function of the exponential distribution
+    stats_dens_exponential(${1:#:float $x}, ${2:#:float $scale})
+
+snippet stats_dens_f
+options head
+abbr Probability density function of the F distribution
+    stats_dens_f(${1:#:float $x}, ${2:#:float $dfr1}, ${3:#:float $dfr2})
+
+snippet stats_dens_gamma
+options head
+abbr Probability density function of the gamma distribution
+    stats_dens_gamma(${1:#:float $x}, ${2:#:float $shape}, ${3:#:float $scale})
+
+snippet stats_dens_laplace
+options head
+abbr Probability density function of the Laplace distribution
+    stats_dens_laplace(${1:#:float $x}, ${2:#:float $ave}, ${3:#:float $stdev})
+
+snippet stats_dens_logistic
+options head
+abbr Probability density function of the logistic distribution
+    stats_dens_logistic(${1:#:float $x}, ${2:#:float $ave}, ${3:#:float $stdev})
+
+snippet stats_dens_normal
+options head
+abbr Probability density function of the normal distribution
+    stats_dens_normal(${1:#:float $x}, ${2:#:float $ave}, ${3:#:float $stdev})
+
+snippet stats_dens_pmf_binomial
+options head
+abbr Probability mass function of the binomial distribution
+    stats_dens_pmf_binomial(${1:#:float $x}, ${2:#:float $n}, ${3:#:float $pi})
+
+snippet stats_dens_pmf_negative_binomial
+options head
+abbr Probability density function of the negative binomial distribution
+    stats_dens_pmf_negative_binomial(${1:#:float $x}, ${2:#:float $n}, ${3:#:float $pi})
+
+snippet stats_dens_pmf_poisson
+options head
+abbr Probability mass function of the Poisson distribution
+    stats_dens_pmf_poisson(${1:#:float $x}, ${2:#:float $lb})
+
+snippet stats_dens_t
+options head
+abbr Probability density function of the t-distribution
+    stats_dens_t(${1:#:float $x}, ${2:#:float $dfr})
+
+snippet stats_dens_uniform
+options head
+abbr Probability density function of the uniform distribution
+    stats_dens_uniform(${1:#:float $x}, ${2:#:float $a}, ${3:#:float $b})
+
+snippet stats_dens_weibull
+options head
+abbr Probability density function of the Weibull distribution
+    stats_dens_weibull(${1:#:float $x}, ${2:#:float $a}, ${3:#:float $b})
+
+snippet stats_harmonic_mean
+options head
+abbr Returns the harmonic mean of an array of values
+    stats_harmonic_mean(${1:#:array $a})
+
+snippet stats_kurtosis
+options head
+abbr Computes the kurtosis of the data in the array
+    stats_kurtosis(${1:#:array $a})
+
+snippet stats_rand_gen_beta
+options head
+abbr Generates a random deviate from the beta distribution
+    stats_rand_gen_beta(${1:#:float $a}, ${2:#:float $b})
+
+snippet stats_rand_gen_chisquare
+options head
+abbr Generates a random deviate from the chi-square distribution
+    stats_rand_gen_chisquare(${1:#:float $df})
+
+snippet stats_rand_gen_exponential
+options head
+abbr Generates a random deviate from the exponential distribution
+    stats_rand_gen_exponential(${1:#:float $av})
+
+snippet stats_rand_gen_f
+options head
+abbr Generates a random deviate from the F distribution
+    stats_rand_gen_f(${1:#:float $dfn}, ${2:#:float $dfd})
+
+snippet stats_rand_gen_funiform
+options head
+abbr Generates uniform float between low (exclusive) and high (exclusive)
+    stats_rand_gen_funiform(${1:#:float $low}, ${2:#:float $high})
+
+snippet stats_rand_gen_gamma
+options head
+abbr Generates a random deviate from the gamma distribution
+    stats_rand_gen_gamma(${1:#:float $a}, ${2:#:float $r})
+
+snippet stats_rand_gen_ibinomial_negative
+options head
+abbr Generates a random deviate from the negative binomial distribution
+    stats_rand_gen_ibinomial_negative(${1:#:int $n}, ${2:#:float $p})
+
+snippet stats_rand_gen_ibinomial
+options head
+abbr Generates a random deviate from the binomial distribution
+    stats_rand_gen_ibinomial(${1:#:int $n}, ${2:#:float $pp})
+
+snippet stats_rand_gen_int
+options head
+abbr Generates random integer between 1 and 2147483562
+    stats_rand_gen_int()
+
+snippet stats_rand_gen_ipoisson
+options head
+abbr Generates a single random deviate from a Poisson distribution
+    stats_rand_gen_ipoisson(${1:#:float $mu})
+
+snippet stats_rand_gen_iuniform
+options head
+abbr Generates integer uniformly distributed between LOW (inclusive) and HIGH (inclusive)
+    stats_rand_gen_iuniform(${1:#:int $low}, ${2:#:int $high})
+
+snippet stats_rand_gen_noncenral_chisquare
+options head
+abbr Generates a random deviate from the non-central chi-square distribution
+    stats_rand_gen_noncenral_chisquare(${1:#:float $df}, ${2:#:float $xnonc})
+
+snippet stats_rand_gen_noncentral_chisquare
+options head
+abbr Generates a random deviate from the non-central chi-square distribution
+    stats_rand_gen_noncentral_chisquare(${1:#:float $df}, ${2:#:float $xnonc})
+
+snippet stats_rand_gen_noncentral_f
+options head
+abbr Generates a random deviate from the noncentral F distribution
+    stats_rand_gen_noncentral_f(${1:#:float $dfn}, ${2:#:float $dfd}, ${3:#:float $xnonc})
+
+snippet stats_rand_gen_noncentral_t
+options head
+abbr Generates a single random deviate from a non-central t-distribution
+    stats_rand_gen_noncentral_t(${1:#:float $df}, ${2:#:float $xnonc})
+
+snippet stats_rand_gen_normal
+options head
+abbr Generates a single random deviate from a normal distribution
+    stats_rand_gen_normal(${1:#:float $av}, ${2:#:float $sd})
+
+snippet stats_rand_gen_t
+options head
+abbr Generates a single random deviate from a t-distribution
+    stats_rand_gen_t(${1:#:float $df})
+
+snippet stats_rand_get_seeds
+options head
+abbr Get the seed values of the random number generator
+    stats_rand_get_seeds()
+
+snippet stats_rand_phrase_to_seeds
+options head
+abbr Generate two seeds for the RGN random number generator
+    stats_rand_phrase_to_seeds(${1:#:string $phrase})
+
+snippet stats_rand_ranf
+options head
+abbr Generates a random floating point number between 0 and 1
+    stats_rand_ranf()
+
+snippet stats_rand_setall
+options head
+abbr Set seed values to the random generator
+    stats_rand_setall(${1:#:int $iseed1}, ${2:#:int $iseed2})
+
+snippet stats_skew
+options head
+abbr Computes the skewness of the data in the array
+    stats_skew(${1:#:array $a})
+
+snippet stats_stat_binomial_coef
+options head
+abbr Returns a binomial coefficient
+    stats_stat_binomial_coef(${1:#:int $x}, ${2:#:int $n})
+
+snippet stats_stat_correlation
+options head
+abbr Returns the Pearson correlation coefficient of two data sets
+    stats_stat_correlation(${1:#:array $arr1}, ${2:#:array $arr2})
+
+snippet stats_stat_factorial
+options head
+abbr Returns the factorial of an integer
+    stats_stat_factorial(${1:#:int $n})
+
+snippet stats_stat_independent_t
+options head
+abbr Returns the t-value from the independent two-sample t-test
+    stats_stat_independent_t(${1:#:array $arr1}, ${2:#:array $arr2})
+
+snippet stats_stat_innerproduct
+options head
+abbr Returns the inner product of two vectors
+    stats_stat_innerproduct(${1:#:array $arr1}, ${2:#:array $arr2})
+
+snippet stats_stat_paired_t
+options head
+abbr Returns the t-value of the dependent t-test for paired samples
+    stats_stat_paired_t(${1:#:array $arr1}, ${2:#:array $arr2})
+
+snippet stats_stat_percentile
+options head
+abbr Returns the percentile value
+    stats_stat_percentile(${1:#:array $arr}, ${2:#:float $perc})
+
+snippet stats_stat_powersum
+options head
+abbr Returns the power sum of a vector
+    stats_stat_powersum(${1:#:array $arr}, ${2:#:float $power})
+
+snippet output
+options head
+    output(${1:#:int $compression})
+
+snippet concat
+options head
+    concat(${1:#:float $a}, ${2:#:float $b}, ${3:#:float $c}, ${4:#:float $d}, ${5:#:float $x}, ${6:#:float $y})
+
+snippet eofill
+options head
+    eofill()
+
+snippet fill
+options head
+    fill()
+
+snippet move
+options head
+    move(${1:#:float $dx}, ${2:#:float $dy})
+
+snippet remove
+options head
+    remove(${1:#:object $object})
+
+snippet add
+options head
+    add(${1:#:string $key}, ${2:#:mixed $var}, ${3:#:int $flag}, ${4:#:int $expire})
+
+snippet setbackground
+options head
+    setbackground(${1:#:int $red}, ${2:#:int $green}, ${3:#:int $blue})
+
+snippet align
+options head
+    align(${1:#:int $alignement})
+
+snippet escapeshellarg
+options head
+abbr Escape a string to be used as a shell argument
+    escapeshellarg(${1:#:string $arg})
+
+snippet escapeshellcmd
+options head
+abbr Escape shell metacharacters
+    escapeshellcmd(${1:#:string $command})
+
+snippet exec
+options head
+abbr Execute an external program
+    exec(${1:#:string $command}, ${2:#:array &$output}, ${3:#:int &$return_var})
+
+snippet passthru
+options head
+abbr Execute an external program and display raw output
+    passthru(${1:#:string $command}, ${2:#:int &$return_var})
+
+snippet proc_close
+options head
+abbr Close a process opened by proc_open() and return the exit code of that process
+    proc_close(${1:#:resource $process})
+
+snippet proc_get_status
+options head
+abbr Get information about a process opened by proc_open()
+    proc_get_status(${1:#:resource $process})
+
+snippet proc_nice
+options head
+abbr Change the priority of the current process
+    proc_nice(${1:#:int $increment})
+
+snippet proc_open
+options head
+abbr Execute a command and open file pointers for input/output
+    proc_open(${1:#:string $cmd}, ${2:#:array $descriptorspec}, ${3:#:array &$pipes}, ${4:#:string $cwd}, ${5:#:array $env}, ${6:#:array $other_options})
+
+snippet proc_terminate
+options head
+abbr Kills a process opened by proc_open
+    proc_terminate(${1:#:resource $process}, ${2:#:int $signal = 15})
+
+snippet shell_exec
+options head
+abbr Execute command via shell and return the complete output as a string
+    shell_exec(${1:#:string $cmd})
+
+snippet system
+options head
+abbr Execute an external program and display the output
+    system(${1:#:string $command}, ${2:#:int &$return_var})
+
+snippet ftok
+options head
+abbr Convert a pathname and a project identifier to a System V IPC key
+    ftok(${1:#:string $pathname}, ${2:#:string $proj})
+
+snippet json_encode
+options head
+abbr Returns the JSON representation of a value
+    json_encode(${1:#:mixed $value}, ${2:#:int $options = 0}, ${3:#:int $depth = 512})
+
+snippet json_last_error_msg
+options head
+abbr Returns the error string of the last json_encode() or json_decode() call
+    json_last_error_msg()
+
+snippet json_last_error
+options head
+abbr Returns the last error occurred
+    json_last_error()
+
+snippet constant
+options head
+abbr Returns the value of a constant
+    constant(${1:#:string $name})
+
+snippet defined
+options head
+abbr Checks whether a given named constant exists
+    defined(${1:#:string $name})
+
+snippet eval
+options head
+abbr Evaluate a string as PHP code
+    eval(${1:#:string $code})
+
+snippet exit
+options head
+abbr Output a message and terminate the current script
+    exit(${1:#:int $status})
+
+snippet pack
+options head
+abbr Pack data into binary string
+    pack(${1:#:string $format}, ${2:#:mixed $...})
+
+snippet php_check_syntax
+options head
+abbr Check the PHP syntax of (and execute) the specified file
+    php_check_syntax(${1:#:string $filename}, ${2:#:string &$error_message})
+
+snippet php_strip_whitespace
+options head
+abbr Return source with stripped comments and whitespace
+    php_strip_whitespace(${1:#:string $filename})
+
+snippet sleep
+options head
+abbr Delay execution
+    sleep(${1:#:int $seconds})
+
+snippet time_nanosleep
+options head
+abbr Delay for a number of seconds and nanoseconds
+    time_nanosleep(${1:#:int $seconds}, ${2:#:int $nanoseconds})
+
+snippet time_sleep_until
+options head
+abbr Make the script sleep until the specified time
+    time_sleep_until(${1:#:float $timestamp})
+
+snippet unpack
+options head
+abbr Unpack data from binary string
+    unpack(${1:#:string $format}, ${2:#:string $data}, ${3:#:int $offset = 0})
+
+snippet usleep
+options head
+abbr Delay execution in microseconds
+    usleep(${1:#:int $micro_seconds})
+
+snippet dequeue
+options head
+    dequeue()
+
+snippet enqueue
+options head
+    enqueue(${1:#:mixed $value})
+
+snippet stream_bucket_append
+options head
+abbr Append bucket to brigade
+    stream_bucket_append(${1:#:resource $brigade}, ${2:#:object $bucket})
+
+snippet stream_bucket_make_writeable
+options head
+abbr Return a bucket object from the brigade for operating on
+    stream_bucket_make_writeable(${1:#:resource $brigade})
+
+snippet stream_bucket_new
+options head
+abbr Create a new bucket for use on the current stream
+    stream_bucket_new(${1:#:resource $stream}, ${2:#:string $buffer})
+
+snippet stream_bucket_prepend
+options head
+abbr Prepend bucket to brigade
+    stream_bucket_prepend(${1:#:resource $brigade}, ${2:#:object $bucket})
+
+snippet stream_context_create
+options head
+abbr Creates a stream context
+    stream_context_create(${1:#:array $options}, ${2:#:array $params})
+
+snippet stream_context_get_default
+options head
+abbr Retrieve the default stream context
+    stream_context_get_default(${1:#:array $options})
+
+snippet stream_context_get_options
+options head
+abbr Retrieve options for a stream/wrapper/context
+    stream_context_get_options(${1:#:resource $stream_or_context})
+
+snippet stream_context_get_params
+options head
+abbr Retrieves parameters from a context
+    stream_context_get_params(${1:#:resource $stream_or_context})
+
+snippet stream_context_set_default
+options head
+abbr Set the default stream context
+    stream_context_set_default(${1:#:array $options})
+
+snippet stream_context_set_option
+options head
+abbr Sets an option for a stream/wrapper/context
+    stream_context_set_option(${1:#:resource $stream_or_context}, ${2:#:array $options})
+
+snippet stream_context_set_params
+options head
+abbr Set parameters for a stream/wrapper/context
+    stream_context_set_params(${1:#:resource $stream_or_context}, ${2:#:array $params})
+
+snippet stream_copy_to_stream
+options head
+abbr Copies data from one stream to another
+    stream_copy_to_stream(${1:#:resource $source}, ${2:#:resource $dest}, ${3:#:int $maxlength = -1}, ${4:#:int $offset = 0})
+
+snippet stream_filter_append
+options head
+abbr Attach a filter to a stream
+    stream_filter_append(${1:#:resource $stream}, ${2:#:string $filtername}, ${3:#:int $read_write}, ${4:#:mixed $params})
+
+snippet stream_filter_prepend
+options head
+abbr Attach a filter to a stream
+    stream_filter_prepend(${1:#:resource $stream}, ${2:#:string $filtername}, ${3:#:int $read_write}, ${4:#:mixed $params})
+
+snippet stream_filter_register
+options head
+abbr Register a user defined stream filter
+    stream_filter_register(${1:#:string $filtername}, ${2:#:string $classname})
+
+snippet stream_filter_remove
+options head
+abbr Remove a filter from a stream
+    stream_filter_remove(${1:#:resource $stream_filter})
+
+snippet stream_get_contents
+options head
+abbr Reads remainder of a stream into a string
+    stream_get_contents(${1:#:resource $handle}, ${2:#:int $maxlength = -1}, ${3:#:int $offset = -1})
+
+snippet stream_get_filters
+options head
+abbr Retrieve list of registered filters
+    stream_get_filters()
+
+snippet stream_get_line
+options head
+abbr Gets line from stream resource up to a given delimiter
+    stream_get_line(${1:#:resource $handle}, ${2:#:int $length}, ${3:#:string $ending})
+
+snippet stream_get_meta_data
+options head
+abbr Retrieves header/meta data from streams/file pointers
+    stream_get_meta_data(${1:#:resource $stream})
+
+snippet stream_get_transports
+options head
+abbr Retrieve list of registered socket transports
+    stream_get_transports()
+
+snippet stream_get_wrappers
+options head
+abbr Retrieve list of registered streams
+    stream_get_wrappers()
+
+snippet stream_is_local
+options head
+abbr Checks if a stream is a local stream
+    stream_is_local(${1:#:mixed $stream_or_url})
+
+snippet stream_isatty
+options head
+abbr Check if a stream is a TTY
+    stream_isatty(${1:#:resource $stream})
+
+snippet stream_notification_callback
+options head
+abbr A callback function for the notification context parameter
+    stream_notification_callback(${1:#:int $notification_code}, ${2:#:int $severity}, ${3:#:string $message}, ${4:#:int $message_code}, ${5:#:int $bytes_transferred}, ${6:#:int $bytes_max})
+
+snippet stream_resolve_include_path
+options head
+abbr Resolve filename against the include path
+    stream_resolve_include_path(${1:#:string $filename})
+
+snippet stream_select
+options head
+abbr Runs the equivalent of the select() system call on the given arrays of streams with a timeout specified by tv_sec and tv_usec
+    stream_select(${1:#:array &$read}, ${2:#:array &$write}, ${3:#:array &$except}, ${4:#:int $tv_sec}, ${5:#:int $tv_usec = 0})
+
+snippet stream_set_blocking
+options head
+abbr Set blocking/non-blocking mode on a stream
+    stream_set_blocking(${1:#:resource $stream}, ${2:#:bool $mode})
+
+snippet stream_set_chunk_size
+options head
+abbr Set the stream chunk size
+    stream_set_chunk_size(${1:#:resource $fp}, ${2:#:int $chunk_size})
+
+snippet stream_set_read_buffer
+options head
+abbr Set read file buffering on the given stream
+    stream_set_read_buffer(${1:#:resource $stream}, ${2:#:int $buffer})
+
+snippet stream_set_timeout
+options head
+abbr Set timeout period on a stream
+    stream_set_timeout(${1:#:resource $stream}, ${2:#:int $seconds}, ${3:#:int $microseconds = 0})
+
+snippet stream_set_write_buffer
+options head
+abbr Sets write file buffering on the given stream
+    stream_set_write_buffer(${1:#:resource $stream}, ${2:#:int $buffer})
+
+snippet stream_socket_accept
+options head
+abbr Accept a connection on a socket created by stream_socket_server()
+    stream_socket_accept(${1:#:resource $server_socket}, ${2:#:float $timeout = ini_get("default_socket_timeout")}, ${3:#:string &$peername})
+
+snippet stream_socket_enable_crypto
+options head
+abbr Turns encryption on/off on an already connected socket
+    stream_socket_enable_crypto(${1:#:resource $stream}, ${2:#:bool $enable}, ${3:#:int $crypto_type}, ${4:#:resource $session_stream})
+
+snippet stream_socket_get_name
+options head
+abbr Retrieve the name of the local or remote sockets
+    stream_socket_get_name(${1:#:resource $handle}, ${2:#:bool $want_peer})
+
+snippet stream_socket_pair
+options head
+abbr Creates a pair of connected, indistinguishable socket streams
+    stream_socket_pair(${1:#:int $domain}, ${2:#:int $type}, ${3:#:int $protocol})
+
+snippet stream_socket_recvfrom
+options head
+abbr Receives data from a socket, connected or not
+    stream_socket_recvfrom(${1:#:resource $socket}, ${2:#:int $length}, ${3:#:int $flags = 0}, ${4:#:string &$address})
+
+snippet stream_socket_sendto
+options head
+abbr Sends a message to a socket, whether it is connected or not
+    stream_socket_sendto(${1:#:resource $socket}, ${2:#:string $data}, ${3:#:int $flags = 0}, ${4:#:string $address})
+
+snippet stream_socket_shutdown
+options head
+abbr Shutdown a full-duplex connection
+    stream_socket_shutdown(${1:#:resource $stream}, ${2:#:int $how})
+
+snippet stream_supports_lock
+options head
+abbr Tells whether the stream supports locking
+    stream_supports_lock(${1:#:resource $stream})
+
+snippet stream_wrapper_register
+options head
+abbr Register a URL wrapper implemented as a PHP class
+    stream_wrapper_register(${1:#:string $protocol}, ${2:#:string $classname}, ${3:#:int $flags = 0})
+
+snippet stream_wrapper_restore
+options head
+abbr Restores a previously unregistered built-in wrapper
+    stream_wrapper_restore(${1:#:string $protocol})
+
+snippet stream_wrapper_unregister
+options head
+abbr Unregister a URL wrapper
+    stream_wrapper_unregister(${1:#:string $protocol})
+
+snippet ob_tidyhandler
+options head
+abbr ob_start callback function to repair the buffer
+    ob_tidyhandler(${1:#:string $input}, ${2:#:int $mode})
+
+snippet base64_encode
+options head
+abbr Encodes data with MIME base64
+    base64_encode(${1:#:string $data})
+
+snippet get_headers
+options head
+abbr Fetches all the headers sent by the server in response to an HTTP request
+    get_headers(${1:#:string $url}, ${2:#:int $format = 0}, ${3:#:resource $context})
+
+snippet parse_url
+options head
+abbr Parse a URL and return its components
+    parse_url(${1:#:string $url}, ${2:#:int $component = -1})
+
+snippet rawurldecode
+options head
+abbr Decode URL-encoded strings
+    rawurldecode(${1:#:string $str})
+
+snippet rawurlencode
+options head
+abbr URL-encode according to RFC 3986
+    rawurlencode(${1:#:string $str})
+
+snippet urldecode
+options head
+abbr Decodes URL-encoded string
+    urldecode(${1:#:string $str})
+
+snippet urlencode
+options head
+abbr URL-encodes string
+    urlencode(${1:#:string $str})
+
+snippet is_tainted
+options head
+abbr Checks whether a string is tainted
+    is_tainted(${1:#:string $string})
+
+snippet taint
+options head
+abbr Taint a string
+    taint(${1:#:string &$string}, ${2:#:string $...})
+
+snippet untaint
+options head
+abbr Untaint strings
+    untaint(${1:#:string &$string}, ${2:#:string $...})
+
+snippet curl_close
+options head
+abbr Close a cURL session
+    curl_close(${1:#:resource $ch})
+
+snippet curl_copy_handle
+options head
+abbr Copy a cURL handle along with all of its preferences
+    curl_copy_handle(${1:#:resource $ch})
+
+snippet curl_errno
+options head
+abbr Return the last error number
+    curl_errno(${1:#:resource $ch})
+
+snippet curl_error
+options head
+abbr Return a string containing the last error for the current session
+    curl_error(${1:#:resource $ch})
+
+snippet curl_escape
+options head
+abbr URL encodes the given string
+    curl_escape(${1:#:resource $ch}, ${2:#:string $str})
+
+snippet curl_exec
+options head
+abbr Perform a cURL session
+    curl_exec(${1:#:resource $ch})
+
+snippet curl_getinfo
+options head
+abbr Get information regarding a specific transfer
+    curl_getinfo(${1:#:resource $ch}, ${2:#:int $opt})
+
+snippet curl_multi_add_handle
+options head
+abbr Add a normal cURL handle to a cURL multi handle
+    curl_multi_add_handle(${1:#:resource $mh}, ${2:#:resource $ch})
+
+snippet curl_multi_close
+options head
+abbr Close a set of cURL handles
+    curl_multi_close(${1:#:resource $mh})
+
+snippet curl_multi_errno
+options head
+abbr Return the last multi curl error number
+    curl_multi_errno(${1:#:resource $mh})
+
+snippet curl_multi_exec
+options head
+abbr Run the sub-connections of the current cURL handle
+    curl_multi_exec(${1:#:resource $mh}, ${2:#:int &$still_running})
+
+snippet curl_multi_getcontent
+options head
+abbr Return the content of a cURL handle if CURLOPT_RETURNTRANSFER is set
+    curl_multi_getcontent(${1:#:resource $ch})
+
+snippet curl_multi_init
+options head
+abbr Returns a new cURL multi handle
+    curl_multi_init()
+
+snippet curl_multi_remove_handle
+options head
+abbr Remove a multi handle from a set of cURL handles
+    curl_multi_remove_handle(${1:#:resource $mh}, ${2:#:resource $ch})
+
+snippet curl_multi_select
+options head
+abbr Wait for activity on any curl_multi connection
+    curl_multi_select(${1:#:resource $mh}, ${2:#:float $timeout = 1.0})
+
+snippet curl_multi_setopt
+options head
+abbr Set an option for the cURL multi handle
+    curl_multi_setopt(${1:#:resource $mh}, ${2:#:int $option}, ${3:#:mixed $value})
+
+snippet pushfunction
+options head
+    pushfunction(${1:#:resource $parent_ch}, ${2:#:resource $pushed_ch}, ${3:#:array $headers})
+
+snippet curl_multi_strerror
+options head
+abbr Return string describing error code
+    curl_multi_strerror(${1:#:int $errornum})
+
+snippet curl_pause
+options head
+abbr Pause and unpause a connection
+    curl_pause(${1:#:resource $ch}, ${2:#:int $bitmask})
+
+snippet curl_reset
+options head
+abbr Reset all options of a libcurl session handle
+    curl_reset(${1:#:resource $ch})
+
+snippet curl_setopt_array
+options head
+abbr Set multiple options for a cURL transfer
+    curl_setopt_array(${1:#:resource $ch}, ${2:#:array $options})
+
+snippet curl_setopt
+options head
+abbr Set an option for a cURL transfer
+    curl_setopt(${1:#:resource $ch}, ${2:#:int $option}, ${3:#:mixed $value})
+
+snippet curl_share_close
+options head
+abbr Close a cURL share handle
+    curl_share_close(${1:#:resource $sh})
+
+snippet curl_share_errno
+options head
+abbr Return the last share curl error number
+    curl_share_errno(${1:#:resource $sh})
+
+snippet curl_share_init
+options head
+abbr Initialize a cURL share handle
+    curl_share_init()
+
+snippet curl_share_setopt
+options head
+abbr Set an option for a cURL share handle
+    curl_share_setopt(${1:#:resource $sh}, ${2:#:int $option}, ${3:#:string $value})
+
+snippet curl_share_strerror
+options head
+abbr Return string describing the given error code
+    curl_share_strerror(${1:#:int $errornum})
+
+snippet curl_strerror
+options head
+abbr Return string describing the given error code
+    curl_strerror(${1:#:int $errornum})
+
+snippet curl_unescape
+options head
+abbr Decodes the given URL encoded string
+    curl_unescape(${1:#:resource $ch}, ${2:#:string $str})
+
+snippet decrement
+options head
+    decrement(${1:#:string $key}, ${2:#:int $value = 1})
+
+snippet increment
+options head
+    increment(${1:#:string $key}, ${2:#:int $value = 1})
+
+snippet pconnect
+options head
+    pconnect(${1:#:string $host}, ${2:#:int $port}, ${3:#:int $timeout})
+
+snippet replace
+options head
+    replace(${1:#:string $key}, ${2:#:mixed $var}, ${3:#:int $flag}, ${4:#:int $expire})
+
+snippet set
+options head
+    set(${1:#:string $key}, ${2:#:mixed $var}, ${3:#:int $flag}, ${4:#:int $expire})
+
+snippet memcache_debug
+options head
+abbr Turn debug output on/off
+    memcache_debug(${1:#:bool $on_off})
+
+snippet closelog
+options head
+abbr Close connection to system logger
+    closelog()
+
+snippet define_syslog_variables
+options head
+abbr Initializes all syslog related variables
+    define_syslog_variables()
+
+snippet fsockopen
+options head
+abbr Open Internet or Unix domain socket connection
+    fsockopen(${1:#:string $hostname}, ${2:#:int $port = -1}, ${3:#:int &$errno}, ${4:#:string &$errstr}, ${5:#:float $timeout = ini_get("default_socket_timeout")})
+
+snippet gethostbyaddr
+options head
+abbr Get the Internet host name corresponding to a given IP address
+    gethostbyaddr(${1:#:string $ip_address})
+
+snippet gethostbyname
+options head
+abbr Get the IPv4 address corresponding to a given Internet host name
+    gethostbyname(${1:#:string $hostname})
+
+snippet gethostbynamel
+options head
+abbr Get a list of IPv4 addresses corresponding to a given Internet host name
+    gethostbynamel(${1:#:string $hostname})
+
+snippet gethostname
+options head
+abbr Gets the host name
+    gethostname()
+
+snippet getmxrr
+options head
+abbr Get MX records corresponding to a given Internet host name
+    getmxrr(${1:#:string $hostname}, ${2:#:array &$mxhosts}, ${3:#:array &$weight})
+
+snippet getprotobyname
+options head
+abbr Get protocol number associated with protocol name
+    getprotobyname(${1:#:string $name})
+
+snippet getprotobynumber
+options head
+abbr Get protocol name associated with protocol number
+    getprotobynumber(${1:#:int $number})
+
+snippet getservbyname
+options head
+abbr Get port number associated with an Internet service and protocol
+    getservbyname(${1:#:string $service}, ${2:#:string $protocol})
+
+snippet getservbyport
+options head
+abbr Get Internet service which corresponds to port and protocol
+    getservbyport(${1:#:int $port}, ${2:#:string $protocol})
+
+snippet header_register_callback
+options head
+abbr Call a header function
+    header_register_callback(${1:#:callable $callback})
+
+snippet header_remove
+options head
+abbr Remove previously set headers
+    header_remove(${1:#:string $name})
+
+snippet headers_list
+options head
+abbr Returns a list of response headers sent (or ready to send)
+    headers_list()
+
+snippet headers_sent
+options head
+abbr Checks if or where headers have been sent
+    headers_sent(${1:#:string &$file}, ${2:#:int &$line})
+
+snippet http_response_code
+options head
+abbr Get or Set the HTTP response code
+    http_response_code(${1:#:int $response_code})
+
+snippet ip2long
+options head
+abbr Converts a string containing an (IPv4) Internet Protocol dotted address into a long integer
+    ip2long(${1:#:string $ip_address})
+
+snippet long2ip
+options head
+abbr Converts an long integer address into a string in (IPv4) Internet standard dotted format
+    long2ip(${1:#:int $proper_address})
+
+snippet openlog
+options head
+abbr Open connection to system logger
+    openlog(${1:#:string $ident}, ${2:#:int $option}, ${3:#:int $facility})
+
+snippet pfsockopen
+options head
+abbr Open persistent Internet or Unix domain socket connection
+    pfsockopen(${1:#:string $hostname}, ${2:#:int $port = -1}, ${3:#:int &$errno}, ${4:#:string &$errstr}, ${5:#:float $timeout = ini_get("default_socket_timeout")})
+
+snippet setcookie
+options head
+abbr Send a cookie
+    setcookie(${1:#:string $name}, ${2:#:string $value = ""}, ${3:#:array $options =})
+
+snippet setrawcookie
+options head
+abbr Send a cookie without urlencoding the cookie value
+    setrawcookie(${1:#:string $name}, ${2:#:string $value}, ${3:#:array $options =})
+
+snippet syslog
+options head
+abbr Generate a system log message
+    syslog(${1:#:int $priority}, ${2:#:string $message})
+
+snippet snmpget
+options head
+abbr Fetch an SNMP object
+    snmpget(${1:#:string $hostname}, ${2:#:string $community}, ${3:#:string $object_id}, ${4:#:int $timeout = 1000000}, ${5:#:int $retries = 5})
+
+snippet snmpgetnext
+options head
+abbr Fetch the SNMP object which follows the given object id
+    snmpgetnext(${1:#:string $host}, ${2:#:string $community}, ${3:#:string $object_id}, ${4:#:int $timeout = 1000000}, ${5:#:int $retries = 5})
+
+snippet snmprealwalk
+options head
+abbr Return all objects including their respective object ID within the specified one
+    snmprealwalk(${1:#:string $host}, ${2:#:string $community}, ${3:#:string $object_id}, ${4:#:int $timeout = 1000000}, ${5:#:int $retries = 5})
+
+snippet snmpset
+options head
+abbr Set the value of an SNMP object
+    snmpset(${1:#:string $host}, ${2:#:string $community}, ${3:#:string $object_id}, ${4:#:string $type}, ${5:#:mixed $value}, ${6:#:int $timeout = 1000000}, ${7:#:int $retries = 5})
+
+snippet snmpwalk
+options head
+abbr Fetch all the SNMP objects from an agent
+    snmpwalk(${1:#:string $hostname}, ${2:#:string $community}, ${3:#:string $object_id}, ${4:#:int $timeout = 1000000}, ${5:#:int $retries = 5})
+
+snippet snmpwalkoid
+options head
+abbr Query for a tree of information about a network entity
+    snmpwalkoid(${1:#:string $hostname}, ${2:#:string $community}, ${3:#:string $object_id}, ${4:#:int $timeout = 1000000}, ${5:#:int $retries = 5})
+
+snippet socket_accept
+options head
+abbr Accepts a connection on a socket
+    socket_accept(${1:#:resource $socket})
+
+snippet socket_addrinfo_bind
+options head
+abbr Create and bind to a socket from a given addrinfo
+    socket_addrinfo_bind(${1:#:resource $addr})
+
+snippet socket_addrinfo_connect
+options head
+abbr Create and connect to a socket from a given addrinfo
+    socket_addrinfo_connect(${1:#:resource $addr})
+
+snippet socket_addrinfo_explain
+options head
+abbr Get information about addrinfo
+    socket_addrinfo_explain(${1:#:resource $addr})
+
+snippet socket_addrinfo_lookup
+options head
+abbr Get array with contents of getaddrinfo about the given hostname
+    socket_addrinfo_lookup(${1:#:string $host}, ${2:#:string $service}, ${3:#:array $hints})
+
+snippet socket_bind
+options head
+abbr Binds a name to a socket
+    socket_bind(${1:#:resource $socket}, ${2:#:string $address}, ${3:#:int $port = 0})
+
+snippet socket_clear_error
+options head
+abbr Clears the error on the socket or the last error code
+    socket_clear_error(${1:#:resource $socket})
+
+snippet socket_close
+options head
+abbr Closes a socket resource
+    socket_close(${1:#:resource $socket})
+
+snippet socket_cmsg_space
+options head
+abbr Calculate message buffer size
+    socket_cmsg_space(${1:#:int $level}, ${2:#:int $type}, ${3:#:int $n = 0})
+
+snippet socket_connect
+options head
+abbr Initiates a connection on a socket
+    socket_connect(${1:#:resource $socket}, ${2:#:string $address}, ${3:#:int $port = 0})
+
+snippet socket_create_listen
+options head
+abbr Opens a socket on port to accept connections
+    socket_create_listen(${1:#:int $port}, ${2:#:int $backlog = 128})
+
+snippet socket_create_pair
+options head
+abbr Creates a pair of indistinguishable sockets and stores them in an array
+    socket_create_pair(${1:#:int $domain}, ${2:#:int $type}, ${3:#:int $protocol}, ${4:#:array &$fd})
+
+snippet socket_create
+options head
+abbr Create a socket (endpoint for communication)
+    socket_create(${1:#:int $domain}, ${2:#:int $type}, ${3:#:int $protocol})
+
+snippet socket_export_stream
+options head
+abbr Export a socket extension resource into a stream that encapsulates a socket
+    socket_export_stream(${1:#:resource $socket})
+
+snippet socket_get_option
+options head
+abbr Gets socket options for the socket
+    socket_get_option(${1:#:resource $socket}, ${2:#:int $level}, ${3:#:int $optname})
+
+snippet socket_getpeername
+options head
+abbr Queries the remote side of the given socket which may either result in host/port or in a Unix filesystem path, dependent on its type
+    socket_getpeername(${1:#:resource $socket}, ${2:#:string &$address}, ${3:#:int &$port})
+
+snippet socket_getsockname
+options head
+abbr Queries the local side of the given socket which may either result in host/port or in a Unix filesystem path, dependent on its type
+    socket_getsockname(${1:#:resource $socket}, ${2:#:string &$addr}, ${3:#:int &$port})
+
+snippet socket_import_stream
+options head
+abbr Import a stream
+    socket_import_stream(${1:#:resource $stream})
+
+snippet socket_last_error
+options head
+abbr Returns the last error on the socket
+    socket_last_error(${1:#:resource $socket})
+
+snippet socket_listen
+options head
+abbr Listens for a connection on a socket
+    socket_listen(${1:#:resource $socket}, ${2:#:int $backlog = 0})
+
+snippet socket_recv
+options head
+abbr Receives data from a connected socket
+    socket_recv(${1:#:resource $socket}, ${2:#:string &$buf}, ${3:#:int $len}, ${4:#:int $flags})
+
+snippet socket_recvfrom
+options head
+abbr Receives data from a socket whether or not it is connection-oriented
+    socket_recvfrom(${1:#:resource $socket}, ${2:#:string &$buf}, ${3:#:int $len}, ${4:#:int $flags}, ${5:#:string &$name}, ${6:#:int &$port})
+
+snippet socket_recvmsg
+options head
+abbr Read a message
+    socket_recvmsg(${1:#:resource $socket}, ${2:#:array &$message}, ${3:#:int $flags = 0})
+
+snippet socket_select
+options head
+abbr Runs the select() system call on the given arrays of sockets with a specified timeout
+    socket_select(${1:#:array &$read}, ${2:#:array &$write}, ${3:#:array &$except}, ${4:#:int $tv_sec}, ${5:#:int $tv_usec = 0})
+
+snippet socket_send
+options head
+abbr Sends data to a connected socket
+    socket_send(${1:#:resource $socket}, ${2:#:string $buf}, ${3:#:int $len}, ${4:#:int $flags})
+
+snippet socket_sendmsg
+options head
+abbr Send a message
+    socket_sendmsg(${1:#:resource $socket}, ${2:#:array $message}, ${3:#:int $flags = 0})
+
+snippet socket_sendto
+options head
+abbr Sends a message to a socket, whether it is connected or not
+    socket_sendto(${1:#:resource $socket}, ${2:#:string $buf}, ${3:#:int $len}, ${4:#:int $flags}, ${5:#:string $addr}, ${6:#:int $port = 0})
+
+snippet socket_set_block
+options head
+abbr Sets blocking mode on a socket resource
+    socket_set_block(${1:#:resource $socket})
+
+snippet socket_set_nonblock
+options head
+abbr Sets nonblocking mode for file descriptor fd
+    socket_set_nonblock(${1:#:resource $socket})
+
+snippet socket_set_option
+options head
+abbr Sets socket options for the socket
+    socket_set_option(${1:#:resource $socket}, ${2:#:int $level}, ${3:#:int $optname}, ${4:#:mixed $optval})
+
+snippet socket_shutdown
+options head
+abbr Shuts down a socket for receiving, sending, or both
+    socket_shutdown(${1:#:resource $socket}, ${2:#:int $how = 2})
+
+snippet socket_strerror
+options head
+abbr Return a string describing a socket error
+    socket_strerror(${1:#:int $errno})
+
+snippet socket_write
+options head
+abbr Write to a socket
+    socket_write(${1:#:resource $socket}, ${2:#:string $buffer}, ${3:#:int $length = 0})
+
+snippet ssh2_auth_agent
+options head
+abbr Authenticate over SSH using the ssh agent
+    ssh2_auth_agent(${1:#:resource $session}, ${2:#:string $username})
+
+snippet ssh2_auth_hostbased_file
+options head
+abbr Authenticate using a public hostkey
+    ssh2_auth_hostbased_file(${1:#:resource $session}, ${2:#:string $username}, ${3:#:string $hostname}, ${4:#:string $pubkeyfile}, ${5:#:string $privkeyfile}, ${6:#:string $passphrase}, ${7:#:string $local_username})
+
+snippet ssh2_auth_none
+options head
+abbr Authenticate as "none"
+    ssh2_auth_none(${1:#:resource $session}, ${2:#:string $username})
+
+snippet ssh2_auth_password
+options head
+abbr Authenticate over SSH using a plain password
+    ssh2_auth_password(${1:#:resource $session}, ${2:#:string $username}, ${3:#:string $password})
+
+snippet ssh2_auth_pubkey_file
+options head
+abbr Authenticate using a public key
+    ssh2_auth_pubkey_file(${1:#:resource $session}, ${2:#:string $username}, ${3:#:string $pubkeyfile}, ${4:#:string $privkeyfile}, ${5:#:string $passphrase})
+
+snippet ssh2_connect
+options head
+abbr Connect to an SSH server
+    ssh2_connect(${1:#:string $host}, ${2:#:int $port = 22}, ${3:#:array $methods}, ${4:#:array $callbacks})
+
+snippet ssh2_disconnect
+options head
+abbr Close a connection to a remote SSH server
+    ssh2_disconnect(${1:#:resource $session})
+
+snippet ssh2_fetch_stream
+options head
+abbr Fetch an extended data stream
+    ssh2_fetch_stream(${1:#:resource $channel}, ${2:#:int $streamid})
+
+snippet ssh2_methods_negotiated
+options head
+abbr Return list of negotiated methods
+    ssh2_methods_negotiated(${1:#:resource $session})
+
+snippet ssh2_publickey_init
+options head
+abbr Initialize Publickey subsystem
+    ssh2_publickey_init(${1:#:resource $session})
+
+snippet ssh2_publickey_list
+options head
+abbr List currently authorized publickeys
+    ssh2_publickey_list(${1:#:resource $pkey})
+
+snippet ssh2_publickey_remove
+options head
+abbr Remove an authorized publickey
+    ssh2_publickey_remove(${1:#:resource $pkey}, ${2:#:string $algoname}, ${3:#:string $blob})
+
+snippet ssh2_scp_recv
+options head
+abbr Request a file via SCP
+    ssh2_scp_recv(${1:#:resource $session}, ${2:#:string $remote_file}, ${3:#:string $local_file})
+
+snippet ssh2_scp_send
+options head
+abbr Send a file via SCP
+    ssh2_scp_send(${1:#:resource $session}, ${2:#:string $local_file}, ${3:#:string $remote_file}, ${4:#:int $create_mode = 0644})
+
+snippet ssh2_sftp_chmod
+options head
+abbr Changes file mode
+    ssh2_sftp_chmod(${1:#:resource $sftp}, ${2:#:string $filename}, ${3:#:int $mode})
+
+snippet ssh2_sftp_lstat
+options head
+abbr Stat a symbolic link
+    ssh2_sftp_lstat(${1:#:resource $sftp}, ${2:#:string $path})
+
+snippet ssh2_sftp_readlink
+options head
+abbr Return the target of a symbolic link
+    ssh2_sftp_readlink(${1:#:resource $sftp}, ${2:#:string $link})
+
+snippet ssh2_sftp_realpath
+options head
+abbr Resolve the realpath of a provided path string
+    ssh2_sftp_realpath(${1:#:resource $sftp}, ${2:#:string $filename})
+
+snippet ssh2_sftp_rename
+options head
+abbr Rename a remote file
+    ssh2_sftp_rename(${1:#:resource $sftp}, ${2:#:string $from}, ${3:#:string $to})
+
+snippet ssh2_sftp_rmdir
+options head
+abbr Remove a directory
+    ssh2_sftp_rmdir(${1:#:resource $sftp}, ${2:#:string $dirname})
+
+snippet ssh2_sftp_stat
+options head
+abbr Stat a file on a remote filesystem
+    ssh2_sftp_stat(${1:#:resource $sftp}, ${2:#:string $path})
+
+snippet ssh2_sftp_symlink
+options head
+abbr Create a symlink
+    ssh2_sftp_symlink(${1:#:resource $sftp}, ${2:#:string $target}, ${3:#:string $link})
+
+snippet ssh2_sftp_unlink
+options head
+abbr Delete a file
+    ssh2_sftp_unlink(${1:#:resource $sftp}, ${2:#:string $filename})
+
+snippet ssh2_sftp
+options head
+abbr Initialize SFTP subsystem
+    ssh2_sftp(${1:#:resource $session})
+
+snippet ssh2_tunnel
+options head
+abbr Open a tunnel through a remote server
+    ssh2_tunnel(${1:#:resource $session}, ${2:#:string $host}, ${3:#:int $port})
+
+snippet apache_child_terminate
+options head
+abbr Terminate apache process after this request
+    apache_child_terminate()
+
+snippet apache_get_modules
+options head
+abbr Get a list of loaded Apache modules
+    apache_get_modules()
+
+snippet apache_get_version
+options head
+abbr Fetch Apache version
+    apache_get_version()
+
+snippet apache_lookup_uri
+options head
+abbr Perform a partial request for the specified URI and return all info about it
+    apache_lookup_uri(${1:#:string $filename})
+
+snippet apache_note
+options head
+abbr Get and set apache request notes
+    apache_note(${1:#:string $note_name}, ${2:#:string $note_value = ""})
+
+snippet apache_request_headers
+options head
+abbr Fetch all HTTP request headers
+    apache_request_headers()
+
+snippet apache_reset_timeout
+options head
+abbr Reset the Apache write timer
+    apache_reset_timeout()
+
+snippet apache_response_headers
+options head
+abbr Fetch all HTTP response headers
+    apache_response_headers()
+
+snippet getallheaders
+options head
+abbr Fetch all HTTP request headers
+    getallheaders()
+
+snippet virtual
+options head
+abbr Perform an Apache sub-request
+    virtual(${1:#:string $filename})
+
+snippet session_abort
+options head
+abbr Discard session array changes and finish session
+    session_abort()
+
+snippet session_cache_expire
+options head
+abbr Return current cache expire
+    session_cache_expire(${1:#:string $new_cache_expire})
+
+snippet session_cache_limiter
+options head
+abbr Get and/or set the current cache limiter
+    session_cache_limiter(${1:#:string $cache_limiter})
+
+snippet session_create_id
+options head
+abbr Create new session id
+    session_create_id(${1:#:string $prefix})
+
+snippet session_decode
+options head
+abbr Decodes session data from a session encoded string
+    session_decode(${1:#:string $data})
+
+snippet session_destroy
+options head
+abbr Destroys all data registered to a session
+    session_destroy()
+
+snippet session_encode
+options head
+abbr Encodes the current session data as a session encoded string
+    session_encode()
+
+snippet session_gc
+options head
+abbr Perform session data garbage collection
+    session_gc()
+
+snippet session_get_cookie_params
+options head
+abbr Get the session cookie parameters
+    session_get_cookie_params()
+
+snippet session_id
+options head
+abbr Get and/or set the current session id
+    session_id(${1:#:string $id})
+
+snippet session_is_registered
+options head
+abbr Find out whether a global variable is registered in a session
+    session_is_registered(${1:#:string $name})
+
+snippet session_module_name
+options head
+abbr Get and/or set the current session module
+    session_module_name(${1:#:string $module})
+
+snippet session_name
+options head
+abbr Get and/or set the current session name
+    session_name(${1:#:string $name})
+
+snippet session_register_shutdown
+options head
+abbr Session shutdown function
+    session_register_shutdown()
+
+snippet session_register
+options head
+abbr Register one or more global variables with the current session
+    session_register(${1:#:mixed $name}, ${2:#:mixed $...})
+
+snippet session_reset
+options head
+abbr Re-initialize session array with original values
+    session_reset()
+
+snippet session_save_path
+options head
+abbr Get and/or set the current session save path
+    session_save_path(${1:#:string $path})
+
+snippet session_set_cookie_params
+options head
+abbr Set the session cookie parameters
+    session_set_cookie_params(${1:#:array $options})
+
+snippet session_set_save_handler
+options head
+abbr Sets user-level session storage functions
+    session_set_save_handler(${1:#:callable $open}, ${2:#:callable $close}, ${3:#:callable $read}, ${4:#:callable $write}, ${5:#:callable $destroy}, ${6:#:callable $gc}, ${7:#:callable $create_sid}, ${8:#:callable $validate_sid}, ${9:#:callable $update_timestamp})
+
+snippet session_start
+options head
+abbr Start new or resume existing session
+    session_start(${1:#:array $options = array()})
+
+snippet session_status
+options head
+abbr Returns the current session status
+    session_status()
+
+snippet session_unregister
+options head
+abbr Unregister a global variable from the current session
+    session_unregister(${1:#:string $name})
+
+snippet session_unset
+options head
+abbr Free all session variables
+    session_unset()
+
+snippet session_write_close
+options head
+abbr Write session data and end session
+    session_write_close()
+
+snippet session_pgsql_add_error
+options head
+abbr Increments error counts and sets last error message
+    session_pgsql_add_error(${1:#:int $error_level}, ${2:#:string $error_message})
+
+snippet session_pgsql_get_field
+options head
+abbr Get custom field value
+    session_pgsql_get_field()
+
+snippet session_pgsql_reset
+options head
+abbr Reset connection to session database servers
+    session_pgsql_reset()
+
+snippet session_pgsql_set_field
+options head
+abbr Set custom field value
+    session_pgsql_set_field(${1:#:string $value})
+
+snippet session_pgsql_status
+options head
+abbr Get current save handler status
+    session_pgsql_status()
+
+snippet preg_filter
+options head
+abbr Perform a regular expression search and replace
+    preg_filter(${1:#:mixed $pattern}, ${2:#:mixed $replacement}, ${3:#:mixed $subject}, ${4:#:int $limit = -1}, ${5:#:int &$count})
+
+snippet preg_grep
+options head
+abbr Return array entries that match the pattern
+    preg_grep(${1:#:string $pattern}, ${2:#:array $input}, ${3:#:int $flags = 0})
+
+snippet preg_last_error
+options head
+abbr Returns the error code of the last PCRE regex execution
+    preg_last_error()
+
+snippet preg_match
+options head
+abbr Perform a regular expression match
+    preg_match(${1:#:string $pattern}, ${2:#:string $subject}, ${3:#:array &$matches}, ${4:#:int $flags = 0}, ${5:#:int $offset = 0})
+
+snippet preg_replace_callback_array
+options head
+abbr Perform a regular expression search and replace using callbacks
+    preg_replace_callback_array(${1:#:array $patterns_and_callbacks}, ${2:#:mixed $subject}, ${3:#:int $limit = -1}, ${4:#:int &$count})
+
+snippet preg_replace_callback
+options head
+abbr Perform a regular expression search and replace using a callback
+    preg_replace_callback(${1:#:mixed $pattern}, ${2:#:callable $callback}, ${3:#:mixed $subject}, ${4:#:int $limit = -1}, ${5:#:int &$count})
+
+snippet preg_replace
+options head
+abbr Perform a regular expression search and replace
+    preg_replace(${1:#:mixed $pattern}, ${2:#:mixed $replacement}, ${3:#:mixed $subject}, ${4:#:int $limit = -1}, ${5:#:int &$count})
+
+snippet preg_split
+options head
+abbr Split string by a regular expression
+    preg_split(${1:#:string $pattern}, ${2:#:string $subject}, ${3:#:int $limit = -1}, ${4:#:int $flags = 0})
+
+snippet ereg_replace
+options head
+abbr Replace regular expression
+    ereg_replace(${1:#:string $pattern}, ${2:#:string $replacement}, ${3:#:string $string})
+
+snippet ereg
+options head
+abbr Regular expression match
+    ereg(${1:#:string $pattern}, ${2:#:string $string}, ${3:#:array &$regs})
+
+snippet eregi_replace
+options head
+abbr Replace regular expression case insensitive
+    eregi_replace(${1:#:string $pattern}, ${2:#:string $replacement}, ${3:#:string $string})
+
+snippet eregi
+options head
+abbr Case insensitive regular expression match
+    eregi(${1:#:string $pattern}, ${2:#:string $string}, ${3:#:array &$regs})
+
+snippet split
+options head
+abbr Split string into array by regular expression
+    split(${1:#:string $pattern}, ${2:#:string $string}, ${3:#:int $limit = -1})
+
+snippet spliti
+options head
+abbr Split string into array by regular expression case insensitive
+    spliti(${1:#:string $pattern}, ${2:#:string $string}, ${3:#:int $limit = -1})
+
+snippet sql_regcase
+options head
+abbr Make regular expression for case insensitive match
+    sql_regcase(${1:#:string $string})
+
+snippet addcslashes
+options head
+abbr Quote string with slashes in a C style
+    addcslashes(${1:#:string $str}, ${2:#:string $charlist})
+
+snippet addslashes
+options head
+abbr Quote string with slashes
+    addslashes(${1:#:string $str})
+
+snippet bin2hex
+options head
+abbr Convert binary data into hexadecimal representation
+    bin2hex(${1:#:string $str})
+
+snippet chr
+options head
+abbr Generate a single-byte string from a number
+    chr(${1:#:int $bytevalue})
+
+snippet chunk_split
+options head
+abbr Split a string into smaller chunks
+    chunk_split(${1:#:string $body}, ${2:#:int $chunklen = 76}, ${3:#:string $end = "\r\n"})
+
+snippet count_chars
+options head
+abbr Return information about characters used in a string
+    count_chars(${1:#:string $string}, ${2:#:int $mode = 0})
+
+snippet crc32
+options head
+abbr Calculates the crc32 polynomial of a string
+    crc32(${1:#:string $str})
+
+snippet crypt
+options head
+abbr One-way string hashing
+    crypt(${1:#:string $str}, ${2:#:string $salt})
+
+snippet fprintf
+options head
+abbr Write a formatted string to a stream
+    fprintf(${1:#:resource $handle}, ${2:#:string $format}, ${3:#:mixed $...})
+
+snippet hebrev
+options head
+abbr Convert logical Hebrew text to visual text
+    hebrev(${1:#:string $hebrew_text}, ${2:#:int $max_chars_per_line = 0})
+
+snippet hebrevc
+options head
+abbr Convert logical Hebrew text to visual text with newline conversion
+    hebrevc(${1:#:string $hebrew_text}, ${2:#:int $max_chars_per_line = 0})
+
+snippet hex2bin
+options head
+abbr Decodes a hexadecimally encoded binary string
+    hex2bin(${1:#:string $data})
+
+snippet implode
+options head
+abbr Join array elements with a string
+    implode(${1:#:array $pieces})
+
+snippet lcfirst
+options head
+abbr Make a string's first character lowercase
+    lcfirst(${1:#:string $str})
+
+snippet levenshtein
+options head
+abbr Calculate Levenshtein distance between two strings
+    levenshtein(${1:#:string $str1}, ${2:#:string $str2}, ${3:#:int $cost_ins}, ${4:#:int $cost_rep}, ${5:#:int $cost_del})
+
+snippet localeconv
+options head
+abbr Get numeric formatting information
+    localeconv()
+
+snippet ltrim
+options head
+abbr Strip whitespace (or other characters) from the beginning of a string
+    ltrim(${1:#:string $str}, ${2:#:string $character_mask})
+
+snippet metaphone
+options head
+abbr Calculate the metaphone key of a string
+    metaphone(${1:#:string $str}, ${2:#:int $phonemes = 0})
+
+snippet money_format
+options head
+abbr Formats a number as a currency string
+    money_format(${1:#:string $format}, ${2:#:float $number})
+
+snippet number_format
+options head
+abbr Format a number with grouped thousands
+    number_format(${1:#:float $number}, ${2:#:int $decimals = 0}, ${3:#:string $dec_point = "."}, ${4:#:string $thousands_sep = "}, ${5:#:"})
+
+snippet ord
+options head
+abbr Convert the first byte of a string to a value between 0 and 255
+    ord(${1:#:string $string})
+
+snippet parse_str
+options head
+abbr Parses the string into variables
+    parse_str(${1:#:string $encoded_string}, ${2:#:array &$result})
+
+snippet print
+options head
+abbr Output a string
+    print(${1:#:string $arg})
+
+snippet printf
+options head
+abbr Output a formatted string
+    printf(${1:#:string $format}, ${2:#:mixed $args}, ${3:#:mixed $...})
+
+snippet quoted_printable_decode
+options head
+abbr Convert a quoted-printable string to an 8 bit string
+    quoted_printable_decode(${1:#:string $str})
+
+snippet quoted_printable_encode
+options head
+abbr Convert a 8 bit string to a quoted-printable string
+    quoted_printable_encode(${1:#:string $str})
+
+snippet quotemeta
+options head
+abbr Quote meta characters
+    quotemeta(${1:#:string $str})
+
+snippet rtrim
+options head
+abbr Strip whitespace (or other characters) from the end of a string
+    rtrim(${1:#:string $str}, ${2:#:string $character_mask})
+
+snippet setlocale
+options head
+abbr Set locale information
+    setlocale(${1:#:int $category}, ${2:#:array $locale})
+
+snippet similar_text
+options head
+abbr Calculate the similarity between two strings
+    similar_text(${1:#:string $first}, ${2:#:string $second}, ${3:#:float &$percent})
+
+snippet soundex
+options head
+abbr Calculate the soundex key of a string
+    soundex(${1:#:string $str})
+
+snippet sprintf
+options head
+abbr Return a formatted string
+    sprintf(${1:#:string $format}, ${2:#:mixed $...})
+
+snippet sscanf
+options head
+abbr Parses input from a string according to a format
+    sscanf(${1:#:string $str}, ${2:#:string $format}, ${3:#:mixed &$...})
+
+snippet str_getcsv
+options head
+abbr Parse a CSV string into an array
+    str_getcsv(${1:#:string $input}, ${2:#:string $delimiter = "}, ${3:#:"}, ${4:#:string $enclosure = '"'}, ${5:#:string $escape = "\\"})
+
+snippet str_ireplace
+options head
+abbr Case-insensitive version of str_replace()
+    str_ireplace(${1:#:mixed $search}, ${2:#:mixed $replace}, ${3:#:mixed $subject}, ${4:#:int &$count})
+
+snippet str_repeat
+options head
+abbr Repeat a string
+    str_repeat(${1:#:string $input}, ${2:#:int $multiplier})
+
+snippet str_replace
+options head
+abbr Replace all occurrences of the search string with the replacement string
+    str_replace(${1:#:mixed $search}, ${2:#:mixed $replace}, ${3:#:mixed $subject}, ${4:#:int &$count})
+
+snippet str_rot13
+options head
+abbr Perform the rot13 transform on a string
+    str_rot13(${1:#:string $str})
+
+snippet str_shuffle
+options head
+abbr Randomly shuffles a string
+    str_shuffle(${1:#:string $str})
+
+snippet str_split
+options head
+abbr Convert a string to an array
+    str_split(${1:#:string $string}, ${2:#:int $split_length = 1})
+
+snippet str_word_count
+options head
+abbr Return information about words used in a string
+    str_word_count(${1:#:string $string}, ${2:#:int $format = 0}, ${3:#:string $charlist})
+
+snippet strcasecmp
+options head
+abbr Binary safe case-insensitive string comparison
+    strcasecmp(${1:#:string $str1}, ${2:#:string $str2})
+
+snippet strcmp
+options head
+abbr Binary safe string comparison
+    strcmp(${1:#:string $str1}, ${2:#:string $str2})
+
+snippet strcoll
+options head
+abbr Locale based string comparison
+    strcoll(${1:#:string $str1}, ${2:#:string $str2})
+
+snippet strcspn
+options head
+abbr Find length of initial segment not matching mask
+    strcspn(${1:#:string $subject}, ${2:#:string $mask}, ${3:#:int $start}, ${4:#:int $length})
+
+snippet strip_tags
+options head
+abbr Strip HTML and PHP tags from a string
+    strip_tags(${1:#:string $str}, ${2:#:string $allowable_tags})
+
+snippet stripcslashes
+options head
+abbr Un-quote string quoted with addcslashes()
+    stripcslashes(${1:#:string $str})
+
+snippet stripos
+options head
+abbr Find the position of the first occurrence of a case-insensitive substring in a string
+    stripos(${1:#:string $haystack}, ${2:#:mixed $needle}, ${3:#:int $offset = 0})
+
+snippet stripslashes
+options head
+abbr Un-quotes a quoted string
+    stripslashes(${1:#:string $str})
+
+snippet strlen
+options head
+abbr Get string length
+    strlen(${1:#:string $string})
+
+snippet strnatcasecmp
+options head
+abbr Case insensitive string comparisons using a "natural order" algorithm
+    strnatcasecmp(${1:#:string $str1}, ${2:#:string $str2})
+
+snippet strnatcmp
+options head
+abbr String comparisons using a "natural order" algorithm
+    strnatcmp(${1:#:string $str1}, ${2:#:string $str2})
+
+snippet strncasecmp
+options head
+abbr Binary safe case-insensitive string comparison of the first n characters
+    strncasecmp(${1:#:string $str1}, ${2:#:string $str2}, ${3:#:int $len})
+
+snippet strncmp
+options head
+abbr Binary safe string comparison of the first n characters
+    strncmp(${1:#:string $str1}, ${2:#:string $str2}, ${3:#:int $len})
+
+snippet strpbrk
+options head
+abbr Search a string for any of a set of characters
+    strpbrk(${1:#:string $haystack}, ${2:#:string $char_list})
+
+snippet strpos
+options head
+abbr Find the position of the first occurrence of a substring in a string
+    strpos(${1:#:string $haystack}, ${2:#:mixed $needle}, ${3:#:int $offset = 0})
+
+snippet strrchr
+options head
+abbr Find the last occurrence of a character in a string
+    strrchr(${1:#:string $haystack}, ${2:#:mixed $needle})
+
+snippet strrev
+options head
+abbr Reverse a string
+    strrev(${1:#:string $string})
+
+snippet strripos
+options head
+abbr Find the position of the last occurrence of a case-insensitive substring in a string
+    strripos(${1:#:string $haystack}, ${2:#:mixed $needle}, ${3:#:int $offset = 0})
+
+snippet strrpos
+options head
+abbr Find the position of the last occurrence of a substring in a string
+    strrpos(${1:#:string $haystack}, ${2:#:mixed $needle}, ${3:#:int $offset = 0})
+
+snippet strspn
+options head
+abbr Finds the length of the initial segment of a string consisting entirely of characters contained within a given mask
+    strspn(${1:#:string $subject}, ${2:#:string $mask}, ${3:#:int $start}, ${4:#:int $length})
+
+snippet strtok
+options head
+abbr Tokenize string
+    strtok(${1:#:string $token})
+
+snippet strtolower
+options head
+abbr Make a string lowercase
+    strtolower(${1:#:string $string})
+
+snippet strtoupper
+options head
+abbr Make a string uppercase
+    strtoupper(${1:#:string $string})
+
+snippet strtr
+options head
+abbr Translate characters or replace substrings
+    strtr(${1:#:string $str}, ${2:#:array $replace_pairs})
+
+snippet substr_count
+options head
+abbr Count the number of substring occurrences
+    substr_count(${1:#:string $haystack}, ${2:#:string $needle}, ${3:#:int $offset = 0}, ${4:#:int $length})
+
+snippet substr_replace
+options head
+abbr Replace text within a portion of a string
+    substr_replace(${1:#:mixed $string}, ${2:#:mixed $replacement}, ${3:#:mixed $start}, ${4:#:mixed $length})
+
+snippet substr
+options head
+abbr Return part of a string
+    substr(${1:#:string $string}, ${2:#:int $start}, ${3:#:int $length})
+
+snippet ucfirst
+options head
+abbr Make a string's first character uppercase
+    ucfirst(${1:#:string $str})
+
+snippet ucwords
+options head
+abbr Uppercase the first character of each word in a string
+    ucwords(${1:#:string $str}, ${2:#:string $delimiters = " \t\r\n\f\v"})
+
+snippet vfprintf
+options head
+abbr Write a formatted string to a stream
+    vfprintf(${1:#:resource $handle}, ${2:#:string $format}, ${3:#:array $args})
+
+snippet vprintf
+options head
+abbr Output a formatted string
+    vprintf(${1:#:string $format}, ${2:#:array $args})
+
+snippet vsprintf
+options head
+abbr Return a formatted string
+    vsprintf(${1:#:string $format}, ${2:#:array $args})
+
+snippet array_combine
+options head
+abbr Creates an array by using one array for keys and another for its values
+    array_combine(${1:#:array $keys}, ${2:#:array $values})
+
+snippet array_count_values
+options head
+abbr Counts all the values of an array
+    array_count_values(${1:#:array $array})
+
+snippet array_diff_assoc
+options head
+abbr Computes the difference of arrays with additional index check
+    array_diff_assoc(${1:#:array $array1}, ${2:#:array $array2}, ${3:#:array $...})
+
+snippet array_diff_key
+options head
+abbr Computes the difference of arrays using keys for comparison
+    array_diff_key(${1:#:array $array1}, ${2:#:array $array2}, ${3:#:array $...})
+
+snippet array_diff_uassoc
+options head
+abbr Computes the difference of arrays with additional index check which is performed by a user supplied callback function
+    array_diff_uassoc(${1:#:array $array1}, ${2:#:array $array2}, ${3:#:array $...}, ${4:#:callable $key_compare_func})
+
+snippet array_diff_ukey
+options head
+abbr Computes the difference of arrays using a callback function on the keys for comparison
+    array_diff_ukey(${1:#:array $array1}, ${2:#:array $array2}, ${3:#:array $...}, ${4:#:callable $key_compare_func})
+
+snippet array_diff
+options head
+abbr Computes the difference of arrays
+    array_diff(${1:#:array $array1}, ${2:#:array $array2}, ${3:#:array $...})
+
+snippet array_fill_keys
+options head
+abbr Fill an array with values, specifying keys
+    array_fill_keys(${1:#:array $keys}, ${2:#:mixed $value})
+
+snippet array_fill
+options head
+abbr Fill an array with values
+    array_fill(${1:#:int $start_index}, ${2:#:int $num}, ${3:#:mixed $value})
+
+snippet array_filter
+options head
+abbr Filters elements of an array using a callback function
+    array_filter(${1:#:array $array}, ${2:#:callable $callback}, ${3:#:int $flag = 0})
+
+snippet array_flip
+options head
+abbr Exchanges all keys with their associated values in an array
+    array_flip(${1:#:array $array})
+
+snippet array_intersect_assoc
+options head
+abbr Computes the intersection of arrays with additional index check
+    array_intersect_assoc(${1:#:array $array1}, ${2:#:array $array2}, ${3:#:array $...})
+
+snippet array_intersect_key
+options head
+abbr Computes the intersection of arrays using keys for comparison
+    array_intersect_key(${1:#:array $array1}, ${2:#:array $array2}, ${3:#:array $...})
+
+snippet array_intersect_uassoc
+options head
+abbr Computes the intersection of arrays with additional index check, compares indexes by a callback function
+    array_intersect_uassoc(${1:#:array $array1}, ${2:#:array $array2}, ${3:#:array $...}, ${4:#:callable $key_compare_func})
+
+snippet array_intersect_ukey
+options head
+abbr Computes the intersection of arrays using a callback function on the keys for comparison
+    array_intersect_ukey(${1:#:array $array1}, ${2:#:array $array2}, ${3:#:array $...}, ${4:#:callable $key_compare_func})
+
+snippet array_intersect
+options head
+abbr Computes the intersection of arrays
+    array_intersect(${1:#:array $array1}, ${2:#:array $array2}, ${3:#:array $...})
+
+snippet array_key_exists
+options head
+abbr Checks if the given key or index exists in the array
+    array_key_exists(${1:#:mixed $key}, ${2:#:array $array})
+
+snippet array_key_first
+options head
+abbr Gets the first key of an array
+    array_key_first(${1:#:array $array})
+
+snippet array_key_last
+options head
+abbr Gets the last key of an array
+    array_key_last(${1:#:array $array})
+
+snippet array_keys
+options head
+abbr Return all the keys or a subset of the keys of an array
+    array_keys(${1:#:array $array})
+
+snippet array_map
+options head
+abbr Applies the callback to the elements of the given arrays
+    array_map(${1:#:callable $callback}, ${2:#:array $array1}, ${3:#:array $...})
+
+snippet array_merge_recursive
+options head
+abbr Merge one or more arrays recursively
+    array_merge_recursive(${1:#:array $array1}, ${2:#:array $...})
+
+snippet array_merge
+options head
+abbr Merge one or more arrays
+    array_merge(${1:#:array $array1}, ${2:#:array $...})
+
+snippet array_pad
+options head
+abbr Pad array to the specified length with a value
+    array_pad(${1:#:array $array}, ${2:#:int $size}, ${3:#:mixed $value})
+
+snippet array_pop
+options head
+abbr Pop the element off the end of array
+    array_pop(${1:#:array &$array})
+
+snippet array_product
+options head
+abbr Calculate the product of values in an array
+    array_product(${1:#:array $array})
+
+snippet array_push
+options head
+abbr Push one or more elements onto the end of array
+    array_push(${1:#:array &$array}, ${2:#:mixed $...})
+
+snippet array_rand
+options head
+abbr Pick one or more random keys out of an array
+    array_rand(${1:#:array $array}, ${2:#:int $num = 1})
+
+snippet array_replace_recursive
+options head
+abbr Replaces elements from passed arrays into the first array recursively
+    array_replace_recursive(${1:#:array $array1}, ${2:#:array $...})
+
+snippet array_replace
+options head
+abbr Replaces elements from passed arrays into the first array
+    array_replace(${1:#:array $array1}, ${2:#:array $...})
+
+snippet array_shift
+options head
+abbr Shift an element off the beginning of array
+    array_shift(${1:#:array &$array})
+
+snippet array_splice
+options head
+abbr Remove a portion of the array and replace it with something else
+    array_splice(${1:#:array &$input}, ${2:#:int $offset}, ${3:#:int $length = count($input)}, ${4:#:mixed $replacement = array()})
+
+snippet array_sum
+options head
+abbr Calculate the sum of values in an array
+    array_sum(${1:#:array $array})
+
+snippet array_udiff_assoc
+options head
+abbr Computes the difference of arrays with additional index check, compares data by a callback function
+    array_udiff_assoc(${1:#:array $array1}, ${2:#:array $array2}, ${3:#:array $...}, ${4:#:callable $value_compare_func})
+
+snippet array_udiff_uassoc
+options head
+abbr Computes the difference of arrays with additional index check, compares data and indexes by a callback function
+    array_udiff_uassoc(${1:#:array $array1}, ${2:#:array $array2}, ${3:#:array $...}, ${4:#:callable $value_compare_func}, ${5:#:callable $key_compare_func})
+
+snippet array_udiff
+options head
+abbr Computes the difference of arrays by using a callback function for data comparison
+    array_udiff(${1:#:array $array1}, ${2:#:array $array2}, ${3:#:array $...}, ${4:#:callable $value_compare_func})
+
+snippet array_uintersect_assoc
+options head
+abbr Computes the intersection of arrays with additional index check, compares data by a callback function
+    array_uintersect_assoc(${1:#:array $array1}, ${2:#:array $array2}, ${3:#:array $...}, ${4:#:callable $value_compare_func})
+
+snippet array_uintersect_uassoc
+options head
+abbr Computes the intersection of arrays with additional index check, compares data and indexes by separate callback functions
+    array_uintersect_uassoc(${1:#:array $array1}, ${2:#:array $array2}, ${3:#:array $...}, ${4:#:callable $value_compare_func}, ${5:#:callable $key_compare_func})
+
+snippet array_uintersect
+options head
+abbr Computes the intersection of arrays, compares data by a callback function
+    array_uintersect(${1:#:array $array1}, ${2:#:array $array2}, ${3:#:array $...}, ${4:#:callable $value_compare_func})
+
+snippet array_unshift
+options head
+abbr Prepend one or more elements to the beginning of an array
+    array_unshift(${1:#:array &$array}, ${2:#:mixed $...})
+
+snippet array_values
+options head
+abbr Return all the values of an array
+    array_values(${1:#:array $array})
+
+snippet compact
+options head
+abbr Create array containing variables and their values
+    compact(${1:#:mixed $varname1}, ${2:#:mixed $...})
+
+snippet current
+options head
+abbr Return the current element in an array
+    current(${1:#:array $array})
+
+snippet each
+options head
+abbr Return the current key and value pair from an array and advance the array cursor
+    each(${1:#:array &$array})
+
+snippet end
+options head
+abbr Set the internal pointer of an array to its last element
+    end(${1:#:array &$array})
+
+snippet key
+options head
+abbr Fetch a key from an array
+    key(${1:#:array $array})
+
+snippet list
+options head
+abbr Assign variables as if they were an array
+    list(${1:#:mixed $var1}, ${2:#:mixed $...})
+
+snippet natcasesort
+options head
+abbr Sort an array using a case insensitive "natural order" algorithm
+    natcasesort(${1:#:array &$array})
+
+snippet natsort
+options head
+abbr Sort an array using a "natural order" algorithm
+    natsort(${1:#:array &$array})
+
+snippet next
+options head
+abbr Advance the internal pointer of an array
+    next(${1:#:array &$array})
+
+snippet prev
+options head
+abbr Rewind the internal array pointer
+    prev(${1:#:array &$array})
+
+snippet range
+options head
+abbr Create an array containing a range of elements
+    range(${1:#:mixed $start}, ${2:#:mixed $end}, ${3:#:number $step = 1})
+
+snippet shuffle
+options head
+abbr Shuffle an array
+    shuffle(${1:#:array &$array})
+
+snippet uasort
+options head
+abbr Sort an array with a user-defined comparison function and maintain index association
+    uasort(${1:#:array &$array}, ${2:#:callable $value_compare_func})
+
+snippet uksort
+options head
+abbr Sort an array by keys using a user-defined comparison function
+    uksort(${1:#:array &$array}, ${2:#:callable $key_compare_func})
+
+snippet usort
+options head
+abbr Sort an array by values using a user-defined comparison function
+    usort(${1:#:array &$array}, ${2:#:callable $value_compare_func})
+
+snippet call_user_method_array
+options head
+abbr Call a user method given with an array of parameters
+    call_user_method_array(${1:#:string $method_name}, ${2:#:object &$obj}, ${3:#:array $params})
+
+snippet call_user_method
+options head
+abbr Call a user method on an specific object
+    call_user_method(${1:#:string $method_name}, ${2:#:object &$obj}, ${3:#:mixed $...})
+
+snippet get_called_class
+options head
+abbr The "Late Static Binding" class name
+    get_called_class()
+
+snippet get_class_methods
+options head
+abbr Gets the class methods' names
+    get_class_methods(${1:#:mixed $class_name})
+
+snippet get_class_vars
+options head
+abbr Get the default properties of the class
+    get_class_vars(${1:#:string $class_name})
+
+snippet get_class
+options head
+abbr Returns the name of the class of an object
+    get_class(${1:#:object $object})
+
+snippet get_declared_classes
+options head
+abbr Returns an array with the name of the defined classes
+    get_declared_classes()
+
+snippet get_declared_interfaces
+options head
+abbr Returns an array of all declared interfaces
+    get_declared_interfaces()
+
+snippet get_declared_traits
+options head
+abbr Returns an array of all declared traits
+    get_declared_traits()
+
+snippet get_object_vars
+options head
+abbr Gets the properties of the given object
+    get_object_vars(${1:#:object $object})
+
+snippet get_parent_class
+options head
+abbr Retrieves the parent class name for object or class
+    get_parent_class(${1:#:mixed $object})
+
+snippet method_exists
+options head
+abbr Checks if the class method exists
+    method_exists(${1:#:mixed $object}, ${2:#:string $method_name})
+
+snippet trait_exists
+options head
+abbr Checks if the trait exists
+    trait_exists(${1:#:string $traitname}, ${2:#:bool $autoload})
+
+snippet ctype_alnum
+options head
+abbr Check for alphanumeric character(s)
+    ctype_alnum(${1:#:string $text})
+
+snippet ctype_alpha
+options head
+abbr Check for alphabetic character(s)
+    ctype_alpha(${1:#:string $text})
+
+snippet ctype_cntrl
+options head
+abbr Check for control character(s)
+    ctype_cntrl(${1:#:string $text})
+
+snippet ctype_digit
+options head
+abbr Check for numeric character(s)
+    ctype_digit(${1:#:string $text})
+
+snippet ctype_graph
+options head
+abbr Check for any printable character(s) except space
+    ctype_graph(${1:#:string $text})
+
+snippet ctype_lower
+options head
+abbr Check for lowercase character(s)
+    ctype_lower(${1:#:string $text})
+
+snippet ctype_print
+options head
+abbr Check for printable character(s)
+    ctype_print(${1:#:string $text})
+
+snippet ctype_punct
+options head
+abbr Check for any printable character which is not whitespace or an alphanumeric character
+    ctype_punct(${1:#:string $text})
+
+snippet ctype_space
+options head
+abbr Check for whitespace character(s)
+    ctype_space(${1:#:string $text})
+
+snippet ctype_upper
+options head
+abbr Check for uppercase character(s)
+    ctype_upper(${1:#:string $text})
+
+snippet ctype_xdigit
+options head
+abbr Check for character(s) representing a hexadecimal digit
+    ctype_xdigit(${1:#:string $text})
+
+snippet filter_has_var
+options head
+abbr Checks if variable of specified type exists
+    filter_has_var(${1:#:int $type}, ${2:#:string $variable_name})
+
+snippet filter_id
+options head
+abbr Returns the filter ID belonging to a named filter
+    filter_id(${1:#:string $filtername})
+
+snippet filter_list
+options head
+abbr Returns a list of all supported filters
+    filter_list()
+
+snippet call_user_func_array
+options head
+abbr Call a callback with an array of parameters
+    call_user_func_array(${1:#:callable $callback}, ${2:#:array $param_arr})
+
+snippet call_user_func
+options head
+abbr Call the callback given by the first parameter
+    call_user_func(${1:#:callable $callback}, ${2:#:mixed $...})
+
+snippet create_function
+options head
+abbr Create an anonymous (lambda-style) function
+    create_function(${1:#:string $args}, ${2:#:string $code})
+
+snippet forward_static_call_array
+options head
+abbr Call a static method and pass the arguments as array
+    forward_static_call_array(${1:#:callable $function}, ${2:#:array $parameters})
+
+snippet forward_static_call
+options head
+abbr Call a static method
+    forward_static_call(${1:#:callable $function}, ${2:#:mixed $...})
+
+snippet func_get_arg
+options head
+abbr Return an item from the argument list
+    func_get_arg(${1:#:int $arg_num})
+
+snippet func_get_args
+options head
+abbr Returns an array comprising a function's argument list
+    func_get_args()
+
+snippet func_num_args
+options head
+abbr Returns the number of arguments passed to the function
+    func_num_args()
+
+snippet function_exists
+options head
+abbr Return TRUE if the given function has been defined
+    function_exists(${1:#:string $function_name})
+
+snippet register_shutdown_function
+options head
+abbr Register a function for execution on shutdown
+    register_shutdown_function(${1:#:callable $callback}, ${2:#:mixed $...})
+
+snippet register_tick_function
+options head
+abbr Register a function for execution on each tick
+    register_tick_function(${1:#:callable $function}, ${2:#:mixed $...})
+
+snippet unregister_tick_function
+options head
+abbr De-register a function for execution on each tick
+    unregister_tick_function(${1:#:string $function_name})
+
+snippet boolval
+options head
+abbr Get the boolean value of a variable
+    boolval(${1:#:mixed $var})
+
+snippet debug_zval_dump
+options head
+abbr Dumps a string representation of an internal zend value to output
+    debug_zval_dump(${1:#:mixed $variable}, ${2:#:mixed $...})
+
+snippet empty
+options head
+abbr Determine whether a variable is empty
+    empty(${1:#:mixed $var})
+
+snippet floatval
+options head
+abbr Get float value of a variable
+    floatval(${1:#:mixed $var})
+
+snippet get_defined_vars
+options head
+abbr Returns an array of all defined variables
+    get_defined_vars()
+
+snippet get_resource_type
+options head
+abbr Returns the resource type
+    get_resource_type(${1:#:resource $handle})
+
+snippet gettype
+options head
+abbr Get the type of a variable
+    gettype(${1:#:mixed $var})
+
+snippet intval
+options head
+abbr Get the integer value of a variable
+    intval(${1:#:mixed $var}, ${2:#:int $base = 10})
+
+snippet is_array
+options head
+abbr Finds whether a variable is an array
+    is_array(${1:#:mixed $var})
+
+snippet is_bool
+options head
+abbr Finds out whether a variable is a boolean
+    is_bool(${1:#:mixed $var})
+
+snippet is_countable
+options head
+abbr Verify that the contents of a variable is a countable value
+    is_countable(${1:#:mixed $var})
+
+snippet is_float
+options head
+abbr Finds whether the type of a variable is float
+    is_float(${1:#:mixed $var})
+
+snippet is_int
+options head
+abbr Find whether the type of a variable is integer
+    is_int(${1:#:mixed $var})
+
+snippet is_iterable
+options head
+abbr Verify that the contents of a variable is an iterable value
+    is_iterable(${1:#:mixed $var})
+
+snippet is_null
+options head
+abbr Finds whether a variable is NULL
+    is_null(${1:#:mixed $var})
+
+snippet is_numeric
+options head
+abbr Finds whether a variable is a number or a numeric string
+    is_numeric(${1:#:mixed $var})
+
+snippet is_object
+options head
+abbr Finds whether a variable is an object
+    is_object(${1:#:mixed $var})
+
+snippet is_resource
+options head
+abbr Finds whether a variable is a resource
+    is_resource(${1:#:mixed $var})
+
+snippet is_scalar
+options head
+abbr Finds whether a variable is a scalar
+    is_scalar(${1:#:mixed $var})
+
+snippet is_string
+options head
+abbr Find whether the type of a variable is string
+    is_string(${1:#:mixed $var})
+
+snippet isset
+options head
+abbr Determine if a variable is set and is not NULL
+    isset(${1:#:mixed $var}, ${2:#:mixed $...})
+
+snippet serialize
+options head
+abbr Generates a storable representation of a value
+    serialize(${1:#:mixed $value})
+
+snippet settype
+options head
+abbr Set the type of a variable
+    settype(${1:#:mixed &$var}, ${2:#:string $type})
+
+snippet strval
+options head
+abbr Get string value of a variable
+    strval(${1:#:mixed $var})
+
+snippet unserialize
+options head
+abbr Creates a PHP value from a stored representation
+    unserialize(${1:#:string $str}, ${2:#:array $options})
+
+snippet unset
+options head
+abbr Unset a given variable
+    unset(${1:#:mixed $var}, ${2:#:mixed $...})
+
+snippet oauth_get_sbs
+options head
+abbr Generate a Signature Base String
+    oauth_get_sbs(${1:#:string $http_method}, ${2:#:string $uri}, ${3:#:array $request_parameters})
+
+snippet oauth_urlencode
+options head
+abbr Encode a URI to RFC 3986
+    oauth_urlencode(${1:#:string $uri})
+
+snippet is_soap_fault
+options head
+abbr Checks if a SOAP call has failed
+    is_soap_fault(${1:#:mixed $object})
+
+snippet libxml_clear_errors
+options head
+abbr Clear libxml error buffer
+    libxml_clear_errors()
+
+snippet libxml_get_errors
+options head
+abbr Retrieve array of errors
+    libxml_get_errors()
+
+snippet libxml_set_external_entity_loader
+options head
+abbr Changes the default external entity loader
+    libxml_set_external_entity_loader(${1:#:callable $resolver_function})
+
+snippet libxml_set_streams_context
+options head
+abbr Set the streams context for the next libxml document load or write
+    libxml_set_streams_context(${1:#:resource $streams_context})
+
+snippet utf8_decode
+options head
+abbr Converts a string with ISO-8859-1 characters encoded with UTF-8 to single-byte ISO-8859-1
+    utf8_decode(${1:#:string $data})
+
+snippet utf8_encode
+options head
+abbr Encodes an ISO-8859-1 string to UTF-8
+    utf8_encode(${1:#:string $data})
+
+snippet xml_error_string
+options head
+abbr Get XML parser error string
+    xml_error_string(${1:#:int $code})
+
+snippet xml_get_current_byte_index
+options head
+abbr Get current byte index for an XML parser
+    xml_get_current_byte_index(${1:#:resource $parser})
+
+snippet xml_get_current_column_number
+options head
+abbr Get current column number for an XML parser
+    xml_get_current_column_number(${1:#:resource $parser})
+
+snippet xml_get_current_line_number
+options head
+abbr Get current line number for an XML parser
+    xml_get_current_line_number(${1:#:resource $parser})
+
+snippet xml_get_error_code
+options head
+abbr Get XML parser error code
+    xml_get_error_code(${1:#:resource $parser})
+
+snippet xml_parse_into_struct
+options head
+abbr Parse XML data into an array structure
+    xml_parse_into_struct(${1:#:resource $parser}, ${2:#:string $data}, ${3:#:array &$values}, ${4:#:array &$index})
+
+snippet xml_parser_create_ns
+options head
+abbr Create an XML parser with namespace support
+    xml_parser_create_ns(${1:#:string $encoding}, ${2:#:string $separator = ":"})
+
+snippet xml_parser_create
+options head
+abbr Create an XML parser
+    xml_parser_create(${1:#:string $encoding})
+
+snippet xml_parser_free
+options head
+abbr Free an XML parser
+    xml_parser_free(${1:#:resource $parser})
+
+snippet xml_parser_get_option
+options head
+abbr Get options from an XML parser
+    xml_parser_get_option(${1:#:resource $parser}, ${2:#:int $option})
+
+snippet xml_parser_set_option
+options head
+abbr Set options in an XML parser
+    xml_parser_set_option(${1:#:resource $parser}, ${2:#:int $option}, ${3:#:mixed $value})
+
+snippet xml_set_character_data_handler
+options head
+abbr Set up character data handler
+    xml_set_character_data_handler(${1:#:resource $parser}, ${2:#:callable $handler})
+
+snippet xml_set_default_handler
+options head
+abbr Set up default handler
+    xml_set_default_handler(${1:#:resource $parser}, ${2:#:callable $handler})
+
+snippet xml_set_element_handler
+options head
+abbr Set up start and end element handlers
+    xml_set_element_handler(${1:#:resource $parser}, ${2:#:callable $start_element_handler}, ${3:#:callable $end_element_handler})
+
+snippet start_element_handler
+options head
+    start_element_handler(${1:#:resource $parser}, ${2:#:string $name}, ${3:#:array $attribs})
+
+snippet end_element_handler
+options head
+    end_element_handler(${1:#:resource $parser}, ${2:#:string $name})
+
+snippet xml_set_end_namespace_decl_handler
+options head
+abbr Set up end namespace declaration handler
+    xml_set_end_namespace_decl_handler(${1:#:resource $parser}, ${2:#:callable $handler})
+
+snippet xml_set_external_entity_ref_handler
+options head
+abbr Set up external entity reference handler
+    xml_set_external_entity_ref_handler(${1:#:resource $parser}, ${2:#:callable $handler})
+
+snippet xml_set_notation_decl_handler
+options head
+abbr Set up notation declaration handler
+    xml_set_notation_decl_handler(${1:#:resource $parser}, ${2:#:callable $handler})
+
+snippet xml_set_object
+options head
+abbr Use XML Parser within an object
+    xml_set_object(${1:#:resource $parser}, ${2:#:object &$object})
+
+snippet xml_set_processing_instruction_handler
+options head
+abbr Set up processing instruction (PI) handler
+    xml_set_processing_instruction_handler(${1:#:resource $parser}, ${2:#:callable $handler})
+
+snippet xml_set_start_namespace_decl_handler
+options head
+abbr Set up start namespace declaration handler
+    xml_set_start_namespace_decl_handler(${1:#:resource $parser}, ${2:#:callable $handler})
+
+snippet xml_set_unparsed_entity_decl_handler
+options head
+abbr Set up unparsed entity declaration handler
+    xml_set_unparsed_entity_decl_handler(${1:#:resource $parser}, ${2:#:callable $handler})
+
