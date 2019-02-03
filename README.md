@@ -15,10 +15,13 @@ call dein#add('sameyasu/neosnippet-php-functions')
 2. `.vimrc`のsnippetのディレクトリ指定を追加する
 
 ```
-let g:neosnippet#snippets_directory='~/.cache/dein/repos/github.com/Shougo/neosnippet-snippets/neosnippets,~/.cache/dein/repos/github.com/sameyasu/neosnippet-php-functions/neosnippets'
+let g:neosnippet#snippets_directory = [
+  \ '~/.cache/dein/repos/github.com/Shougo/neosnippet-snippets/neosnippets',
+  \ '~/.cache/dein/repos/github.com/sameyasu/neosnippet-php-functions/neosnippets',
+  \ ]
 ```
 
-末尾に`,`をつけてこのリポジトリのsnippetファイルのディレクトリを追加する。
+末尾にこのリポジトリのsnippetファイルのディレクトリを追加する。
 deinだとデフォルトで上記になると思う。
 
 ## カスタマイズ
