@@ -38,7 +38,7 @@ function excludes(string $function_name)
 $snippets = [];
 while (($line = fgets($functions_fp)) !== false) {
     $line = trim($line);
-    if (preg_match('/[A-Z]+/', $line) !== 1 && preg_match('/::/', $line) !== 1) {
+    if (preg_match('/\A[A-Z]+/', $line) !== 1 && preg_match('/::/', $line) !== 1) {
         $line = preg_replace('/\s*\( void \)/', '()', $line);
         $line = preg_replace('/ : void/', '', $line);
         $line = preg_replace('/ : ([a-zA-Z0-9_]+)$/', '', $line);
