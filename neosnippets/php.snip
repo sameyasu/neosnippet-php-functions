@@ -3,6 +3,11 @@ options head
 abbr Renames orig_name to new_name in the global function table
     rename_function(${1:#:string $original_name}, ${2:#:string $new_name})
 
+snippet debug_backtrace
+options head
+abbr Generates a backtrace
+    debug_backtrace(${1:#:int $options = DEBUG_BACKTRACE_PROVIDE_OBJECT}, ${2:#:int $limit = 0})
+
 snippet debug_print_backtrace
 options head
 abbr Prints a backtrace
@@ -28,6 +33,11 @@ options head
 abbr Sets which PHP errors are reported
     error_reporting(${1:#:int $level})
 
+snippet set_error_handler
+options head
+abbr Sets a user-defined error handler function
+    set_error_handler(${1:#:callable $error_handler}, ${2:#:int $error_types = E_ALL | E_STRICT})
+
 snippet handler
 options head
     handler(${1:#:resource $parser}, ${2:#:string $entity_name}, ${3:#:string $base}, ${4:#:string $system_id}, ${5:#:string $public_id}, ${6:#:string $notation_name})
@@ -36,6 +46,11 @@ snippet set_exception_handler
 options head
 abbr Sets a user-defined exception handler function
     set_exception_handler(${1:#:callable $exception_handler})
+
+snippet trigger_error
+options head
+abbr Generates a user-level error/warning/notice message
+    trigger_error(${1:#:string $error_msg}, ${2:#:int $error_type = E_USER_NOTICE})
 
 snippet inclued_get_data
 options head
@@ -51,6 +66,16 @@ snippet opcache_get_configuration
 options head
 abbr Get configuration information about the cache
     opcache_get_configuration()
+
+snippet opcache_get_status
+options head
+abbr Get status information about the cache
+    opcache_get_status(${1:#:bool $get_scripts = TRUE})
+
+snippet opcache_invalidate
+options head
+abbr Invalidates a cached script
+    opcache_invalidate(${1:#:string $script}, ${2:#:bool $force = FALSE})
 
 snippet opcache_is_script_cached
 options head
@@ -112,6 +137,11 @@ options head
 abbr Return the nesting level of the output buffering mechanism
     ob_get_level()
 
+snippet ob_get_status
+options head
+abbr Get status of output buffers
+    ob_get_status(${1:#:bool $full_status = FALSE})
+
 snippet ob_gzhandler
 options head
 abbr ob_start callback function to gzip output buffer
@@ -127,6 +157,11 @@ options head
 abbr List all output handlers in use
     ob_list_handlers()
 
+snippet ob_start
+options head
+abbr Turn on output buffering
+    ob_start(${1:#:callable $output_callback = NULL}, ${2:#:int $chunk_size = 0}, ${3:#:int $flags = PHP_OUTPUT_HANDLER_STDFLAGS})
+
 snippet assert_options
 options head
 abbr Set/get the various assert flags
@@ -135,7 +170,7 @@ abbr Set/get the various assert flags
 snippet assert
 options head
 abbr Checks if assertion is FALSE
-    assert(${1:#:mixed $assertion}, ${2:#:string $description})
+    assert(${1:#:mixed $assertion}, ${2:#:Throwable $exception})
 
 snippet dl
 options head
@@ -152,6 +187,11 @@ options head
 abbr Gets the name of the owner of the current PHP script
     get_current_user()
 
+snippet get_defined_constants
+options head
+abbr Returns an associative array with the names of all the constants and their values
+    get_defined_constants(${1:#:bool $categorize = FALSE})
+
 snippet get_extension_funcs
 options head
 abbr Returns an array with the names of the functions of a module
@@ -166,6 +206,11 @@ snippet get_included_files
 options head
 abbr Returns an array with the names of included or required files
     get_included_files()
+
+snippet get_loaded_extensions
+options head
+abbr Returns an array with the names of all modules compiled and loaded
+    get_loaded_extensions(${1:#:bool $zend_extensions = FALSE})
 
 snippet get_magic_quotes_gpc
 options head
@@ -222,6 +267,11 @@ options head
 abbr Gets the current resource usages
     getrusage(${1:#:int $who = 0})
 
+snippet ini_get_all
+options head
+abbr Gets all configuration options
+    ini_get_all(${1:#:string $extension}, ${2:#:bool $details = TRUE})
+
 snippet ini_get
 options head
 abbr Gets the value of a configuration option
@@ -236,6 +286,16 @@ snippet ini_set
 options head
 abbr Sets the value of a configuration option
     ini_set(${1:#:string $varname}, ${2:#:string $newvalue})
+
+snippet memory_get_peak_usage
+options head
+abbr Returns the peak of memory allocated by PHP
+    memory_get_peak_usage(${1:#:bool $real_usage = FALSE})
+
+snippet memory_get_usage
+options head
+abbr Returns the amount of memory allocated to PHP
+    memory_get_usage(${1:#:bool $real_usage = FALSE})
 
 snippet php_ini_loaded_file
 options head
@@ -261,6 +321,16 @@ snippet php_uname
 options head
 abbr Returns information about the operating system PHP is running on
     php_uname(${1:#:string $mode = "a"})
+
+snippet phpcredits
+options head
+abbr Prints out the credits for PHP
+    phpcredits(${1:#:int $flag = CREDITS_ALL})
+
+snippet phpinfo
+options head
+abbr Outputs information about PHP's configuration
+    phpinfo(${1:#:int $what = INFO_ALL})
 
 snippet phpversion
 options head
@@ -347,9 +417,21 @@ options head
 abbr Binary safe bzip2 file write
     bzwrite(${1:#:resource $bz}, ${2:#:string $data}, ${3:#:int $length})
 
+snippet add
+options head
+    add(${1:#:string $host}, ${2:#:int $port = 11211}, ${3:#:bool $persistent}, ${4:#:int $weight}, ${5:#:int $timeout}, ${6:#:int $retry_interval}, ${7:#:bool $status}, ${8:#:callable $failure_callback}, ${9:#:int $timeoutms})
+
+snippet build
+options head
+    build(${1:#:Iterator $iter}, ${2:#:string $base_directory})
+
 snippet compress
 options head
-    compress(${1:#:int $compression}, ${2:#:string $extension})
+    compress(${1:#:int $compression})
+
+snippet convert
+options head
+    convert(${1:#:int $format}, ${2:#:int $compression}, ${3:#:string $extension})
 
 snippet copy
 options head
@@ -358,20 +440,59 @@ abbr Copies file
 
 snippet decompress
 options head
-    decompress(${1:#:string $extension})
+    decompressFiles()
+
+snippet del
+options head
+    delMetadata()
 
 snippet delete
 options head
 abbr See unlink() or unset()
     delete(${1:#:string $key}, ${2:#:int $timeout = 0})
 
+snippet extract
+options head
+abbr Import variables into the current symbol table from an array
+    extract(${1:#:array &$array}, ${2:#:int $flags = EXTR_OVERWRITE}, ${3:#:string $prefix = NULL})
+
+snippet is
+options head
+    is(${1:#:ImagickPixel $color}, ${2:#:float $fuzz})
+
+snippet offset
+options head
+    offset(${1:#:string $offset})
+
+snippet set
+options head
+    set(${1:#:string $filename})
+
 snippet close
 options head
     close()
 
+snippet locate
+options head
+    locate(${1:#:string $name}, ${2:#:int $flags})
+
 snippet open
 options head
     open(${1:#:string $filename}, ${2:#:int $flags})
+
+snippet rename
+options head
+abbr Renames a file or directory
+    rename(${1:#:string $oldname}, ${2:#:string $newname}, ${3:#:resource $context})
+
+snippet stat
+options head
+abbr Gives information about a file
+    stat(${1:#:string $filename})
+
+snippet unchange
+options head
+    unchange(${1:#:string $name})
 
 snippet zip_close
 options head
@@ -423,6 +544,11 @@ options head
 abbr Read next entry in a ZIP file archive
     zip_read(${1:#:resource $zip})
 
+snippet deflate_add
+options head
+abbr Incrementally deflate data
+    deflate_add(${1:#:resource $context}, ${2:#:string $data}, ${3:#:int $flush_mode = ZLIB_SYNC_FLUSH})
+
 snippet deflate_init
 options head
 abbr Initialize an incremental deflate context
@@ -433,10 +559,25 @@ options head
 abbr Close an open gz-file pointer
     gzclose(${1:#:resource $zp})
 
+snippet gzcompress
+options head
+abbr Compress a string
+    gzcompress(${1:#:string $data}, ${2:#:int $level = -1}, ${3:#:int $encoding = ZLIB_ENCODING_DEFLATE})
+
 snippet gzdecode
 options head
 abbr Decodes a gzip compressed string
     gzdecode(${1:#:string $data}, ${2:#:int $length})
+
+snippet gzdeflate
+options head
+abbr Deflate a string
+    gzdeflate(${1:#:string $data}, ${2:#:int $level = -1}, ${3:#:int $encoding = ZLIB_ENCODING_RAW})
+
+snippet gzencode
+options head
+abbr Create a gzip compressed string
+    gzencode(${1:#:string $data}, ${2:#:int $level = -1}, ${3:#:int $encoding_mode = FORCE_GZIP})
 
 snippet gzeof
 options head
@@ -488,6 +629,11 @@ options head
 abbr Rewind the position of a gz-file pointer
     gzrewind(${1:#:resource $zp})
 
+snippet gzseek
+options head
+abbr Seek on a gz-file pointer
+    gzseek(${1:#:resource $zp}, ${2:#:int $offset}, ${3:#:int $whence = SEEK_SET})
+
 snippet gztell
 options head
 abbr Tell gz-file pointer read/write position
@@ -513,10 +659,25 @@ options head
 abbr Return a list of registered hashing algorithms
     hash_algos()
 
+snippet hash_copy
+options head
+abbr Copy hashing context
+    hash_copy(${1:#:HashContext $context})
+
 snippet hash_equals
 options head
 abbr Timing attack safe string comparison
     hash_equals(${1:#:string $known_string}, ${2:#:string $user_string})
+
+snippet hash_file
+options head
+abbr Generate a hash value using the contents of a given file
+    hash_file(${1:#:string $algo}, ${2:#:string $filename}, ${3:#:bool $raw_output = FALSE})
+
+snippet hash_final
+options head
+abbr Finalize an incremental hash and return resulting digest
+    hash_final(${1:#:HashContext $context}, ${2:#:bool $raw_output = FALSE})
 
 snippet hash_hkdf
 options head
@@ -528,6 +689,46 @@ options head
 abbr Return a list of registered hashing algorithms suitable for hash_hmac
     hash_hmac_algos()
 
+snippet hash_hmac_file
+options head
+abbr Generate a keyed hash value using the HMAC method and the contents of a given file
+    hash_hmac_file(${1:#:string $algo}, ${2:#:string $filename}, ${3:#:string $key}, ${4:#:bool $raw_output = FALSE})
+
+snippet hash_hmac
+options head
+abbr Generate a keyed hash value using the HMAC method
+    hash_hmac(${1:#:string $algo}, ${2:#:string $data}, ${3:#:string $key}, ${4:#:bool $raw_output = FALSE})
+
+snippet hash_init
+options head
+abbr Initialize an incremental hashing context
+    hash_init(${1:#:string $algo}, ${2:#:int $options = 0}, ${3:#:string $key = NULL})
+
+snippet hash_pbkdf2
+options head
+abbr Generate a PBKDF2 key derivation of a supplied password
+    hash_pbkdf2(${1:#:string $algo}, ${2:#:string $password}, ${3:#:string $salt}, ${4:#:int $iterations}, ${5:#:int $length = 0}, ${6:#:bool $raw_output = FALSE})
+
+snippet hash_update_file
+options head
+abbr Pump data into an active hashing context from a file
+    hash_update_file(${1:#:HashContext $hcontext}, ${2:#:string $filename}, ${3:#:resource $scontext = NULL})
+
+snippet hash_update_stream
+options head
+abbr Pump data into an active hashing context from an open stream
+    hash_update_stream(${1:#:HashContext $context}, ${2:#:resource $handle}, ${3:#:int $length = -1})
+
+snippet hash_update
+options head
+abbr Pump data into an active hashing context
+    hash_update(${1:#:HashContext $context}, ${2:#:string $data})
+
+snippet hash
+options head
+abbr Generate a hash value (message digest)
+    hash(${1:#:string $algo}, ${2:#:string $data}, ${3:#:bool $raw_output = FALSE})
+
 snippet mcrypt_cbc
 options head
 abbr Encrypts/decrypts data in CBC mode
@@ -537,6 +738,11 @@ snippet mcrypt_cfb
 options head
 abbr Encrypts/decrypts data in CFB mode
     mcrypt_cfb(${1:#:string $cipher}, ${2:#:string $key}, ${3:#:string $data}, ${4:#:int $mode}, ${5:#:string $iv})
+
+snippet mcrypt_create_iv
+options head
+abbr Creates an initialization vector (IV) from a random source
+    mcrypt_create_iv(${1:#:int $size}, ${2:#:int $source = MCRYPT_DEV_URANDOM})
 
 snippet mcrypt_decrypt
 options head
@@ -820,11 +1026,15 @@ options head
 
 snippet ping
 options head
-    ping()
+    ping(${1:#:resource $filehandle}, ${2:#:string $fileName})
 
 snippet prepare
 options head
     prepare(${1:#:string $query})
+
+snippet query
+options head
+    query(${1:#:string $pattern = "*"})
 
 snippet escape_string
 options head
@@ -854,11 +1064,6 @@ snippet ssl_set
 options head
     ssl_set(${1:#:string $key}, ${2:#:string $cert}, ${3:#:string $ca}, ${4:#:string $capath}, ${5:#:string $cipher})
 
-snippet stat
-options head
-abbr Gives information about a file
-    stat(${1:#:string $filename})
-
 snippet stmt_init
 options head
     stmt_init()
@@ -886,7 +1091,7 @@ options head
 snippet reset
 options head
 abbr Set the internal pointer of an array to its first element
-    reset(${1:#:array &$array})
+    resetValue()
 
 snippet send_long_data
 options head
@@ -900,9 +1105,17 @@ snippet free
 options head
     free()
 
+snippet user
+options head
+    user(${1:#:resource $connection}, ${2:#:int $event}, ${3:#:int $type})
+
 snippet append
 options head
-    append(${1:#:mixed $value})
+    append(${1:#:bool $stack})
+
+snippet assign
+options head
+    assign(${1:#:int $index}, ${2:#:mixed $value})
 
 snippet max
 options head
@@ -916,7 +1129,7 @@ options head
 snippet trim
 options head
 abbr Strip whitespace (or other characters) from the beginning and end of a string
-    trim(${1:#:int $num})
+    trim(${1:#:string $str}, ${2:#:string $character_mask = " \t\n\r\0\x0B"})
 
 snippet eof
 options head
@@ -932,15 +1145,15 @@ options head
 
 snippet import
 options head
-    import(${1:#:string $filename})
+    import(${1:#:string $libswf}, ${2:#:string $name})
 
 snippet load
 options head
-    load()
+    load(${1:#:string $afmfile}, ${2:#:string $pfmfile})
 
 snippet read
 options head
-    read(${1:#:int $length})
+    read(${1:#:int $bytes})
 
 snippet rewind
 options head
@@ -949,7 +1162,11 @@ abbr Rewind the position of a file pointer
 
 snippet save
 options head
-    save(${1:#:string $filename}, ${2:#:int $compression = -1})
+    save(${1:#:resource $x}, ${2:#:int $compression = -1})
+
+snippet seek
+options head
+    seek(${1:#:int $offset}, ${2:#:int $whence = OCI_SEEK_SET})
 
 snippet tell
 options head
@@ -961,7 +1178,11 @@ options head
 
 snippet write
 options head
-    write(${1:#:string $data}, ${2:#:int $length})
+    writeExports()
+
+snippet enable
+options head
+    enable(${1:#:bool $enableExceptions = FALSE})
 
 snippet cal_days_in_month
 options head
@@ -983,6 +1204,16 @@ options head
 abbr Converts from a supported calendar to Julian Day Count
     cal_to_jd(${1:#:int $calendar}, ${2:#:int $month}, ${3:#:int $day}, ${4:#:int $year})
 
+snippet easter_date
+options head
+abbr Get Unix timestamp for midnight on Easter of a given year
+    easter_date(${1:#:int $year = date("Y")})
+
+snippet easter_days
+options head
+abbr Get number of days after March 21 on which Easter falls for a given year
+    easter_days(${1:#:int $year = date("Y")}, ${2:#:int $method = CAL_EASTER_DEFAULT})
+
 snippet frenchtojd
 options head
 abbr Converts a date from the French Republican Calendar to a Julian Day Count
@@ -992,6 +1223,11 @@ snippet gregoriantojd
 options head
 abbr Converts a Gregorian date to Julian Day Count
     gregoriantojd(${1:#:int $month}, ${2:#:int $day}, ${3:#:int $year})
+
+snippet jddayofweek
+options head
+abbr Returns the day of the week
+    jddayofweek(${1:#:int $julianday}, ${2:#:int $mode = CAL_DOW_DAYNO})
 
 snippet jdmonthname
 options head
@@ -1007,6 +1243,11 @@ snippet jdtogregorian
 options head
 abbr Converts Julian Day Count to Gregorian date
     jdtogregorian(${1:#:int $julianday})
+
+snippet jdtojewish
+options head
+abbr Converts a Julian day count to a Jewish calendar date
+    jdtojewish(${1:#:int $juliandaycount}, ${2:#:bool $hebrew = FALSE}, ${3:#:int $fl = 0})
 
 snippet jdtojulian
 options head
@@ -1033,10 +1274,120 @@ options head
 abbr Convert Unix timestamp to Julian Day
     unixtojd(${1:#:int $timestamp = time()})
 
+snippet date_add
+options head
+abbr Alias of DateTime::add()
+    date_add(${1:#:DateTime $object}, ${2:#:DateInterval $interval})
+
+snippet date_create
+options head
+abbr Alias of DateTime::__construct()
+    date_create(${1:#:string $time = "now"}, ${2:#:DateTimeZone $timezone = NULL})
+
+snippet date_create_from_format
+options head
+abbr Alias of DateTime::createFromFormat()
+    date_create_from_format(${1:#:string $format}, ${2:#:string $time}, ${3:#:DateTimeZone $timezone})
+
 snippet date_get_last_errors
 options head
 abbr Alias of DateTime::getLastErrors()
     date_get_last_errors()
+
+snippet date_modify
+options head
+abbr Alias of DateTime::modify()
+    date_modify(${1:#:DateTime $object}, ${2:#:string $modify})
+
+snippet date_date_set
+options head
+abbr Alias of DateTime::setDate()
+    date_date_set(${1:#:DateTime $object}, ${2:#:int $year}, ${3:#:int $month}, ${4:#:int $day})
+
+snippet date_isodate_set
+options head
+abbr Alias of DateTime::setISODate()
+    date_isodate_set(${1:#:DateTime $object}, ${2:#:int $year}, ${3:#:int $week}, ${4:#:int $day = 1})
+
+snippet date_time_set
+options head
+abbr Alias of DateTime::setTime()
+    date_time_set(${1:#:DateTime $object}, ${2:#:int $hour}, ${3:#:int $minute}, ${4:#:int $second = 0}, ${5:#:int $microseconds = 0})
+
+snippet date_timestamp_set
+options head
+abbr Alias of DateTime::setTimestamp()
+    date_timestamp_set(${1:#:DateTime $object}, ${2:#:int $unixtimestamp})
+
+snippet date_timezone_set
+options head
+abbr Alias of DateTime::setTimezone()
+    date_timezone_set(${1:#:DateTime $object}, ${2:#:DateTimeZone $timezone})
+
+snippet date_sub
+options head
+abbr Alias of DateTime::sub()
+    date_sub(${1:#:DateTime $object}, ${2:#:DateInterval $interval})
+
+snippet date_create_immutable
+options head
+abbr Alias of DateTimeImmutable::__construct()
+    date_create_immutable(${1:#:string $time = "now"}, ${2:#:DateTimeZone $timezone = NULL})
+
+snippet date_create_immutable_from_format
+options head
+abbr Alias of DateTimeImmutable::createFromFormat()
+    date_create_immutable_from_format(${1:#:string $format}, ${2:#:string $time}, ${3:#:DateTimeZone $timezone})
+
+snippet date_diff
+options head
+abbr Alias of DateTime::diff()
+    date_diff(${1:#:DateTimeInterface $datetime1}, ${2:#:DateTimeInterface $datetime2}, ${3:#:bool $absolute = FALSE})
+
+snippet date_format
+options head
+abbr Alias of DateTime::format()
+    date_format(${1:#:DateTimeInterface $object}, ${2:#:string $format})
+
+snippet date_offset_get
+options head
+abbr Alias of DateTime::getOffset()
+    date_offset_get(${1:#:DateTimeInterface $object})
+
+snippet date_timestamp_get
+options head
+abbr Alias of DateTime::getTimestamp()
+    date_timestamp_get(${1:#:DateTimeInterface $object})
+
+snippet date_timezone_get
+options head
+abbr Alias of DateTime::getTimezone()
+    date_timezone_get(${1:#:DateTimeInterface $object})
+
+snippet timezone_open
+options head
+abbr Alias of DateTimeZone::__construct()
+    timezone_open(${1:#:string $timezone})
+
+snippet timezone_location_get
+options head
+abbr Alias of DateTimeZone::getLocation()
+    timezone_location_get(${1:#:DateTimeZone $object})
+
+snippet timezone_name_get
+options head
+abbr Alias of DateTimeZone::getName()
+    timezone_name_get(${1:#:DateTimeZone $object})
+
+snippet timezone_offset_get
+options head
+abbr Alias of DateTimeZone::getOffset()
+    timezone_offset_get(${1:#:DateTimeZone $object}, ${2:#:DateTime $datetime})
+
+snippet timezone_transitions_get
+options head
+abbr Alias of DateTimeZone::getTransitions()
+    timezone_transitions_get(${1:#:DateTimeZone $object}, ${2:#:int $timestamp_begin}, ${3:#:int $timestamp_end})
 
 snippet timezone_abbreviations_list
 options head
@@ -1073,6 +1424,16 @@ options head
 abbr Returns an array with information about sunset/sunrise and twilight begin/end
     date_sun_info(${1:#:int $time}, ${2:#:float $latitude}, ${3:#:float $longitude})
 
+snippet date_sunrise
+options head
+abbr Returns time of sunrise for a given day and location
+    date_sunrise(${1:#:int $timestamp}, ${2:#:int $format = SUNFUNCS_RET_STRING}, ${3:#:float $latitude = ini_get("date.default_latitude")}, ${4:#:float $longitude = ini_get("date.default_longitude")}, ${5:#:float $zenith = ini_get("date.sunrise_zenith")}, ${6:#:float $gmt_offset = 0})
+
+snippet date_sunset
+options head
+abbr Returns time of sunset for a given day and location
+    date_sunset(${1:#:int $timestamp}, ${2:#:int $format = SUNFUNCS_RET_STRING}, ${3:#:float $latitude = ini_get("date.default_latitude")}, ${4:#:float $longitude = ini_get("date.default_longitude")}, ${5:#:float $zenith = ini_get("date.sunset_zenith")}, ${6:#:float $gmt_offset = 0})
+
 snippet date
 options head
 abbr Format a local time/date
@@ -1083,10 +1444,20 @@ options head
 abbr Get date/time information
     getdate(${1:#:int $timestamp = time()})
 
+snippet gettimeofday
+options head
+abbr Get current time
+    gettimeofday(${1:#:bool $return_float = FALSE})
+
 snippet gmdate
 options head
 abbr Format a GMT/UTC date/time
     gmdate(${1:#:string $format}, ${2:#:int $timestamp = time()})
+
+snippet gmmktime
+options head
+abbr Get Unix timestamp for a GMT date
+    gmmktime(${1:#:int $hour = gmdate("H")}, ${2:#:int $minute = gmdate("i")}, ${3:#:int $second = gmdate("s")}, ${4:#:int $month = gmdate("n")}, ${5:#:int $day = gmdate("j")}, ${6:#:int $year = gmdate("Y")}, ${7:#:int $is_dst = -1})
 
 snippet gmstrftime
 options head
@@ -1097,6 +1468,21 @@ snippet idate
 options head
 abbr Format a local time/date as integer
     idate(${1:#:string $format}, ${2:#:int $timestamp = time()})
+
+snippet localtime
+options head
+abbr Get the local time
+    localtime(${1:#:int $timestamp = time()}, ${2:#:bool $is_associative = FALSE})
+
+snippet microtime
+options head
+abbr Return current Unix timestamp with microseconds
+    microtime(${1:#:bool $get_as_float = FALSE})
+
+snippet mktime
+options head
+abbr Get Unix timestamp for a date
+    mktime(${1:#:int $hour = date("H")}, ${2:#:int $minute = date("i")}, ${3:#:int $second = date("s")}, ${4:#:int $month = date("n")}, ${5:#:int $day = date("j")}, ${6:#:int $year = date("Y")}, ${7:#:int $is_dst = -1})
 
 snippet strftime
 options head
@@ -1118,6 +1504,11 @@ options head
 abbr Return current Unix timestamp
     time()
 
+snippet timezone_name_from_abbr
+options head
+abbr Returns the timezone name from abbreviation
+    timezone_name_from_abbr(${1:#:string $abbr}, ${2:#:int $gmtOffset = -1}, ${3:#:int $isdst = -1})
+
 snippet timezone_version_get
 options head
 abbr Gets the version of the timezonedb
@@ -1138,6 +1529,11 @@ options head
 abbr Close directory handle
     closedir(${1:#:resource $dir_handle})
 
+snippet dir
+options head
+abbr Return an instance of the Directory class
+    dir(${1:#:string $directory}, ${2:#:resource $context})
+
 snippet getcwd
 options head
 abbr Gets the current working directory
@@ -1157,6 +1553,11 @@ snippet rewinddir
 options head
 abbr Rewind directory handle
     rewinddir(${1:#:resource $dir_handle})
+
+snippet scandir
+options head
+abbr List files and directories inside the specified path
+    scandir(${1:#:string $directory}, ${2:#:int $sorting_order = SCANDIR_SORT_ASCENDING}, ${3:#:resource $context})
 
 snippet mime_content_type
 options head
@@ -1182,6 +1583,11 @@ snippet chown
 options head
 abbr Changes file owner
     chown(${1:#:string $filename}, ${2:#:mixed $user})
+
+snippet clearstatcache
+options head
+abbr Clears file status cache
+    clearstatcache(${1:#:bool $clear_realpath_cache = FALSE}, ${2:#:string $filename})
 
 snippet dirname
 options head
@@ -1227,6 +1633,11 @@ snippet file_exists
 options head
 abbr Checks whether a file or directory exists
     file_exists(${1:#:string $filename})
+
+snippet file_get_contents
+options head
+abbr Reads entire file into a string
+    file_get_contents(${1:#:string $filename}, ${2:#:bool $use_include_path = FALSE}, ${3:#:resource $context}, ${4:#:int $offset = 0}, ${5:#:int $maxlen})
 
 snippet file_put_contents
 options head
@@ -1293,6 +1704,11 @@ options head
 abbr Match filename against a pattern
     fnmatch(${1:#:string $pattern}, ${2:#:string $string}, ${3:#:int $flags = 0})
 
+snippet fopen
+options head
+abbr Opens file or URL
+    fopen(${1:#:string $filename}, ${2:#:string $mode}, ${3:#:bool $use_include_path = FALSE}, ${4:#:resource $context})
+
 snippet fpassthru
 options head
 abbr Output all remaining data on a file pointer
@@ -1312,6 +1728,11 @@ snippet fscanf
 options head
 abbr Parses input from a file according to a format
     fscanf(${1:#:resource $handle}, ${2:#:string $format}, ${3:#:mixed &$...})
+
+snippet fseek
+options head
+abbr Seeks on a file pointer
+    fseek(${1:#:resource $handle}, ${2:#:int $offset}, ${3:#:int $whence = SEEK_SET})
 
 snippet fstat
 options head
@@ -1398,10 +1819,30 @@ options head
 abbr Gives information about a file or symbolic link
     lstat(${1:#:string $filename})
 
+snippet mkdir
+options head
+abbr Makes directory
+    mkdir(${1:#:string $pathname}, ${2:#:int $mode = 0777}, ${3:#:bool $recursive = FALSE}, ${4:#:resource $context})
+
 snippet move_uploaded_file
 options head
 abbr Moves an uploaded file to a new location
     move_uploaded_file(${1:#:string $filename}, ${2:#:string $destination})
+
+snippet parse_ini_file
+options head
+abbr Parse a configuration file
+    parse_ini_file(${1:#:string $filename}, ${2:#:bool $process_sections = FALSE}, ${3:#:int $scanner_mode = INI_SCANNER_NORMAL})
+
+snippet parse_ini_string
+options head
+abbr Parse a configuration string
+    parse_ini_string(${1:#:string $ini}, ${2:#:bool $process_sections = FALSE}, ${3:#:int $scanner_mode = INI_SCANNER_NORMAL})
+
+snippet pathinfo
+options head
+abbr Returns information about a file path
+    pathinfo(${1:#:string $path}, ${2:#:int $options = PATHINFO_DIRNAME | PATHINFO_BASENAME | PATHINFO_EXTENSION | PATHINFO_FILENAME})
 
 snippet pclose
 options head
@@ -1413,6 +1854,11 @@ options head
 abbr Opens process file pointer
     popen(${1:#:string $command}, ${2:#:string $mode})
 
+snippet readfile
+options head
+abbr Outputs a file
+    readfile(${1:#:string $filename}, ${2:#:bool $use_include_path = FALSE}, ${3:#:resource $context})
+
 snippet readlink
 options head
 abbr Returns the target of a symbolic link
@@ -1422,11 +1868,6 @@ snippet realpath
 options head
 abbr Returns canonicalized absolute pathname
     realpath(${1:#:string $path})
-
-snippet rename
-options head
-abbr Renames a file or directory
-    rename(${1:#:string $oldname}, ${2:#:string $newname}, ${3:#:resource $context})
 
 snippet rmdir
 options head
@@ -1508,6 +1949,11 @@ options head
 abbr Plural version of gettext
     ngettext(${1:#:string $msgid1}, ${2:#:string $msgid2}, ${3:#:int $n})
 
+snippet textdomain
+options head
+abbr Sets the default domain
+    textdomain(${1:#:string $text_domain = NULL})
+
 snippet iconv
 options head
 abbr Convert string to requested character encoding
@@ -1517,6 +1963,217 @@ snippet ob_iconv_handler
 options head
 abbr Convert character encoding as output buffer handler
     ob_iconv_handler(${1:#:string $contents}, ${2:#:int $status})
+
+snippet collator_asort
+options head
+    collator_asort(${1:#:Collator $coll}, ${2:#:array &$arr}, ${3:#:int $sort_flag})
+
+snippet collator_compare
+options head
+    collator_compare(${1:#:Collator $coll}, ${2:#:string $str1}, ${3:#:string $str2})
+
+snippet collator_create
+options head
+    collator_create(${1:#:string $locale})
+
+snippet collator_get_attribute
+options head
+    collator_get_attribute(${1:#:Collator $coll}, ${2:#:int $attr})
+
+snippet collator_get_error_code
+options head
+    collator_get_error_code(${1:#:Collator $coll})
+
+snippet collator_get_error_message
+options head
+    collator_get_error_message(${1:#:Collator $coll})
+
+snippet collator_get_locale
+options head
+    collator_get_locale(${1:#:Collator $coll}, ${2:#:int $type})
+
+snippet collator_get_sort_key
+options head
+    collator_get_sort_key(${1:#:Collator $coll}, ${2:#:string $str})
+
+snippet collator_get_strength
+options head
+    collator_get_strength(${1:#:Collator $coll})
+
+snippet collator_set_attribute
+options head
+    collator_set_attribute(${1:#:Collator $coll}, ${2:#:int $attr}, ${3:#:int $val})
+
+snippet collator_set_strength
+options head
+    collator_set_strength(${1:#:Collator $coll}, ${2:#:int $strength})
+
+snippet collator_sort_with_sort_keys
+options head
+    collator_sort_with_sort_keys(${1:#:Collator $coll}, ${2:#:array &$arr})
+
+snippet collator_sort
+options head
+    collator_sort(${1:#:Collator $coll}, ${2:#:array &$arr}, ${3:#:int $sort_flag})
+
+snippet numfmt_create
+options head
+    numfmt_create(${1:#:string $locale}, ${2:#:int $style}, ${3:#:string $pattern})
+
+snippet numfmt_format_currency
+options head
+    numfmt_format_currency(${1:#:NumberFormatter $fmt}, ${2:#:float $value}, ${3:#:string $currency})
+
+snippet numfmt_format
+options head
+    numfmt_format(${1:#:NumberFormatter $fmt}, ${2:#:number $value}, ${3:#:int $type})
+
+snippet numfmt_get_attribute
+options head
+    numfmt_get_attribute(${1:#:NumberFormatter $fmt}, ${2:#:int $attr})
+
+snippet numfmt_get_error_code
+options head
+    numfmt_get_error_code(${1:#:NumberFormatter $fmt})
+
+snippet numfmt_get_error_message
+options head
+    numfmt_get_error_message(${1:#:NumberFormatter $fmt})
+
+snippet numfmt_get_locale
+options head
+    numfmt_get_locale(${1:#:NumberFormatter $fmt}, ${2:#:int $type})
+
+snippet numfmt_get_pattern
+options head
+    numfmt_get_pattern(${1:#:NumberFormatter $fmt})
+
+snippet numfmt_get_symbol
+options head
+    numfmt_get_symbol(${1:#:NumberFormatter $fmt}, ${2:#:int $attr})
+
+snippet numfmt_get_text_attribute
+options head
+    numfmt_get_text_attribute(${1:#:NumberFormatter $fmt}, ${2:#:int $attr})
+
+snippet numfmt_parse_currency
+options head
+    numfmt_parse_currency(${1:#:NumberFormatter $fmt}, ${2:#:string $value}, ${3:#:string &$currency}, ${4:#:int &$position})
+
+snippet numfmt_parse
+options head
+    numfmt_parse(${1:#:NumberFormatter $fmt}, ${2:#:string $value}, ${3:#:int $type}, ${4:#:int &$position})
+
+snippet numfmt_set_attribute
+options head
+    numfmt_set_attribute(${1:#:NumberFormatter $fmt}, ${2:#:int $attr}, ${3:#:int $value})
+
+snippet numfmt_set_pattern
+options head
+    numfmt_set_pattern(${1:#:NumberFormatter $fmt}, ${2:#:string $pattern})
+
+snippet numfmt_set_symbol
+options head
+    numfmt_set_symbol(${1:#:NumberFormatter $fmt}, ${2:#:int $attr}, ${3:#:string $value})
+
+snippet numfmt_set_text_attribute
+options head
+    numfmt_set_text_attribute(${1:#:NumberFormatter $fmt}, ${2:#:int $attr}, ${3:#:string $value})
+
+snippet datefmt_create
+options head
+    datefmt_create(${1:#:string $locale}, ${2:#:int $datetype}, ${3:#:int $timetype}, ${4:#:mixed $timezone = NULL}, ${5:#:mixed $calendar = NULL}, ${6:#:string $pattern = ""})
+
+snippet datefmt_format
+options head
+    datefmt_format(${1:#:IntlDateFormatter $fmt}, ${2:#:mixed $value})
+
+snippet datefmt_get_calendar
+options head
+    datefmt_get_calendar(${1:#:IntlDateFormatter $fmt})
+
+snippet datefmt_get_datetype
+options head
+    datefmt_get_datetype(${1:#:IntlDateFormatter $fmt})
+
+snippet datefmt_get_error_code
+options head
+    datefmt_get_error_code(${1:#:IntlDateFormatter $fmt})
+
+snippet datefmt_get_error_message
+options head
+    datefmt_get_error_message(${1:#:IntlDateFormatter $fmt})
+
+snippet datefmt_get_locale
+options head
+    datefmt_get_locale(${1:#:IntlDateFormatter $fmt}, ${2:#:int $which})
+
+snippet datefmt_get_pattern
+options head
+    datefmt_get_pattern(${1:#:IntlDateFormatter $fmt})
+
+snippet datefmt_get_timetype
+options head
+    datefmt_get_timetype(${1:#:IntlDateFormatter $fmt})
+
+snippet datefmt_get_timezone_id
+options head
+    datefmt_get_timezone_id(${1:#:IntlDateFormatter $fmt})
+
+snippet datefmt_get_calendar_object
+options head
+    datefmt_get_calendar_object()
+
+snippet datefmt_get_timezone
+options head
+    datefmt_get_timezone()
+
+snippet datefmt_is_lenient
+options head
+    datefmt_is_lenient(${1:#:IntlDateFormatter $fmt})
+
+snippet datefmt_localtime
+options head
+    datefmt_localtime(${1:#:IntlDateFormatter $fmt}, ${2:#:string $value}, ${3:#:int &$position})
+
+snippet datefmt_parse
+options head
+    datefmt_parse(${1:#:IntlDateFormatter $fmt}, ${2:#:string $value}, ${3:#:int &$position})
+
+snippet datefmt_set_calendar
+options head
+    datefmt_set_calendar(${1:#:IntlDateFormatter $fmt}, ${2:#:mixed $which})
+
+snippet datefmt_set_lenient
+options head
+    datefmt_set_lenient(${1:#:IntlDateFormatter $fmt}, ${2:#:bool $lenient})
+
+snippet datefmt_set_pattern
+options head
+    datefmt_set_pattern(${1:#:IntlDateFormatter $fmt}, ${2:#:string $pattern})
+
+snippet datefmt_set_timezone_id
+options head
+    datefmt_set_timezone_id(${1:#:IntlDateFormatter $fmt}, ${2:#:string $zone})
+
+snippet datefmt_set_timezone
+options head
+    datefmt_set_timezone(${1:#:IntlDateFormatter $fmt}, ${2:#:mixed $zone})
+
+snippet idn_to_ascii
+options head
+abbr Convert domain name to IDNA ASCII form
+    idn_to_ascii(${1:#:string $domain}, ${2:#:int $options = IDNA_DEFAULT}, ${3:#:int $variant = INTL_IDNA_VARIANT_UTS46}, ${4:#:array &$idna_info})
+
+snippet idn_to_utf8
+options head
+abbr Convert domain name from IDNA ASCII to Unicode
+    idn_to_utf8(${1:#:string $domain}, ${2:#:int $options = IDNA_DEFAULT}, ${3:#:int $variant = INTL_IDNA_VARIANT_UTS46}, ${4:#:array &$idna_info})
+
+snippet mb_check_encoding
+options head
+abbr Check if the string is valid for the specified encoding
+    mb_check_encoding(${1:#:string $var = NULL}, ${2:#:string $encoding = mb_internal_encoding()})
 
 snippet mb_chr
 options head
@@ -1533,6 +2190,11 @@ options head
 abbr Convert character encoding
     mb_convert_encoding(${1:#:string $str}, ${2:#:string $to_encoding}, ${3:#:mixed $from_encoding = mb_internal_encoding()})
 
+snippet mb_convert_kana
+options head
+abbr Convert "kana" one from another ("zen-kaku", "han-kaku" and more)
+    mb_convert_kana(${1:#:string $str}, ${2:#:string $option = "KV"}, ${3:#:string $encoding = mb_internal_encoding()})
+
 snippet mb_convert_variables
 options head
 abbr Convert character code in variable(s)
@@ -1543,10 +2205,30 @@ options head
 abbr Decode string in MIME header field
     mb_decode_mimeheader(${1:#:string $str})
 
+snippet mb_decode_numericentity
+options head
+abbr Decode HTML numeric string reference to character
+    mb_decode_numericentity(${1:#:string $str}, ${2:#:array $convmap}, ${3:#:string $encoding = mb_internal_encoding()}, ${4:#:bool $is_hex = FALSE})
+
+snippet mb_detect_encoding
+options head
+abbr Detect character encoding
+    mb_detect_encoding(${1:#:string $str}, ${2:#:mixed $encoding_list = mb_detect_order()}, ${3:#:bool $strict = FALSE})
+
 snippet mb_detect_order
 options head
 abbr Set/Get character encoding detection order
     mb_detect_order(${1:#:mixed $encoding_list = mb_detect_order()})
+
+snippet mb_encode_mimeheader
+options head
+abbr Encode string for MIME header
+    mb_encode_mimeheader(${1:#:string $str}, ${2:#:string $charset = determined by mb_language()}, ${3:#:string $transfer_encoding = "B"}, ${4:#:string $linefeed = "\r\n"}, ${5:#:int $indent = 0})
+
+snippet mb_encode_numericentity
+options head
+abbr Encode character to HTML numeric string reference
+    mb_encode_numericentity(${1:#:string $str}, ${2:#:array $convmap}, ${3:#:string $encoding = mb_internal_encoding()}, ${4:#:bool $is_hex = FALSE})
 
 snippet mb_encoding_aliases
 options head
@@ -1683,10 +2365,20 @@ options head
 abbr Description
     mb_scrub(${1:#:string $str}, ${2:#:string $encoding})
 
+snippet mb_send_mail
+options head
+abbr Send encoded mail
+    mb_send_mail(${1:#:string $to}, ${2:#:string $subject}, ${3:#:string $message}, ${4:#:mixed $additional_headers = NULL}, ${5:#:string $additional_parameter = NULL})
+
 snippet mb_split
 options head
 abbr Split multibyte string using regular expression
     mb_split(${1:#:string $pattern}, ${2:#:string $string}, ${3:#:int $limit = -1})
+
+snippet mb_strcut
+options head
+abbr Get part of string
+    mb_strcut(${1:#:string $str}, ${2:#:int $start}, ${3:#:int $length = NULL}, ${4:#:string $encoding = mb_internal_encoding()})
 
 snippet mb_strimwidth
 options head
@@ -1698,6 +2390,11 @@ options head
 abbr Finds position of first occurrence of a string within another, case insensitive
     mb_stripos(${1:#:string $haystack}, ${2:#:string $needle}, ${3:#:int $offset = 0}, ${4:#:string $encoding = mb_internal_encoding()})
 
+snippet mb_stristr
+options head
+abbr Finds first occurrence of a string within another, case insensitive
+    mb_stristr(${1:#:string $haystack}, ${2:#:string $needle}, ${3:#:bool $before_needle = FALSE}, ${4:#:string $encoding = mb_internal_encoding()})
+
 snippet mb_strlen
 options head
 abbr Get string length
@@ -1708,6 +2405,16 @@ options head
 abbr Find position of first occurrence of string in a string
     mb_strpos(${1:#:string $haystack}, ${2:#:string $needle}, ${3:#:int $offset = 0}, ${4:#:string $encoding = mb_internal_encoding()})
 
+snippet mb_strrchr
+options head
+abbr Finds the last occurrence of a character in a string within another
+    mb_strrchr(${1:#:string $haystack}, ${2:#:string $needle}, ${3:#:bool $part = FALSE}, ${4:#:string $encoding = mb_internal_encoding()})
+
+snippet mb_strrichr
+options head
+abbr Finds the last occurrence of a character in a string within another, case insensitive
+    mb_strrichr(${1:#:string $haystack}, ${2:#:string $needle}, ${3:#:bool $part = FALSE}, ${4:#:string $encoding = mb_internal_encoding()})
+
 snippet mb_strripos
 options head
 abbr Finds position of last occurrence of a string within another, case insensitive
@@ -1717,6 +2424,11 @@ snippet mb_strrpos
 options head
 abbr Find position of last occurrence of a string in a string
     mb_strrpos(${1:#:string $haystack}, ${2:#:string $needle}, ${3:#:int $offset = 0}, ${4:#:string $encoding = mb_internal_encoding()})
+
+snippet mb_strstr
+options head
+abbr Finds first occurrence of a string within another
+    mb_strstr(${1:#:string $haystack}, ${2:#:string $needle}, ${3:#:bool $before_needle = FALSE}, ${4:#:string $encoding = mb_internal_encoding()})
 
 snippet mb_strtolower
 options head
@@ -1742,6 +2454,11 @@ snippet mb_substr_count
 options head
 abbr Count the number of substring occurrences
     mb_substr_count(${1:#:string $haystack}, ${2:#:string $needle}, ${3:#:string $encoding = mb_internal_encoding()})
+
+snippet mb_substr
+options head
+abbr Get part of string
+    mb_substr(${1:#:string $str}, ${2:#:int $start}, ${3:#:int $length = NULL}, ${4:#:string $encoding = mb_internal_encoding()})
 
 snippet getimagesize
 options head
@@ -1773,25 +2490,430 @@ options head
 abbr Convert PNG image file to WBMP image file
     png2wbmp(${1:#:string $pngname}, ${2:#:string $wbmpname}, ${3:#:int $dest_height}, ${4:#:int $dest_width}, ${5:#:int $threshold})
 
+snippet adaptive
+options head
+    adaptive(${1:#:int $width}, ${2:#:int $height}, ${3:#:int $offset})
+
+snippet affine
+options head
+    affine(${1:#:array $affine})
+
+snippet animate
+options head
+    animate(${1:#:string $x_server})
+
+snippet annotate
+options head
+    annotate(${1:#:ImagickDraw $draw_settings}, ${2:#:float $x}, ${3:#:float $y}, ${4:#:float $angle}, ${5:#:string $text})
+
+snippet average
+options head
+    averageImages()
+
+snippet black
+options head
+    black(${1:#:mixed $threshold})
+
+snippet blur
+options head
+    blur(${1:#:float $radius}, ${2:#:float $sigma}, ${3:#:int $channel})
+
+snippet border
+options head
+    border(${1:#:mixed $bordercolor}, ${2:#:int $width}, ${3:#:int $height})
+
+snippet charcoal
+options head
+    charcoal(${1:#:float $radius}, ${2:#:float $sigma})
+
+snippet chop
+options head
+abbr Alias of rtrim()
+    chop(${1:#:int $width}, ${2:#:int $height}, ${3:#:int $x}, ${4:#:int $y})
+
 snippet clear
 options head
     clear()
+
+snippet clip
+options head
+    clip(${1:#:string $pathname}, ${2:#:bool $inside})
+
+snippet clone
+options head
+    clone()
+
+snippet coalesce
+options head
+    coalesceImages()
+
+snippet color
+options head
+    color(${1:#:float $x}, ${2:#:float $y}, ${3:#:int $paintMethod})
+
+snippet colorize
+options head
+    colorize(${1:#:mixed $colorize}, ${2:#:mixed $opacity}, ${3:#:bool $legacy = FALSE})
+
+snippet combine
+options head
+    combine(${1:#:int $channelType})
+
+snippet comment
+options head
+    comment(${1:#:string $comment})
+
+snippet compare
+options head
+    compare(${1:#:Imagick $compare}, ${2:#:int $metric})
+
+snippet contrast
+options head
+    contrast(${1:#:bool $sharpen})
+
+snippet crop
+options head
+    crop(${1:#:int $width}, ${2:#:int $height}, ${3:#:bool $legacy = FALSE})
+
+snippet current
+options head
+abbr Return the current element in an array
+    current(${1:#:array $array})
+
+snippet cycle
+options head
+    cycle(${1:#:int $displace})
+
+snippet decipher
+options head
+    decipher(${1:#:string $passphrase})
+
+snippet deconstruct
+options head
+    deconstructImages()
+
+snippet despeckle
+options head
+    despeckleImage()
 
 snippet destroy
 options head
     destroy()
 
+snippet display
+options head
+    display(${1:#:string $servername})
+
+snippet distort
+options head
+    distort(${1:#:int $method}, ${2:#:array $arguments}, ${3:#:bool $bestfit})
+
+snippet draw
+options head
+    draw(${1:#:float $x}, ${2:#:float $y})
+
+snippet edge
+options head
+    edge(${1:#:float $radius})
+
+snippet emboss
+options head
+    emboss(${1:#:float $radius}, ${2:#:float $sigma})
+
+snippet encipher
+options head
+    encipher(${1:#:string $passphrase})
+
+snippet enhance
+options head
+    enhanceImage()
+
+snippet equalize
+options head
+    equalizeImage()
+
+snippet extent
+options head
+    extent(${1:#:int $width}, ${2:#:int $height}, ${3:#:int $x}, ${4:#:int $y})
+
+snippet flatten
+options head
+    flattenImages()
+
+snippet flip
+options head
+    flipImage()
+
+snippet flop
+options head
+    flopImage()
+
+snippet frame
+options head
+    frame(${1:#:mixed $matte_color}, ${2:#:int $width}, ${3:#:int $height}, ${4:#:int $inner_bevel}, ${5:#:int $outer_bevel})
+
+snippet has
+options head
+    hasExsltSupport()
+
+snippet identify
+options head
+    identify(${1:#:bool $appendRawOutput = FALSE})
+
+snippet implode
+options head
+abbr Join array elements with a string
+    implode(${1:#:array $pieces})
+
+snippet label
+options head
+    label(${1:#:string $label})
+
+snippet linear
+options head
+    linear(${1:#:float $blackPoint}, ${2:#:float $whitePoint})
+
+snippet liquid
+options head
+    liquid(${1:#:int $width}, ${2:#:int $height}, ${3:#:float $delta_x}, ${4:#:float $rigidity})
+
+snippet magnify
+options head
+    magnifyImage()
+
+snippet map
+options head
+    map(${1:#:Imagick $map}, ${2:#:bool $dither})
+
+snippet matte
+options head
+    matte(${1:#:float $x}, ${2:#:float $y}, ${3:#:int $paintMethod})
+
+snippet median
+options head
+    median(${1:#:float $radius})
+
+snippet merge
+options head
+    merge(${1:#:int $layer_method})
+
+snippet minify
+options head
+    minifyImage()
+
+snippet modulate
+options head
+    modulate(${1:#:float $brightness}, ${2:#:float $saturation}, ${3:#:float $hue})
+
+snippet montage
+options head
+    montage(${1:#:ImagickDraw $draw}, ${2:#:string $tile_geometry}, ${3:#:string $thumbnail_geometry}, ${4:#:int $mode}, ${5:#:string $frame})
+
+snippet morph
+options head
+    morph(${1:#:int $number_frames})
+
+snippet mosaic
+options head
+    mosaicImages()
+
+snippet new
+options head
+    new(${1:#:Imagick $wand}, ${2:#:int $x}, ${3:#:int $y}, ${4:#:int $columns}, ${5:#:int $rows})
+
+snippet next
+options head
+abbr Advance the internal pointer of an array
+    next(${1:#:array &$array})
+
+snippet oil
+options head
+    oil(${1:#:float $radius})
+
+snippet optimize
+options head
+    optimizeImageLayers()
+
+snippet paint
+options head
+    paint(${1:#:mixed $target}, ${2:#:float $alpha}, ${3:#:float $fuzz})
+
+snippet polaroid
+options head
+    polaroid(${1:#:ImagickDraw $properties}, ${2:#:float $angle})
+
+snippet posterize
+options head
+    posterize(${1:#:int $levels}, ${2:#:bool $dither})
+
+snippet preview
+options head
+    preview(${1:#:int $preview})
+
+snippet previous
+options head
+    previousImage()
+
+snippet profile
+options head
+    profile(${1:#:string $name}, ${2:#:string $profile})
+
+snippet quantize
+options head
+    quantize(${1:#:int $numberColors}, ${2:#:int $colorspace}, ${3:#:int $treedepth}, ${4:#:bool $dither}, ${5:#:bool $measureError})
+
+snippet raise
+options head
+    raise(${1:#:int $width}, ${2:#:int $height}, ${3:#:int $x}, ${4:#:int $y}, ${5:#:bool $raise})
+
+snippet recolor
+options head
+    recolor(${1:#:array $matrix})
+
+snippet reduce
+options head
+    reduce(${1:#:float $radius})
+
+snippet remove
+options head
+    remove(${1:#:string $namespaceURI}, ${2:#:string $localName})
+
 snippet render
 options head
     render()
+
+snippet resample
+options head
+    resample(${1:#:float $x_resolution}, ${2:#:float $y_resolution}, ${3:#:int $filter}, ${4:#:float $blur})
+
+snippet resize
+options head
+    resize(${1:#:int $columns}, ${2:#:int $rows}, ${3:#:int $filter}, ${4:#:float $blur}, ${5:#:bool $bestfit = FALSE}, ${6:#:bool $legacy = FALSE})
+
+snippet roll
+options head
+    roll(${1:#:int $x}, ${2:#:int $y})
+
+snippet rotate
+options head
+    rotate(${1:#:float $angle})
+
+snippet round
+options head
+abbr Rounds a float
+    round(${1:#:float $val}, ${2:#:int $precision = 0}, ${3:#:int $mode = PHP_ROUND_HALF_UP})
+
+snippet sample
+options head
+    sample(${1:#:int $columns}, ${2:#:int $rows})
+
+snippet scale
+options head
+    scale(${1:#:float $x}, ${2:#:float $y})
+
+snippet separate
+options head
+    separate(${1:#:int $channel})
+
+snippet sepia
+options head
+    sepia(${1:#:float $threshold})
+
+snippet shade
+options head
+    shade(${1:#:bool $gray}, ${2:#:float $azimuth}, ${3:#:float $elevation})
+
+snippet shadow
+options head
+    shadow(${1:#:float $opacity}, ${2:#:float $sigma}, ${3:#:int $x}, ${4:#:int $y})
+
+snippet shave
+options head
+    shave(${1:#:int $columns}, ${2:#:int $rows})
+
+snippet shear
+options head
+    shear(${1:#:mixed $background}, ${2:#:float $x_shear}, ${3:#:float $y_shear})
+
+snippet sketch
+options head
+    sketch(${1:#:float $radius}, ${2:#:float $sigma}, ${3:#:float $angle})
+
+snippet solarize
+options head
+    solarize(${1:#:int $threshold})
+
+snippet splice
+options head
+    splice(${1:#:int $width}, ${2:#:int $height}, ${3:#:int $x}, ${4:#:int $y})
+
+snippet spread
+options head
+    spread(${1:#:float $radius})
+
+snippet stegano
+options head
+    stegano(${1:#:Imagick $watermark_wand}, ${2:#:int $offset})
+
+snippet stereo
+options head
+    stereo(${1:#:Imagick $offset_wand})
+
+snippet strip
+options head
+    stripImage()
+
+snippet swirl
+options head
+    swirl(${1:#:float $degrees})
+
+snippet texture
+options head
+    texture(${1:#:Imagick $texture_wand})
+
+snippet thumbnail
+options head
+    thumbnail(${1:#:int $columns}, ${2:#:int $rows}, ${3:#:bool $bestfit = FALSE}, ${4:#:bool $fill = FALSE}, ${5:#:bool $legacy = FALSE})
+
+snippet tint
+options head
+    tint(${1:#:mixed $tint}, ${2:#:mixed $opacity}, ${3:#:bool $legacy = FALSE})
+
+snippet transform
+options head
+    transform(${1:#:object $doc})
+
+snippet transparent
+options head
+    transparent(${1:#:mixed $target}, ${2:#:float $alpha}, ${3:#:float $fuzz}, ${4:#:bool $invert})
+
+snippet transpose
+options head
+    transposeImage()
+
+snippet transverse
+options head
+    transverseImage()
+
+snippet unique
+options head
+    uniqueImageColors()
 
 snippet valid
 options head
     valid()
 
-snippet affine
+snippet vignette
 options head
-    affine(${1:#:array $affine})
+    vignette(${1:#:float $blackPoint}, ${2:#:float $whitePoint}, ${3:#:int $x}, ${4:#:int $y})
+
+snippet wave
+options head
+    wave(${1:#:float $amplitude}, ${2:#:float $length})
+
+snippet white
+options head
+    white(${1:#:mixed $threshold})
 
 snippet annotation
 options head
@@ -1809,9 +2931,9 @@ snippet circle
 options head
     circle(${1:#:float $x}, ${2:#:float $y}, ${3:#:float $ray})
 
-snippet comment
+snippet composite
 options head
-    comment(${1:#:string $comment})
+    composite(${1:#:int $compose}, ${2:#:float $x}, ${3:#:float $y}, ${4:#:float $width}, ${5:#:float $height}, ${6:#:Imagick $compositeWand})
 
 snippet ellipse
 options head
@@ -1819,7 +2941,11 @@ options head
 
 snippet line
 options head
-    line(${1:#:float $sx}, ${2:#:float $sy}, ${3:#:float $ex}, ${4:#:float $ey})
+    line(${1:#:float $x}, ${2:#:float $y})
+
+snippet path
+options head
+    pathStart()
 
 snippet point
 options head
@@ -1835,27 +2961,27 @@ options head
 
 snippet pop
 options head
-    pop()
+    popPattern()
 
 snippet push
 options head
-    push()
+    push(${1:#:string $pattern_id}, ${2:#:float $x}, ${3:#:float $y}, ${4:#:float $width}, ${5:#:float $height})
 
 snippet rectangle
 options head
     rectangle(${1:#:float $x}, ${2:#:float $y}, ${3:#:float $width}, ${4:#:float $height})
 
-snippet rotate
+snippet skew
 options head
-    rotate(${1:#:float $angle})
-
-snippet scale
-options head
-    scale(${1:#:float $dx}, ${2:#:float $dy})
+    skew(${1:#:float $y})
 
 snippet translate
 options head
     translate(${1:#:float $x}, ${2:#:float $y})
+
+snippet sync
+options head
+    syncIterator()
 
 snippet mail
 options head
@@ -2062,6 +3188,11 @@ options head
 abbr Returns log(1 + number), computed in a way that is accurate even when the value of number is close to zero
     log1p(${1:#:float $number})
 
+snippet log
+options head
+abbr Natural logarithm
+    log(${1:#:float $arg}, ${2:#:float $base = M_E})
+
 snippet min
 options head
 abbr Find lowest value
@@ -2122,37 +3253,98 @@ options head
 abbr Hyperbolic tangent
     tanh(${1:#:float $arg})
 
+snippet create
+options head
+    create(${1:#:array $rectangle}, ${2:#:string $url})
+
+snippet insert
+options head
+    insert(${1:#:object $page})
+
 snippet output
 options head
     output(${1:#:int $compression})
+
+snippet use
+options head
+    useKRFonts()
+
+snippet begin
+options head
+    beginText()
 
 snippet concat
 options head
     concat(${1:#:float $a}, ${2:#:float $b}, ${3:#:float $c}, ${4:#:float $d}, ${5:#:float $x}, ${6:#:float $y})
 
+snippet curve
+options head
+    curve(${1:#:float $x1}, ${2:#:float $y1}, ${3:#:float $x2}, ${4:#:float $y2}, ${5:#:float $x3}, ${6:#:float $y3})
+
+snippet end
+options head
+abbr Set the internal pointer of an array to its last element
+    end(${1:#:array &$array})
+
 snippet eofill
 options head
     eofill()
 
+snippet eo
+options head
+    eo(${1:#:bool $close_path = FALSE})
+
 snippet fill
 options head
-    fill()
+    fill(${1:#:bool $close_path = FALSE})
+
+snippet measure
+options head
+    measure(${1:#:string $text}, ${2:#:float $width}, ${3:#:float $font_size}, ${4:#:float $char_space}, ${5:#:float $word_space}, ${6:#:bool $word_wrap = FALSE})
 
 snippet move
 options head
-    move(${1:#:float $dx}, ${2:#:float $dy})
+    move(${1:#:float $x}, ${2:#:float $y})
 
-snippet remove
+snippet show
 options head
-    remove(${1:#:object $object})
+    show(${1:#:string $text}, ${2:#:float $word_space = 0}, ${3:#:float $char_space = 0})
 
-snippet add
+snippet stroke
 options head
-    add(${1:#:string $key}, ${2:#:mixed $var}, ${3:#:int $flag}, ${4:#:int $expire})
+    stroke(${1:#:bool $close_path = FALSE})
+
+snippet text
+options head
+    text(${1:#:float $x}, ${2:#:float $y}, ${3:#:string $text})
+
+snippet mult
+options head
+    mult(${1:#:float $red}, ${2:#:float $green}, ${3:#:float $blue}, ${4:#:float $a})
 
 snippet setbackground
 options head
     setbackground(${1:#:int $red}, ${2:#:int $green}, ${3:#:int $blue})
+
+snippet start
+options head
+    start(${1:#:SWFSound $sount})
+
+snippet stop
+options head
+    stop(${1:#:SWFSound $sount})
+
+snippet stream
+options head
+    stream(${1:#:mixed $mp3file}, ${2:#:float $skip = 0})
+
+snippet loop
+options head
+    loop(${1:#:int $point})
+
+snippet no
+options head
+    noMultiple()
 
 snippet align
 options head
@@ -2218,6 +3410,11 @@ options head
 abbr Convert a pathname and a project identifier to a System V IPC key
     ftok(${1:#:string $pathname}, ${2:#:string $proj})
 
+snippet json_decode
+options head
+abbr Decodes a JSON string
+    json_decode(${1:#:string $json}, ${2:#:bool $assoc = FALSE}, ${3:#:int $depth = 512}, ${4:#:int $options = 0})
+
 snippet json_encode
 options head
 abbr Returns the JSON representation of a value
@@ -2238,6 +3435,11 @@ options head
 abbr Returns the value of a constant
     constant(${1:#:string $name})
 
+snippet define
+options head
+abbr Defines a named constant
+    define(${1:#:string $name}, ${2:#:mixed $value}, ${3:#:bool $case_insensitive = FALSE})
+
 snippet defined
 options head
 abbr Checks whether a given named constant exists
@@ -2252,6 +3454,26 @@ snippet exit
 options head
 abbr Output a message and terminate the current script
     exit(${1:#:int $status})
+
+snippet get_browser
+options head
+abbr Tells what the user's browser is capable of
+    get_browser(${1:#:string $user_agent}, ${2:#:bool $return_array = FALSE})
+
+snippet highlight_file
+options head
+abbr Syntax highlighting of a file
+    highlight_file(${1:#:string $filename}, ${2:#:bool $return = FALSE})
+
+snippet highlight_string
+options head
+abbr Syntax highlighting of a string
+    highlight_string(${1:#:string $str}, ${2:#:bool $return = FALSE})
+
+snippet hrtime
+options head
+abbr Get the system's high resolution time
+    hrtime(${1:#:bool $get_as_number = FALSE})
 
 snippet pack
 options head
@@ -2283,6 +3505,11 @@ options head
 abbr Make the script sleep until the specified time
     time_sleep_until(${1:#:float $timestamp})
 
+snippet uniqid
+options head
+abbr Generate a unique ID
+    uniqid(${1:#:string $prefix = ""}, ${2:#:bool $more_entropy = FALSE})
+
 snippet unpack
 options head
 abbr Unpack data from binary string
@@ -2300,6 +3527,36 @@ options head
 snippet enqueue
 options head
     enqueue(${1:#:mixed $value})
+
+snippet class_implements
+options head
+abbr Return the interfaces which are implemented by the given class or interface
+    class_implements(${1:#:mixed $class}, ${2:#:bool $autoload = TRUE})
+
+snippet class_parents
+options head
+abbr Return the parent classes of the given class
+    class_parents(${1:#:mixed $class}, ${2:#:bool $autoload = TRUE})
+
+snippet class_uses
+options head
+abbr Return the traits used by the given class
+    class_uses(${1:#:mixed $class}, ${2:#:bool $autoload = TRUE})
+
+snippet iterator_apply
+options head
+abbr Call a function for every element in an iterator
+    iterator_apply(${1:#:Traversable $iterator}, ${2:#:callable $function}, ${3:#:array $args = NULL})
+
+snippet iterator_count
+options head
+abbr Count the elements in an iterator
+    iterator_count(${1:#:Traversable $iterator})
+
+snippet iterator_to_array
+options head
+abbr Copy the iterator into an array
+    iterator_to_array(${1:#:Traversable $iterator}, ${2:#:bool $use_keys = TRUE})
 
 snippet stream_bucket_append
 options head
@@ -2466,6 +3723,11 @@ options head
 abbr Accept a connection on a socket created by stream_socket_server()
     stream_socket_accept(${1:#:resource $server_socket}, ${2:#:float $timeout = ini_get("default_socket_timeout")}, ${3:#:string &$peername})
 
+snippet stream_socket_client
+options head
+abbr Open Internet or Unix domain socket connection
+    stream_socket_client(${1:#:string $remote_socket}, ${2:#:int &$errno}, ${3:#:string &$errstr}, ${4:#:float $timeout = ini_get("default_socket_timeout")}, ${5:#:int $flags = STREAM_CLIENT_CONNECT}, ${6:#:resource $context})
+
 snippet stream_socket_enable_crypto
 options head
 abbr Turns encryption on/off on an already connected socket
@@ -2490,6 +3752,11 @@ snippet stream_socket_sendto
 options head
 abbr Sends a message to a socket, whether it is connected or not
     stream_socket_sendto(${1:#:resource $socket}, ${2:#:string $data}, ${3:#:int $flags = 0}, ${4:#:string $address})
+
+snippet stream_socket_server
+options head
+abbr Create an Internet or Unix domain server socket
+    stream_socket_server(${1:#:string $local_socket}, ${2:#:int &$errno}, ${3:#:string &$errstr}, ${4:#:int $flags = STREAM_SERVER_BIND | STREAM_SERVER_LISTEN}, ${5:#:resource $context})
 
 snippet stream_socket_shutdown
 options head
@@ -2521,6 +3788,11 @@ options head
 abbr ob_start callback function to repair the buffer
     ob_tidyhandler(${1:#:string $input}, ${2:#:int $mode})
 
+snippet base64_decode
+options head
+abbr Decodes data encoded with MIME base64
+    base64_decode(${1:#:string $data}, ${2:#:bool $strict = FALSE})
+
 snippet base64_encode
 options head
 abbr Encodes data with MIME base64
@@ -2530,6 +3802,16 @@ snippet get_headers
 options head
 abbr Fetches all the headers sent by the server in response to an HTTP request
     get_headers(${1:#:string $url}, ${2:#:int $format = 0}, ${3:#:resource $context})
+
+snippet get_meta_tags
+options head
+abbr Extracts all meta tag content attributes from a file and returns an array
+    get_meta_tags(${1:#:string $filename}, ${2:#:bool $use_include_path = FALSE})
+
+snippet http_build_query
+options head
+abbr Generate URL-encoded query string
+    http_build_query(${1:#:mixed $query_data}, ${2:#:string $numeric_prefix}, ${3:#:string $arg_separator}, ${4:#:int $enc_type = PHP_QUERY_RFC1738})
 
 snippet parse_url
 options head
@@ -2555,6 +3837,31 @@ snippet urlencode
 options head
 abbr URL-encodes string
     urlencode(${1:#:string $str})
+
+snippet yaml_emit_file
+options head
+abbr Send the YAML representation of a value to a file
+    yaml_emit_file(${1:#:string $filename}, ${2:#:mixed $data}, ${3:#:int $encoding = YAML_ANY_ENCODING}, ${4:#:int $linebreak = YAML_ANY_BREAK}, ${5:#:array $callbacks = NULL})
+
+snippet yaml_emit
+options head
+abbr Returns the YAML representation of a value
+    yaml_emit(${1:#:mixed $data}, ${2:#:int $encoding = YAML_ANY_ENCODING}, ${3:#:int $linebreak = YAML_ANY_BREAK}, ${4:#:array $callbacks = NULL})
+
+snippet yaml_parse_file
+options head
+abbr Parse a YAML stream from a file
+    yaml_parse_file(${1:#:string $filename}, ${2:#:int $pos = 0}, ${3:#:int &$ndocs}, ${4:#:array $callbacks = NULL})
+
+snippet yaml_parse_url
+options head
+abbr Parse a Yaml stream from a URL
+    yaml_parse_url(${1:#:string $url}, ${2:#:int $pos = 0}, ${3:#:int &$ndocs}, ${4:#:array $callbacks = NULL})
+
+snippet yaml_parse
+options head
+abbr Parse a YAML stream
+    yaml_parse(${1:#:string $input}, ${2:#:int $pos = 0}, ${3:#:int &$ndocs}, ${4:#:array $callbacks = NULL})
 
 snippet is_tainted
 options head
@@ -2606,6 +3913,11 @@ options head
 abbr Get information regarding a specific transfer
     curl_getinfo(${1:#:resource $ch}, ${2:#:int $opt})
 
+snippet curl_init
+options head
+abbr Initialize a cURL session
+    curl_init(${1:#:string $url = NULL})
+
 snippet curl_multi_add_handle
 options head
 abbr Add a normal cURL handle to a cURL multi handle
@@ -2630,6 +3942,11 @@ snippet curl_multi_getcontent
 options head
 abbr Return the content of a cURL handle if CURLOPT_RETURNTRANSFER is set
     curl_multi_getcontent(${1:#:resource $ch})
+
+snippet curl_multi_info_read
+options head
+abbr Get information about the current transfers
+    curl_multi_info_read(${1:#:resource $mh}, ${2:#:int &$msgs_in_queue = NULL})
 
 snippet curl_multi_init
 options head
@@ -2715,6 +4032,16 @@ options head
 abbr Decodes the given URL encoded string
     curl_unescape(${1:#:resource $ch}, ${2:#:string $str})
 
+snippet curl_version
+options head
+abbr Gets cURL version information
+    curl_version(${1:#:int $age = CURLVERSION_NOW})
+
+snippet curl_file_create
+options head
+abbr Create a CURLFile object
+    curl_file_create(${1:#:string $filename}, ${2:#:string $mimetype}, ${3:#:string $postname})
+
 snippet decrement
 options head
     decrement(${1:#:string $key}, ${2:#:int $value = 1})
@@ -2731,14 +4058,15 @@ snippet replace
 options head
     replace(${1:#:string $key}, ${2:#:mixed $var}, ${3:#:int $flag}, ${4:#:int $expire})
 
-snippet set
-options head
-    set(${1:#:string $key}, ${2:#:mixed $var}, ${3:#:int $flag}, ${4:#:int $expire})
-
 snippet memcache_debug
 options head
 abbr Turn debug output on/off
     memcache_debug(${1:#:bool $on_off})
+
+snippet checkdnsrr
+options head
+abbr Check DNS records corresponding to a given Internet host name or IP address
+    checkdnsrr(${1:#:string $host}, ${2:#:string $type = "MX"})
 
 snippet closelog
 options head
@@ -2749,6 +4077,11 @@ snippet define_syslog_variables
 options head
 abbr Initializes all syslog related variables
     define_syslog_variables()
+
+snippet dns_get_record
+options head
+abbr Fetch DNS Resource Records associated with a hostname
+    dns_get_record(${1:#:string $hostname}, ${2:#:int $type = DNS_ANY}, ${3:#:array &$authns}, ${4:#:array &$addtl}, ${5:#:bool $raw = FALSE})
 
 snippet fsockopen
 options head
@@ -2809,6 +4142,11 @@ snippet header_remove
 options head
 abbr Remove previously set headers
     header_remove(${1:#:string $name})
+
+snippet header
+options head
+abbr Send a raw HTTP header
+    header(${1:#:string $header}, ${2:#:bool $replace = TRUE}, ${3:#:int $http_response_code})
 
 snippet headers_list
 options head
@@ -2990,6 +4328,11 @@ options head
 abbr Listens for a connection on a socket
     socket_listen(${1:#:resource $socket}, ${2:#:int $backlog = 0})
 
+snippet socket_read
+options head
+abbr Reads a maximum of length bytes from a socket
+    socket_read(${1:#:resource $socket}, ${2:#:int $length}, ${3:#:int $type = PHP_BINARY_READ})
+
 snippet socket_recv
 options head
 abbr Receives data from a connected socket
@@ -3055,6 +4398,11 @@ options head
 abbr Write to a socket
     socket_write(${1:#:resource $socket}, ${2:#:string $buffer}, ${3:#:int $length = 0})
 
+snippet tcpwrap_check
+options head
+abbr Performs a tcpwrap check
+    tcpwrap_check(${1:#:string $daemon}, ${2:#:string $address}, ${3:#:string $user}, ${4:#:bool $nodns = FALSE})
+
 snippet apache_child_terminate
 options head
 abbr Terminate apache process after this request
@@ -3069,6 +4417,11 @@ snippet apache_get_version
 options head
 abbr Fetch Apache version
     apache_get_version()
+
+snippet apache_getenv
+options head
+abbr Get an Apache subprocess_env variable
+    apache_getenv(${1:#:string $variable}, ${2:#:bool $walk_to_top = FALSE})
 
 snippet apache_lookup_uri
 options head
@@ -3094,6 +4447,11 @@ snippet apache_response_headers
 options head
 abbr Fetch all HTTP response headers
     apache_response_headers()
+
+snippet apache_setenv
+options head
+abbr Set an Apache subprocess_env variable
+    apache_setenv(${1:#:string $variable}, ${2:#:string $value}, ${3:#:bool $walk_to_top = FALSE})
 
 snippet getallheaders
 options head
@@ -3170,6 +4528,11 @@ options head
 abbr Get and/or set the current session name
     session_name(${1:#:string $name})
 
+snippet session_regenerate_id
+options head
+abbr Update the current session id with a newly generated one
+    session_regenerate_id(${1:#:bool $delete_old_session = FALSE})
+
 snippet session_register_shutdown
 options head
 abbr Session shutdown function
@@ -3198,7 +4561,7 @@ abbr Set the session cookie parameters
 snippet session_set_save_handler
 options head
 abbr Sets user-level session storage functions
-    session_set_save_handler(${1:#:callable $open}, ${2:#:callable $close}, ${3:#:callable $read}, ${4:#:callable $write}, ${5:#:callable $destroy}, ${6:#:callable $gc}, ${7:#:callable $create_sid}, ${8:#:callable $validate_sid}, ${9:#:callable $update_timestamp})
+    session_set_save_handler(${1:#:object $sessionhandler}, ${2:#:bool $register_shutdown = TRUE})
 
 snippet session_start
 options head
@@ -3229,6 +4592,11 @@ snippet session_pgsql_add_error
 options head
 abbr Increments error counts and sets last error message
     session_pgsql_add_error(${1:#:int $error_level}, ${2:#:string $error_message})
+
+snippet session_pgsql_get_error
+options head
+abbr Returns number of errors and last error message
+    session_pgsql_get_error(${1:#:bool $with_error_message = FALSE})
 
 snippet session_pgsql_get_field
 options head
@@ -3265,10 +4633,20 @@ options head
 abbr Returns the error code of the last PCRE regex execution
     preg_last_error()
 
+snippet preg_match_all
+options head
+abbr Perform a global regular expression match
+    preg_match_all(${1:#:string $pattern}, ${2:#:string $subject}, ${3:#:array &$matches}, ${4:#:int $flags = PREG_PATTERN_ORDER}, ${5:#:int $offset = 0})
+
 snippet preg_match
 options head
 abbr Perform a regular expression match
     preg_match(${1:#:string $pattern}, ${2:#:string $subject}, ${3:#:array &$matches}, ${4:#:int $flags = 0}, ${5:#:int $offset = 0})
+
+snippet preg_quote
+options head
+abbr Quote regular expression characters
+    preg_quote(${1:#:string $str}, ${2:#:string $delimiter = NULL})
 
 snippet preg_replace_callback_array
 options head
@@ -3365,10 +4743,20 @@ options head
 abbr One-way string hashing
     crypt(${1:#:string $str}, ${2:#:string $salt})
 
+snippet explode
+options head
+abbr Split a string by a string
+    explode(${1:#:string $delimiter}, ${2:#:string $string}, ${3:#:int $limit = PHP_INT_MAX})
+
 snippet fprintf
 options head
 abbr Write a formatted string to a stream
     fprintf(${1:#:resource $handle}, ${2:#:string $format}, ${3:#:mixed $...})
+
+snippet get_html_translation_table
+options head
+abbr Returns the translation table used by htmlspecialchars() and htmlentities()
+    get_html_translation_table(${1:#:int $table = HTML_SPECIALCHARS}, ${2:#:int $flags = ENT_COMPAT | ENT_HTML401}, ${3:#:string $encoding = "UTF-8"})
 
 snippet hebrev
 options head
@@ -3385,10 +4773,25 @@ options head
 abbr Decodes a hexadecimally encoded binary string
     hex2bin(${1:#:string $data})
 
-snippet implode
+snippet html_entity_decode
 options head
-abbr Join array elements with a string
-    implode(${1:#:array $pieces})
+abbr Convert HTML entities to their corresponding characters
+    html_entity_decode(${1:#:string $string}, ${2:#:int $flags = ENT_COMPAT | ENT_HTML401}, ${3:#:string $encoding = ini_get("default_charset")})
+
+snippet htmlentities
+options head
+abbr Convert all applicable characters to HTML entities
+    htmlentities(${1:#:string $string}, ${2:#:int $flags = ENT_COMPAT | ENT_HTML401}, ${3:#:string $encoding = ini_get("default_charset")}, ${4:#:bool $double_encode = TRUE})
+
+snippet htmlspecialchars_decode
+options head
+abbr Convert special HTML entities back to characters
+    htmlspecialchars_decode(${1:#:string $string}, ${2:#:int $flags = ENT_COMPAT | ENT_HTML401})
+
+snippet htmlspecialchars
+options head
+abbr Convert special characters to HTML entities
+    htmlspecialchars(${1:#:string $string}, ${2:#:int $flags = ENT_COMPAT | ENT_HTML401}, ${3:#:string $encoding = ini_get("default_charset")}, ${4:#:bool $double_encode = TRUE})
 
 snippet lcfirst
 options head
@@ -3410,6 +4813,16 @@ options head
 abbr Strip whitespace (or other characters) from the beginning of a string
     ltrim(${1:#:string $str}, ${2:#:string $character_mask})
 
+snippet md5_file
+options head
+abbr Calculates the md5 hash of a given file
+    md5_file(${1:#:string $filename}, ${2:#:bool $raw_output = FALSE})
+
+snippet md5
+options head
+abbr Calculate the md5 hash of a string
+    md5(${1:#:string $str}, ${2:#:bool $raw_output = FALSE})
+
 snippet metaphone
 options head
 abbr Calculate the metaphone key of a string
@@ -3419,6 +4832,11 @@ snippet money_format
 options head
 abbr Formats a number as a currency string
     money_format(${1:#:string $format}, ${2:#:float $number})
+
+snippet nl2br
+options head
+abbr Inserts HTML line breaks before all newlines in a string
+    nl2br(${1:#:string $string}, ${2:#:bool $is_xhtml = TRUE})
 
 snippet number_format
 options head
@@ -3470,6 +4888,16 @@ options head
 abbr Set locale information
     setlocale(${1:#:int $category}, ${2:#:array $locale})
 
+snippet sha1_file
+options head
+abbr Calculate the sha1 hash of a file
+    sha1_file(${1:#:string $filename}, ${2:#:bool $raw_output = FALSE})
+
+snippet sha1
+options head
+abbr Calculate the sha1 hash of a string
+    sha1(${1:#:string $str}, ${2:#:bool $raw_output = FALSE})
+
 snippet similar_text
 options head
 abbr Calculate the similarity between two strings
@@ -3499,6 +4927,11 @@ snippet str_ireplace
 options head
 abbr Case-insensitive version of str_replace()
     str_ireplace(${1:#:mixed $search}, ${2:#:mixed $replace}, ${3:#:mixed $subject}, ${4:#:int &$count})
+
+snippet str_pad
+options head
+abbr Pad a string to a certain length with another string
+    str_pad(${1:#:string $input}, ${2:#:int $pad_length}, ${3:#:string $pad_string = " "}, ${4:#:int $pad_type = STR_PAD_RIGHT})
 
 snippet str_repeat
 options head
@@ -3570,6 +5003,11 @@ options head
 abbr Un-quotes a quoted string
     stripslashes(${1:#:string $str})
 
+snippet stristr
+options head
+abbr Case-insensitive strstr()
+    stristr(${1:#:string $haystack}, ${2:#:mixed $needle}, ${3:#:bool $before_needle = FALSE})
+
 snippet strlen
 options head
 abbr Get string length
@@ -3630,6 +5068,11 @@ options head
 abbr Finds the length of the initial segment of a string consisting entirely of characters contained within a given mask
     strspn(${1:#:string $subject}, ${2:#:string $mask}, ${3:#:int $start}, ${4:#:int $length})
 
+snippet strstr
+options head
+abbr Find the first occurrence of a string
+    strstr(${1:#:string $haystack}, ${2:#:mixed $needle}, ${3:#:bool $before_needle = FALSE})
+
 snippet strtok
 options head
 abbr Tokenize string
@@ -3649,6 +5092,11 @@ snippet strtr
 options head
 abbr Translate characters or replace substrings
     strtr(${1:#:string $str}, ${2:#:array $replace_pairs})
+
+snippet substr_compare
+options head
+abbr Binary safe comparison of two strings from an offset, up to length characters
+    substr_compare(${1:#:string $main_str}, ${2:#:string $str}, ${3:#:int $offset}, ${4:#:int $length}, ${5:#:bool $case_insensitivity = FALSE})
 
 snippet substr_count
 options head
@@ -3689,6 +5137,26 @@ snippet vsprintf
 options head
 abbr Return a formatted string
     vsprintf(${1:#:string $format}, ${2:#:array $args})
+
+snippet wordwrap
+options head
+abbr Wraps a string to a given number of characters
+    wordwrap(${1:#:string $str}, ${2:#:int $width = 75}, ${3:#:string $break = "\n"}, ${4:#:bool $cut = FALSE})
+
+snippet array_change_key_case
+options head
+abbr Changes the case of all keys in an array
+    array_change_key_case(${1:#:array $array}, ${2:#:int $case = CASE_LOWER})
+
+snippet array_chunk
+options head
+abbr Split an array into chunks
+    array_chunk(${1:#:array $array}, ${2:#:int $size}, ${3:#:bool $preserve_keys = FALSE})
+
+snippet array_column
+options head
+abbr Return the values from a single column in the input array
+    array_column(${1:#:array $input}, ${2:#:mixed $column_key}, ${3:#:mixed $index_key = NULL})
 
 snippet array_combine
 options head
@@ -3788,7 +5256,7 @@ abbr Gets the last key of an array
 snippet array_keys
 options head
 abbr Return all the keys or a subset of the keys of an array
-    array_keys(${1:#:array $array})
+    array_keys(${1:#:array $array}, ${2:#:mixed $search_value}, ${3:#:bool $strict = FALSE})
 
 snippet array_map
 options head
@@ -3804,6 +5272,11 @@ snippet array_merge
 options head
 abbr Merge one or more arrays
     array_merge(${1:#:array $array1}, ${2:#:array $...})
+
+snippet array_multisort
+options head
+abbr Sort multiple or multi-dimensional arrays
+    array_multisort(${1:#:array &$array1}, ${2:#:mixed $array1_sort_order = SORT_ASC}, ${3:#:mixed $array1_sort_flags = SORT_REGULAR}, ${4:#:mixed $...})
 
 snippet array_pad
 options head
@@ -3830,6 +5303,11 @@ options head
 abbr Pick one or more random keys out of an array
     array_rand(${1:#:array $array}, ${2:#:int $num = 1})
 
+snippet array_reduce
+options head
+abbr Iteratively reduce the array to a single value using a callback function
+    array_reduce(${1:#:array $array}, ${2:#:callable $callback}, ${3:#:mixed $initial = NULL})
+
 snippet array_replace_recursive
 options head
 abbr Replaces elements from passed arrays into the first array recursively
@@ -3840,10 +5318,25 @@ options head
 abbr Replaces elements from passed arrays into the first array
     array_replace(${1:#:array $array1}, ${2:#:array $...})
 
+snippet array_reverse
+options head
+abbr Return an array with elements in reverse order
+    array_reverse(${1:#:array $array}, ${2:#:bool $preserve_keys = FALSE})
+
+snippet array_search
+options head
+abbr Searches the array for a given value and returns the first corresponding key if successful
+    array_search(${1:#:mixed $needle}, ${2:#:array $haystack}, ${3:#:bool $strict = FALSE})
+
 snippet array_shift
 options head
 abbr Shift an element off the beginning of array
     array_shift(${1:#:array &$array})
+
+snippet array_slice
+options head
+abbr Extract a slice of the array
+    array_slice(${1:#:array $array}, ${2:#:int $offset}, ${3:#:int $length = NULL}, ${4:#:bool $preserve_keys = FALSE})
 
 snippet array_splice
 options head
@@ -3885,6 +5378,11 @@ options head
 abbr Computes the intersection of arrays, compares data by a callback function
     array_uintersect(${1:#:array $array1}, ${2:#:array $array2}, ${3:#:array $...}, ${4:#:callable $value_compare_func})
 
+snippet array_unique
+options head
+abbr Removes duplicate values from an array
+    array_unique(${1:#:array $array}, ${2:#:int $sort_flags = SORT_STRING})
+
 snippet array_unshift
 options head
 abbr Prepend one or more elements to the beginning of an array
@@ -3895,30 +5393,60 @@ options head
 abbr Return all the values of an array
     array_values(${1:#:array $array})
 
+snippet array_walk_recursive
+options head
+abbr Apply a user function recursively to every member of an array
+    array_walk_recursive(${1:#:array &$array}, ${2:#:callable $callback}, ${3:#:mixed $userdata = NULL})
+
+snippet array_walk
+options head
+abbr Apply a user supplied function to every member of an array
+    array_walk(${1:#:array &$array}, ${2:#:callable $callback}, ${3:#:mixed $userdata = NULL})
+
+snippet arsort
+options head
+abbr Sort an array in reverse order and maintain index association
+    arsort(${1:#:array &$array}, ${2:#:int $sort_flags = SORT_REGULAR})
+
+snippet asort
+options head
+abbr Sort an array and maintain index association
+    asort(${1:#:array &$array}, ${2:#:int $sort_flags = SORT_REGULAR})
+
 snippet compact
 options head
 abbr Create array containing variables and their values
     compact(${1:#:mixed $varname1}, ${2:#:mixed $...})
 
-snippet current
+snippet count
 options head
-abbr Return the current element in an array
-    current(${1:#:array $array})
+abbr Count all elements in an array, or something in an object
+    count(${1:#:mixed $array_or_countable}, ${2:#:int $mode = COUNT_NORMAL})
 
 snippet each
 options head
 abbr Return the current key and value pair from an array and advance the array cursor
     each(${1:#:array &$array})
 
-snippet end
+snippet in_array
 options head
-abbr Set the internal pointer of an array to its last element
-    end(${1:#:array &$array})
+abbr Checks if a value exists in an array
+    in_array(${1:#:mixed $needle}, ${2:#:array $haystack}, ${3:#:bool $strict = FALSE})
 
 snippet key
 options head
 abbr Fetch a key from an array
     key(${1:#:array $array})
+
+snippet krsort
+options head
+abbr Sort an array by key in reverse order
+    krsort(${1:#:array &$array}, ${2:#:int $sort_flags = SORT_REGULAR})
+
+snippet ksort
+options head
+abbr Sort an array by key
+    ksort(${1:#:array &$array}, ${2:#:int $sort_flags = SORT_REGULAR})
 
 snippet list
 options head
@@ -3935,11 +5463,6 @@ options head
 abbr Sort an array using a "natural order" algorithm
     natsort(${1:#:array &$array})
 
-snippet next
-options head
-abbr Advance the internal pointer of an array
-    next(${1:#:array &$array})
-
 snippet prev
 options head
 abbr Rewind the internal array pointer
@@ -3950,10 +5473,20 @@ options head
 abbr Create an array containing a range of elements
     range(${1:#:mixed $start}, ${2:#:mixed $end}, ${3:#:number $step = 1})
 
+snippet rsort
+options head
+abbr Sort an array in reverse order
+    rsort(${1:#:array &$array}, ${2:#:int $sort_flags = SORT_REGULAR})
+
 snippet shuffle
 options head
 abbr Shuffle an array
     shuffle(${1:#:array &$array})
+
+snippet sort
+options head
+abbr Sort an array
+    sort(${1:#:array &$array}, ${2:#:int $sort_flags = SORT_REGULAR})
 
 snippet uasort
 options head
@@ -3979,6 +5512,16 @@ snippet call_user_method
 options head
 abbr Call a user method on an specific object
     call_user_method(${1:#:string $method_name}, ${2:#:object &$obj}, ${3:#:mixed $...})
+
+snippet class_alias
+options head
+abbr Creates an alias for a class
+    class_alias(${1:#:string $original}, ${2:#:string $alias}, ${3:#:bool $autoload = TRUE})
+
+snippet class_exists
+options head
+abbr Checks if the class has been defined
+    class_exists(${1:#:string $class_name}, ${2:#:bool $autoload = TRUE})
 
 snippet get_called_class
 options head
@@ -4024,6 +5567,21 @@ snippet get_parent_class
 options head
 abbr Retrieves the parent class name for object or class
     get_parent_class(${1:#:mixed $object})
+
+snippet interface_exists
+options head
+abbr Checks if the interface has been defined
+    interface_exists(${1:#:string $interface_name}, ${2:#:bool $autoload = TRUE})
+
+snippet is_a
+options head
+abbr Checks if the object is of this class or has this class as one of its parents
+    is_a(${1:#:mixed $object}, ${2:#:string $class_name}, ${3:#:bool $allow_string = FALSE})
+
+snippet is_subclass_of
+options head
+abbr Checks if the object has this class as one of its parents or implements it
+    is_subclass_of(${1:#:mixed $object}, ${2:#:string $class_name}, ${3:#:bool $allow_string = TRUE})
 
 snippet method_exists
 options head
@@ -4100,10 +5658,30 @@ options head
 abbr Returns the filter ID belonging to a named filter
     filter_id(${1:#:string $filtername})
 
+snippet filter_input_array
+options head
+abbr Gets external variables and optionally filters them
+    filter_input_array(${1:#:int $type}, ${2:#:mixed $definition}, ${3:#:bool $add_empty = TRUE})
+
+snippet filter_input
+options head
+abbr Gets a specific external variable by name and optionally filters it
+    filter_input(${1:#:int $type}, ${2:#:string $variable_name}, ${3:#:int $filter = FILTER_DEFAULT}, ${4:#:mixed $options})
+
 snippet filter_list
 options head
 abbr Returns a list of all supported filters
     filter_list()
+
+snippet filter_var_array
+options head
+abbr Gets multiple variables and optionally filters them
+    filter_var_array(${1:#:array $data}, ${2:#:mixed $definition}, ${3:#:bool $add_empty = TRUE})
+
+snippet filter_var
+options head
+abbr Filters a variable with a specified filter
+    filter_var(${1:#:mixed $variable}, ${2:#:int $filter = FILTER_DEFAULT}, ${3:#:mixed $options})
 
 snippet call_user_func_array
 options head
@@ -4149,6 +5727,11 @@ snippet function_exists
 options head
 abbr Return TRUE if the given function has been defined
     function_exists(${1:#:string $function_name})
+
+snippet get_defined_functions
+options head
+abbr Returns an array of all defined functions
+    get_defined_functions(${1:#:bool $exclude_disabled = FALSE})
 
 snippet register_shutdown_function
 options head
@@ -4215,6 +5798,11 @@ options head
 abbr Finds out whether a variable is a boolean
     is_bool(${1:#:mixed $var})
 
+snippet is_callable
+options head
+abbr Verify that the contents of a variable can be called as a function
+    is_callable(${1:#:mixed $var}, ${2:#:bool $syntax_only = FALSE}, ${3:#:string &$callable_name})
+
 snippet is_countable
 options head
 abbr Verify that the contents of a variable is a countable value
@@ -4270,6 +5858,11 @@ options head
 abbr Determine if a variable is set and is not NULL
     isset(${1:#:mixed $var}, ${2:#:mixed $...})
 
+snippet print_r
+options head
+abbr Prints human-readable information about a variable
+    print_r(${1:#:mixed $expression}, ${2:#:bool $return = FALSE})
+
 snippet serialize
 options head
 abbr Generates a storable representation of a value
@@ -4310,6 +5903,30 @@ options head
 abbr Checks if a SOAP call has failed
     is_soap_fault(${1:#:mixed $object})
 
+snippet item
+options head
+    item(${1:#:int $index})
+
+snippet dom_import_simplexml
+options head
+abbr Gets a DOMElement object from a SimpleXMLElement object
+    dom_import_simplexml(${1:#:SimpleXMLElement $node})
+
+snippet simplexml_import_dom
+options head
+abbr Get a SimpleXMLElement object from a DOM node
+    simplexml_import_dom(${1:#:DOMNode $node}, ${2:#:string $class_name = "SimpleXMLElement"})
+
+snippet simplexml_load_file
+options head
+abbr Interprets an XML file into an object
+    simplexml_load_file(${1:#:string $filename}, ${2:#:string $class_name = "SimpleXMLElement"}, ${3:#:int $options = 0}, ${4:#:string $ns = ""}, ${5:#:bool $is_prefix = FALSE})
+
+snippet simplexml_load_string
+options head
+abbr Interprets a string of XML into an object
+    simplexml_load_string(${1:#:string $data}, ${2:#:string $class_name = "SimpleXMLElement"}, ${3:#:int $options = 0}, ${4:#:string $ns = ""}, ${5:#:bool $is_prefix = FALSE})
+
 snippet utf8_decode
 options head
 abbr Converts a string with ISO-8859-1 characters encoded with UTF-8 to single-byte ISO-8859-1
@@ -4327,4 +5944,12 @@ options head
 snippet end_element_handler
 options head
     end_element_handler(${1:#:resource $parser}, ${2:#:string $name})
+
+snippet register
+options head
+    register(${1:#:mixed $restrict})
+
+snippet bump
+options head
+    bump(${1:#:int $offset})
 
